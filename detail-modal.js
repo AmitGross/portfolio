@@ -30,7 +30,7 @@
     },
     'ds-03': {
       num: '03', category: 'Data Science & Computing',
-      title: 'ML & Deep Learning Projects',
+      title: 'AI Geopositioning System',
       tags: ['Scikit-learn', 'ML', 'Python', 'Deep Learning'],
       desc: 'Deep learning project using WiFi signal fingerprinting and GPS-labeled data to predict outdoor geographic location from wireless signal patterns. The project involved model development, evaluation, and optimization of predictive performance.',
       context: 'Signal data from WiFi routers was paired with GPS-supervised location labels, aiming to estimate geographic position from signal patterns using neural networks.',
