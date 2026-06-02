@@ -21,13 +21,58 @@
         <span class="nav__logo-mark" aria-hidden="true"></span>
         <span class="nav__logo-text">[Your Name]</span>
       </a>
-      <ul class="nav__links" role="list">
-        <li><a href="index.html#work"  class="nav__link">Work</a></li>
-        <li><a href="projects.html"    class="nav__link">Projects</a></li>
-        <li><a href="bio.html"         class="nav__link">Bio</a></li>
-        <li><a href="bio.html#contact" class="nav__link">Contact</a></li>
-      </ul>
+      <button class="nav__hamburger" id="nav-hamburger"
+              aria-label="Open navigation menu"
+              aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav__hamburger-bar" aria-hidden="true"></span>
+        <span class="nav__hamburger-bar" aria-hidden="true"></span>
+        <span class="nav__hamburger-bar" aria-hidden="true"></span>
+      </button>
     </div>
+  </nav>
+
+  <div class="nav-scrim" id="nav-scrim" aria-hidden="true"></div>
+  <nav class="nav-menu" id="nav-menu" aria-label="Site navigation" aria-hidden="true">
+    <a class="nav-menu__item" href="data-science.html" style="--item-accent:var(--teal);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">01</span>
+      <span class="nav-menu__label">Data Science &amp; Computing</span>
+    </a>
+    <a class="nav-menu__item" href="life-sciences.html" style="--item-accent:var(--sage);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">02</span>
+      <span class="nav-menu__label">Life Sciences</span>
+    </a>
+    <a class="nav-menu__item" href="operations.html" style="--item-accent:var(--sky);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">03</span>
+      <span class="nav-menu__label">Operations</span>
+    </a>
+    <a class="nav-menu__item" href="teaching.html" style="--item-accent:var(--gold);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">04</span>
+      <span class="nav-menu__label">Teaching &amp; Communication</span>
+    </a>
+    <a class="nav-menu__item" href="projects.html" style="--item-accent:var(--amber);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">05</span>
+      <span class="nav-menu__label">Selected Projects</span>
+    </a>
+    <a class="nav-menu__item" href="bio.html" style="--item-accent:var(--warm);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">06</span>
+      <span class="nav-menu__label">Bio</span>
+    </a>
+    <a class="nav-menu__item" href="#" style="--item-accent:var(--border);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">&mdash;</span>
+      <span class="nav-menu__label">Other / Ideas / Hobbies</span>
+    </a>
+    <a class="nav-menu__item" href="contact.html" style="--item-accent:var(--border);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">&mdash;</span>
+      <span class="nav-menu__label">Contact</span>
+    </a>
   </nav>
 
   <header class="section-hero">

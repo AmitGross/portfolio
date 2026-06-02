@@ -159,8 +159,18 @@
       min-width: 68px;
       line-height: 1;
     }
-    .map-label:hover,
-    .map-label:focus-visible,
+    /* Hover: subtle hint only — does not switch card */
+    .map-label:hover {
+      border-color: color-mix(in srgb, var(--label-accent) 50%, var(--border));
+      background: #1a1a1a;
+      outline: none;
+    }
+    /* Focus: accessible ring, does not switch card */
+    .map-label:focus-visible {
+      outline: 2px solid var(--label-accent, var(--amber));
+      outline-offset: 2px;
+    }
+    /* Selected state — set by click or Enter/Space */
     .map-label.active {
       border-color: var(--label-accent, var(--border));
       color: var(--text-primary);
@@ -247,6 +257,70 @@
     @media (prefers-reduced-motion: reduce) {
       .map-card { transition: none; }
     }
+
+    /* ── Section cards (scrollable, below wheel) ── */
+    .section-cards {
+      padding-block: var(--sp-48) var(--sp-64);
+      border-top: 1px solid var(--border-light);
+    }
+    .section-cards__header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: var(--sp-32);
+    }
+    .section-cards__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-16);
+    }
+    .section-card {
+      display: flex; flex-direction: column; gap: var(--sp-12);
+      padding: var(--sp-24);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--card-accent, var(--border));
+      text-decoration: none; color: inherit;
+      transition: background 0.18s ease, border-color 0.18s ease;
+    }
+    .section-card:hover {
+      background: var(--surface-raised);
+      border-color: color-mix(in srgb, var(--card-accent) 40%, var(--border));
+    }
+    .section-card:focus-visible { outline: 2px solid var(--card-accent); outline-offset: 2px; }
+    .section-card__index {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--card-accent, var(--text-muted));
+    }
+    .section-card__title {
+      font-family: var(--font-display); font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+      font-weight: 300; color: var(--text-primary); line-height: 1.15;
+    }
+    .section-card__desc {
+      font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; flex: 1;
+    }
+    .section-card__footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: var(--sp-4);
+    }
+    .section-card__tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .section-card__tag {
+      font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 2px 7px;
+      border: 1px solid var(--border); color: var(--text-muted); border-radius: 2px;
+    }
+    .section-card__arrow {
+      font-family: var(--font-mono); font-size: 0.75rem;
+      color: var(--card-accent, var(--text-muted)); opacity: 0.7; flex-shrink: 0;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .section-card:hover .section-card__arrow { opacity: 1; transform: translateX(3px); }
+
+    @media (max-width: 900px) {
+      .section-cards__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .section-cards__grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
@@ -258,13 +332,59 @@
         <span class="nav__logo-mark" aria-hidden="true"></span>
         <span class="nav__logo-text">[Your Name]</span>
       </a>
-      <ul class="nav__links" role="list">
-        <li><a href="#work"            class="nav__link">Work</a></li>
-        <li><a href="projects.html"    class="nav__link">Projects</a></li>
-        <li><a href="bio.html"         class="nav__link">Bio</a></li>
-        <li><a href="bio.html#contact" class="nav__link">Contact</a></li>
-      </ul>
+      <button class="nav__hamburger" id="nav-hamburger"
+              aria-label="Open navigation menu"
+              aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav__hamburger-bar" aria-hidden="true"></span>
+        <span class="nav__hamburger-bar" aria-hidden="true"></span>
+        <span class="nav__hamburger-bar" aria-hidden="true"></span>
+      </button>
     </div>
+  </nav>
+
+  <!-- Hamburger overlay menu -->
+  <div class="nav-scrim" id="nav-scrim" aria-hidden="true"></div>
+  <nav class="nav-menu" id="nav-menu" aria-label="Site navigation" aria-hidden="true">
+    <a class="nav-menu__item" href="data-science.html" style="--item-accent:var(--teal);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">01</span>
+      <span class="nav-menu__label">Data Science &amp; Computing</span>
+    </a>
+    <a class="nav-menu__item" href="life-sciences.html" style="--item-accent:var(--sage);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">02</span>
+      <span class="nav-menu__label">Life Sciences</span>
+    </a>
+    <a class="nav-menu__item" href="operations.html" style="--item-accent:var(--sky);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">03</span>
+      <span class="nav-menu__label">Operations</span>
+    </a>
+    <a class="nav-menu__item" href="teaching.html" style="--item-accent:var(--gold);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">04</span>
+      <span class="nav-menu__label">Teaching &amp; Communication</span>
+    </a>
+    <a class="nav-menu__item" href="projects.html" style="--item-accent:var(--amber);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">05</span>
+      <span class="nav-menu__label">Selected Projects</span>
+    </a>
+    <a class="nav-menu__item" href="bio.html" style="--item-accent:var(--warm);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">06</span>
+      <span class="nav-menu__label">Bio</span>
+    </a>
+    <a class="nav-menu__item" href="#" style="--item-accent:var(--border);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">&mdash;</span>
+      <span class="nav-menu__label">Other / Ideas / Hobbies</span>
+    </a>
+    <a class="nav-menu__item" href="contact.html" style="--item-accent:var(--border);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">&mdash;</span>
+      <span class="nav-menu__label">Contact</span>
+    </a>
   </nav>
 
   <!-- HERO -->
@@ -299,14 +419,6 @@
         Placeholder: A one- or two-line descriptor of your work &mdash; the intersection
         you occupy across science, data, and human endeavour.
       </p>
-      <div class="hero__chips" role="list" aria-label="Areas of work">
-        <span class="chip" role="listitem">Neuroscience</span>
-        <span class="chip" role="listitem">Data Science</span>
-        <span class="chip" role="listitem">Machine Learning</span>
-        <span class="chip" role="listitem">Life Sciences</span>
-        <span class="chip" role="listitem">Operations</span>
-        <span class="chip" role="listitem">Teaching</span>
-      </div>
     </div>
   </section>
 
@@ -428,129 +540,103 @@
         </div>
       </div>
 
-      <!-- Mobile fallback -->
-      <div class="map-mobile-list" role="list" aria-label="Portfolio sections">
-        <a class="map-mobile-card reveal" href="data-science.html" role="listitem" style="--mc-accent:var(--teal);">
-          <span class="map-mobile-card__stripe" aria-hidden="true"></span>
-          <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">01 &middot; Data Science</span>
-            <span class="map-mobile-card__title">Analysis &amp; Machine Learning</span>
-            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">ML</span><span class="map-mobile-card__tag">Python</span></div>
-          </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
-        </a>
-        <a class="map-mobile-card reveal" href="life-sciences.html" role="listitem" style="--mc-accent:var(--sage);">
-          <span class="map-mobile-card__stripe" aria-hidden="true"></span>
-          <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">02 &middot; Life Sciences</span>
-            <span class="map-mobile-card__title">Research &amp; Neurobiology</span>
-            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">Neuro</span><span class="map-mobile-card__tag">Imaging</span></div>
-          </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
-        </a>
-        <a class="map-mobile-card reveal" href="operations.html" role="listitem" style="--mc-accent:var(--sky);">
-          <span class="map-mobile-card__stripe" aria-hidden="true"></span>
-          <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">03 &middot; Operations</span>
-            <span class="map-mobile-card__title">Systems &amp; Coordination</span>
-            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">Pharma</span><span class="map-mobile-card__tag">Ops</span></div>
-          </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
-        </a>
-        <a class="map-mobile-card reveal" href="teaching.html" role="listitem" style="--mc-accent:var(--gold);">
-          <span class="map-mobile-card__stripe" aria-hidden="true"></span>
-          <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">04 &middot; Teaching &amp; Communication</span>
-            <span class="map-mobile-card__title">Pedagogy &amp; Training</span>
-            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">Teaching</span></div>
-          </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
-        </a>
-        <a class="map-mobile-card reveal" href="projects.html" role="listitem" style="--mc-accent:var(--amber);">
-          <span class="map-mobile-card__stripe" aria-hidden="true"></span>
-          <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">05 &middot; Selected Projects</span>
-            <span class="map-mobile-card__title">Case Studies &amp; Builds</span>
-            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">Case Study</span></div>
-          </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
-        </a>
-        <a class="map-mobile-card reveal" href="bio.html" role="listitem" style="--mc-accent:var(--warm);">
-          <span class="map-mobile-card__stripe" aria-hidden="true"></span>
-          <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">06 &middot; Bio</span>
-            <span class="map-mobile-card__title">Background &amp; Timeline</span>
-            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">CV</span></div>
-          </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
-        </a>
-      </div>
     </div>
   </section>
 
-  <!-- SECTION STRIP -->
-  <section class="section-strip reveal" aria-labelledby="sections-heading">
+  <!-- SECTION CARDS — scrollable summary, visible at all widths -->
+  <section class="section-cards" id="sections" aria-labelledby="section-cards-label">
     <div class="wrap--wide">
-      <div class="section-strip__header">
-        <span class="t-label" id="sections-heading">Sections</span>
-        <span class="t-mono-sm">Enter any section &#x2192;</span>
+      <div class="section-cards__header">
+        <span class="t-label" id="section-cards-label">All Sections</span>
+        <span class="t-mono-sm">Scroll to explore</span>
       </div>
-      <nav class="section-strip__grid" aria-label="Portfolio sections">
-        <a class="section-entry" href="data-science.html" style="--entry-accent:var(--teal);">
-          <span class="section-entry__num">01</span>
-          <div class="section-entry__body">
-            <h3 class="section-entry__title">Data Science &amp; Computing</h3>
-            <p class="section-entry__sub">Analysis &middot; ML &middot; Graph Methods</p>
+      <div class="section-cards__grid">
+
+        <a class="section-card reveal" href="data-science.html" style="--card-accent:var(--teal);">
+          <span class="section-card__index">01 &middot; Data Science &amp; Computing</span>
+          <h3 class="section-card__title">Analysis &amp; Machine Learning</h3>
+          <p class="section-card__desc">Placeholder &mdash; connectome analysis, statistical simulations, machine learning models, graph methods, and applied software.</p>
+          <div class="section-card__footer">
+            <div class="section-card__tags">
+              <span class="section-card__tag">ML</span>
+              <span class="section-card__tag">Statistics</span>
+              <span class="section-card__tag">Python</span>
+            </div>
+            <span class="section-card__arrow" aria-hidden="true">&#x2192;</span>
           </div>
-          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
-          <span class="section-entry__accent" aria-hidden="true"></span>
         </a>
-        <a class="section-entry" href="life-sciences.html" style="--entry-accent:var(--sage);">
-          <span class="section-entry__num">02</span>
-          <div class="section-entry__body">
-            <h3 class="section-entry__title">Life Sciences</h3>
-            <p class="section-entry__sub">Research &middot; Neurobiology &middot; Imaging</p>
+
+        <a class="section-card reveal" href="life-sciences.html" style="--card-accent:var(--sage);">
+          <span class="section-card__index">02 &middot; Life Sciences</span>
+          <h3 class="section-card__title">Research &amp; Neurobiology</h3>
+          <p class="section-card__desc">Placeholder &mdash; connectomics, behaviour, optical imaging, and molecular methods. Research spanning neurobiology and life science methodology.</p>
+          <div class="section-card__footer">
+            <div class="section-card__tags">
+              <span class="section-card__tag">Neuro</span>
+              <span class="section-card__tag">Imaging</span>
+              <span class="section-card__tag">Connectomics</span>
+            </div>
+            <span class="section-card__arrow" aria-hidden="true">&#x2192;</span>
           </div>
-          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
-          <span class="section-entry__accent" aria-hidden="true"></span>
         </a>
-        <a class="section-entry" href="operations.html" style="--entry-accent:var(--sky);">
-          <span class="section-entry__num">03</span>
-          <div class="section-entry__body">
-            <h3 class="section-entry__title">Operations</h3>
-            <p class="section-entry__sub">Systems &middot; Coordination &middot; KPIs</p>
+
+        <a class="section-card reveal" href="operations.html" style="--card-accent:var(--sky);">
+          <span class="section-card__index">03 &middot; Operations</span>
+          <h3 class="section-card__title">Systems &amp; Coordination</h3>
+          <p class="section-card__desc">Placeholder &mdash; scientific core facilities, pharmaceutical operations, KPI reporting, and cross-team coordination at scale.</p>
+          <div class="section-card__footer">
+            <div class="section-card__tags">
+              <span class="section-card__tag">Pharma</span>
+              <span class="section-card__tag">Ops</span>
+              <span class="section-card__tag">KPI</span>
+            </div>
+            <span class="section-card__arrow" aria-hidden="true">&#x2192;</span>
           </div>
-          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
-          <span class="section-entry__accent" aria-hidden="true"></span>
         </a>
-        <a class="section-entry" href="teaching.html" style="--entry-accent:var(--gold);">
-          <span class="section-entry__num">04</span>
-          <div class="section-entry__body">
-            <h3 class="section-entry__title">Teaching &amp; Communication</h3>
-            <p class="section-entry__sub">Pedagogy &middot; Workshops &middot; Curriculum</p>
+
+        <a class="section-card reveal" href="teaching.html" style="--card-accent:var(--gold);">
+          <span class="section-card__index">04 &middot; Teaching &amp; Communication</span>
+          <h3 class="section-card__title">Pedagogy &amp; Training</h3>
+          <p class="section-card__desc">Placeholder &mdash; course instruction, research methods, neurohistology training, Python TA work, and public-facing technical workshops.</p>
+          <div class="section-card__footer">
+            <div class="section-card__tags">
+              <span class="section-card__tag">Teaching</span>
+              <span class="section-card__tag">Workshops</span>
+              <span class="section-card__tag">Curriculum</span>
+            </div>
+            <span class="section-card__arrow" aria-hidden="true">&#x2192;</span>
           </div>
-          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
-          <span class="section-entry__accent" aria-hidden="true"></span>
         </a>
-        <a class="section-entry" href="projects.html" style="--entry-accent:var(--amber);">
-          <span class="section-entry__num">05</span>
-          <div class="section-entry__body">
-            <h3 class="section-entry__title">Selected Projects</h3>
-            <p class="section-entry__sub">Case Studies &middot; Builds &middot; Analysis</p>
+
+        <a class="section-card reveal" href="projects.html" style="--card-accent:var(--amber);">
+          <span class="section-card__index">05 &middot; Selected Projects</span>
+          <h3 class="section-card__title">Case Studies &amp; Builds</h3>
+          <p class="section-card__desc">Placeholder &mdash; a curated set of analytical, engineering, and applied projects. Case studies, optimisation work, and software tools.</p>
+          <div class="section-card__footer">
+            <div class="section-card__tags">
+              <span class="section-card__tag">Case Study</span>
+              <span class="section-card__tag">Analysis</span>
+              <span class="section-card__tag">Tools</span>
+            </div>
+            <span class="section-card__arrow" aria-hidden="true">&#x2192;</span>
           </div>
-          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
-          <span class="section-entry__accent" aria-hidden="true"></span>
         </a>
-        <a class="section-entry" href="bio.html" style="--entry-accent:var(--warm);">
-          <span class="section-entry__num">06</span>
-          <div class="section-entry__body">
-            <h3 class="section-entry__title">Bio</h3>
-            <p class="section-entry__sub">Background &middot; Timeline &middot; Contact</p>
+
+        <a class="section-card reveal" href="bio.html" style="--card-accent:var(--warm);">
+          <span class="section-card__index">06 &middot; Bio</span>
+          <h3 class="section-card__title">Background &amp; Timeline</h3>
+          <p class="section-card__desc">Placeholder &mdash; education, career path, CV, and contact. The longer story of how these areas connect and what comes next.</p>
+          <div class="section-card__footer">
+            <div class="section-card__tags">
+              <span class="section-card__tag">CV</span>
+              <span class="section-card__tag">Education</span>
+              <span class="section-card__tag">Contact</span>
+            </div>
+            <span class="section-card__arrow" aria-hidden="true">&#x2192;</span>
           </div>
-          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
-          <span class="section-entry__accent" aria-hidden="true"></span>
         </a>
-      </nav>
+
+      </div>
     </div>
   </section>
 

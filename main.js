@@ -27,7 +27,7 @@
     reveals.forEach(el => io.observe(el));
   }
 
-  // ── Portfolio map (homepage only) ────────────────────────
+  // ── Portfolio map wheel (click / Enter / Space to select) ────────────
   const labels = document.querySelectorAll('.map-label');
   const cards  = document.querySelectorAll('.map-card');
 
@@ -46,9 +46,44 @@
     activate('0');
 
     labels.forEach(label => {
-      label.addEventListener('mouseenter', () => activate(label.dataset.card));
-      label.addEventListener('focus',      () => activate(label.dataset.card));
-      label.addEventListener('click',      () => activate(label.dataset.card));
+      // Click persists the selection
+      label.addEventListener('click', () => activate(label.dataset.card));
+      // Keyboard Enter or Space also selects
+      label.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activate(label.dataset.card);
+        }
+      });
+      // Hover: no card switch, CSS handles subtle visual hint
+    });
+  }
+
+  // ── Hamburger menu ───────────────────────────────────────────
+  const hamburger = document.getElementById('nav-hamburger');
+  const navMenu   = document.getElementById('nav-menu');
+  const navScrim  = document.getElementById('nav-scrim');
+
+  if (hamburger && navMenu && navScrim) {
+    function toggleMenu(open) {
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      navMenu.classList.toggle('open', open);
+      navMenu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      navScrim.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      toggleMenu(hamburger.getAttribute('aria-expanded') !== 'true');
+    });
+
+    navScrim.addEventListener('click', () => toggleMenu(false));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') {
+        toggleMenu(false);
+        hamburger.focus();
+      }
     });
   }
 

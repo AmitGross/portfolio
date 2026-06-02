@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — [Your Name]</title>
+  <meta name="description" content="Get in touch with [Your Name].">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Contact-page–specific styles */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: var(--sp-64);
+      align-items: start;
+      padding-block: var(--sp-48) var(--sp-80);
+    }
+    @media (max-width: 860px) {
+      .contact-layout { grid-template-columns: 1fr; gap: var(--sp-48); }
+    }
+
+    /* ── Contact info panel ── */
+    .contact-info { display: flex; flex-direction: column; gap: var(--sp-32); }
+    .contact-info__lead {
+      font-family: var(--font-serif);
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+    .contact-cards { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .contact-card {
+      background: var(--surface);
+      padding: var(--sp-20) var(--sp-24);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+      transition: background var(--t-fast);
+    }
+    .contact-card:hover { background: var(--surface-raised); }
+    .contact-card__label {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .contact-card__value {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-primary);
+    }
+    .contact-card__value a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color var(--t-fast), color var(--t-fast);
+    }
+    .contact-card__value a:hover { color: var(--amber); border-color: var(--amber); }
+
+    /* ── Contact form ── */
+    .contact-form-wrap { display: flex; flex-direction: column; gap: var(--sp-32); }
+    .contact-form-wrap__header { display: flex; flex-direction: column; gap: var(--sp-8); }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-20);
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-16);
+    }
+    @media (max-width: 540px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-8);
+    }
+    .form-field--full { grid-column: 1 / -1; }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .form-label .form-required {
+      color: var(--amber);
+      margin-left: 3px;
+    }
+    .form-input,
+    .form-textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      padding: var(--sp-12) var(--sp-16);
+      outline: none;
+      width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.15s ease, background 0.15s ease;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--text-muted);
+      opacity: 0.7;
+    }
+    .form-input:hover,
+    .form-textarea:hover {
+      border-color: var(--border-light);
+      background: var(--surface-raised);
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--amber);
+      background: var(--surface-raised);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 140px;
+      font-family: var(--font-serif);
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-16);
+      flex-wrap: wrap;
+    }
+    .form-btn {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid var(--text-secondary);
+      color: var(--text-secondary);
+      padding: var(--sp-12) var(--sp-28);
+      cursor: pointer;
+      transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+    }
+    .form-btn:hover {
+      border-color: var(--text-primary);
+      color: var(--text-primary);
+      background: var(--surface-raised);
+    }
+    .form-btn:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+    .form-btn:active { background: var(--surface-hover); }
+
+    .form-notice {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Post-submit message */
+    .form-submitted-msg {
+      display: none;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--sage);
+      border: 1px solid var(--sage);
+      padding: var(--sp-12) var(--sp-16);
+      margin-top: var(--sp-4);
+    }
+    .form-submitted-msg.visible { display: block; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="wrap nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Home">
+        <span class="nav__logo-mark" aria-hidden="true"></span>
+        <span class="nav__logo-text">[Your Name]</span>
+      </a>
+      <button class="nav__hamburger" id="nav-hamburger"
+              aria-label="Open navigation menu"
+              aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav__hamburger-bar" aria-hidden="true"></span>
+        <span class="nav__hamburger-bar" aria-hidden="true"></span>
+        <span class="nav__hamburger-bar" aria-hidden="true"></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-scrim" id="nav-scrim" aria-hidden="true"></div>
+  <nav class="nav-menu" id="nav-menu" aria-label="Site navigation" aria-hidden="true">
+    <a class="nav-menu__item" href="data-science.html" style="--item-accent:var(--teal);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">01</span>
+      <span class="nav-menu__label">Data Science &amp; Computing</span>
+    </a>
+    <a class="nav-menu__item" href="life-sciences.html" style="--item-accent:var(--sage);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">02</span>
+      <span class="nav-menu__label">Life Sciences</span>
+    </a>
+    <a class="nav-menu__item" href="operations.html" style="--item-accent:var(--sky);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">03</span>
+      <span class="nav-menu__label">Operations</span>
+    </a>
+    <a class="nav-menu__item" href="teaching.html" style="--item-accent:var(--gold);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">04</span>
+      <span class="nav-menu__label">Teaching &amp; Communication</span>
+    </a>
+    <a class="nav-menu__item" href="projects.html" style="--item-accent:var(--amber);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">05</span>
+      <span class="nav-menu__label">Selected Projects</span>
+    </a>
+    <a class="nav-menu__item" href="bio.html" style="--item-accent:var(--warm);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">06</span>
+      <span class="nav-menu__label">Bio</span>
+    </a>
+    <a class="nav-menu__item" href="#" style="--item-accent:var(--border);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">&mdash;</span>
+      <span class="nav-menu__label">Other / Ideas / Hobbies</span>
+    </a>
+    <a class="nav-menu__item" href="contact.html" style="--item-accent:var(--border);">
+      <span class="nav-menu__accent" aria-hidden="true"></span>
+      <span class="nav-menu__num">&mdash;</span>
+      <span class="nav-menu__label">Contact</span>
+    </a>
+  </nav>
+
+  <header class="section-hero">
+    <div class="wrap section-hero__inner">
+      <div class="section-hero__meta">
+        <span class="t-label">Contact</span>
+        <div class="section-hero__rule"></div>
+      </div>
+      <h1 class="section-hero__title">Get in Touch</h1>
+      <p class="section-hero__lead">
+        Placeholder &mdash; open to collaborations, conversations, and questions.
+        Use the form below or reach out directly.
+      </p>
+    </div>
+    <span class="section-hero__ghost" aria-hidden="true">✉</span>
+  </header>
+
+  <main>
+    <div class="wrap--wide">
+      <div class="contact-layout">
+
+        <!-- Part A: Contact information -->
+        <section class="contact-info reveal" aria-labelledby="contact-info-label">
+          <div>
+            <span class="t-label" id="contact-info-label">Contact Information</span>
+          </div>
+          <p class="contact-info__lead">
+            Placeholder &mdash; a sentence or two about how you prefer to be contacted,
+            response time, or what kinds of enquiries are welcome.
+          </p>
+          <div class="contact-cards">
+            <div class="contact-card">
+              <span class="contact-card__label">Email</span>
+              <span class="contact-card__value">
+                <a href="mailto:placeholder@example.com">placeholder@example.com</a>
+              </span>
+            </div>
+            <div class="contact-card">
+              <span class="contact-card__label">LinkedIn</span>
+              <span class="contact-card__value">
+                <a href="#" target="_blank" rel="noopener">linkedin.com/in/placeholder</a>
+              </span>
+            </div>
+            <div class="contact-card">
+              <span class="contact-card__label">GitHub</span>
+              <span class="contact-card__value">
+                <a href="#" target="_blank" rel="noopener">github.com/placeholder</a>
+              </span>
+            </div>
+            <div class="contact-card">
+              <span class="contact-card__label">Location</span>
+              <span class="contact-card__value">City, Country</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Part B: Contact form -->
+        <section class="contact-form-wrap reveal" aria-labelledby="contact-form-label">
+          <div class="contact-form-wrap__header">
+            <span class="t-label" id="contact-form-label">Send a Message</span>
+          </div>
+
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="cf-name">
+                  Name <span class="form-required" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="text"
+                  id="cf-name"
+                  name="name"
+                  placeholder="Your name"
+                  autocomplete="name"
+                  required
+                >
+              </div>
+              <div class="form-field">
+                <label class="form-label" for="cf-email">
+                  Email <span class="form-required" aria-hidden="true">*</span>
+                </label>
+                <input
+                  class="form-input"
+                  type="email"
+                  id="cf-email"
+                  name="email"
+                  placeholder="your@email.com"
+                  autocomplete="email"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="cf-phone">Phone</label>
+              <input
+                class="form-input"
+                type="tel"
+                id="cf-phone"
+                name="phone"
+                placeholder="+1 000 000 0000"
+                autocomplete="tel"
+              >
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-label" for="cf-message">
+                Message <span class="form-required" aria-hidden="true">*</span>
+              </label>
+              <textarea
+                class="form-textarea"
+                id="cf-message"
+                name="message"
+                placeholder="What would you like to discuss?"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-submit">
+              <button class="form-btn" type="submit">Send Message &#x2192;</button>
+              <span class="form-notice">
+                Fields marked <span style="color:var(--amber);">*</span> are required.
+              </span>
+            </div>
+
+            <div class="form-submitted-msg" id="form-submitted-msg" role="status" aria-live="polite">
+              Form submission will be connected later.
+            </div>
+          </form>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span class="t-label">[Your Name] &middot; 2026</span>
+      <nav class="footer__links" aria-label="Footer links">
+        <a href="#" class="footer__link">GitHub</a>
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="contact.html" class="footer__link">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Contact form: prevent default, show placeholder message
+    const form = document.getElementById('contact-form');
+    const msg  = document.getElementById('form-submitted-msg');
+    if (form && msg) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        msg.classList.add('visible');
+        // Scroll the message into view
+        msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    }
+  </script>
+</body>
+</html>
