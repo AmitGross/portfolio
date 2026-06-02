@@ -31,8 +31,121 @@
   const labels = document.querySelectorAll('.map-label');
   const cards  = document.querySelectorAll('.map-card');
 
+  // ── Subsection strip data ─────────────────────────────────
+  const SUBS_ACCENTS = ['teal','sage','sky','gold','amber','warm'];
+  const SUBS_DATA = [
+    { label: 'Data Science & Computing', href: 'data-science.html', items: [
+      { title: 'Connectome Analysis Pipeline',
+        desc: 'Computational work on Drosophila connectome data, including extraction, processing, graph-based representation, statistical analysis, feature generation, and visualization of neuronal and synaptic data.',
+        tags: ['Python','NetworkX','Graphs'], href: 'data-science.html' },
+      { title: 'Statistical Analysis & Simulation',
+        desc: 'Statistical analysis of experimental data including hypothesis testing, ANOVA, regression modeling, simulations, and bootstrapping to evaluate patterns in biological and tabular datasets.',
+        tags: ['R','Simulation','Statistics'], href: 'data-science.html' },
+      { title: 'AI Geopositioning System',
+        desc: 'Deep learning project predicting outdoor geographic position from WiFi signal fingerprints supervised by GPS data. The project involved model development, evaluation, and optimization of predictive performance.',
+        tags: ['Scikit-learn','ML','Python'], href: 'data-science.html' },
+      { title: 'Network & Graph Analysis',
+        desc: 'Graph-based analysis of biological structures using NetworkX: tree representations, adjacency matrices, graph features, clustering, and neuron skeleton analysis for connectome research.',
+        tags: ['Python','NetworkX','Networks'], href: 'data-science.html' }
+    ]},
+    { label: 'Life Sciences', href: 'life-sciences.html', items: [
+      { title: 'Connectome Research',
+        desc: 'Research focused on synaptic organization and neuronal structure in the Drosophila connectome, combining biological questions with computational analysis of neuron morphology, synapses, and connectivity.',
+        tags: ['Connectomics','EM'], href: 'life-sciences.html' },
+      { title: 'Weizmann Core Facility Support',
+        desc: 'Research and imaging support at the Weizmann Institute core facility, including confocal microscopy, immunofluorescence, researcher training, consultation, and scientific project support.',
+        tags: ['Imaging','Confocal'], href: 'life-sciences.html' },
+      { title: 'Animal Models & Behaviour',
+        desc: 'Experience with behavioral research methods in neurobiology contexts, including experimental design and interpretation of behaviour-linked data.',
+        tags: ['Behaviour','Neurobiology'], href: 'life-sciences.html' },
+      { title: 'Histology & Optical Imaging',
+        desc: 'Tissue preparation, immunohistochemical staining, and optical imaging methods including confocal and fluorescence microscopy for neuronal and cellular visualization.',
+        tags: ['Histology','Staining'], href: 'life-sciences.html' }
+    ]},
+    { label: 'Operations', href: 'operations.html', items: [
+      { title: 'Weizmann Institute Core Facility',
+        desc: 'Research and imaging support at the Weizmann Institute of Science core facility, including microscopy, immunofluorescence, researcher training, consultation, and scientific project support.',
+        tags: ['Core Facility','Management'], href: 'operations.html' },
+      { title: 'IQVIA / Moderna EMEA Operations',
+        desc: 'Industry operations experience supporting Moderna\'s EMEA call center through IQVIA: data and information systems, KPI monitoring, process documentation, and operational reporting.',
+        tags: ['Pharma','GxP'], href: 'operations.html' },
+      { title: 'Cross-Team Coordination',
+        desc: 'Coordination across research groups, departments, and external partners in scientific and industry environments to deliver shared outcomes and manage workflows.',
+        tags: ['Coordination','Strategy'], href: 'operations.html' }
+    ]},
+    { label: 'Teaching & Communication', href: 'teaching.html', items: [
+      { title: 'Neurohistology Lab',
+        desc: 'Teaching assistant in a neurohistology course covering tissue preparation, immunofluorescence staining, and microscopy methods for graduate researchers at Weizmann Institute of Science.',
+        tags: ['Lab','Graduate'], href: 'teaching.html' },
+      { title: 'Python for Researchers (TA)',
+        desc: 'Teaching assistant for a Python programming course for graduate students: data handling, visualisation, computational thinking, and analysis workflows.',
+        tags: ['Python','TA'], href: 'teaching.html' },
+      { title: 'Research Methods (TA)',
+        desc: 'Teaching assistant in advanced research methods and correlational research, covering statistical reasoning, experimental design, and interpretation of behavioral data.',
+        tags: ['Methods','Undergraduate'], href: 'teaching.html' },
+      { title: 'Science Communication (MUC)',
+        desc: 'Public-facing science communication and educational content, bridging research findings and broader audiences through accessible writing and presentation.',
+        tags: ['Public','Communication'], href: 'teaching.html' }
+    ]},
+    { label: 'Selected Projects', href: 'projects.html', items: [
+      { title: 'Against All Odds',
+        desc: 'A large-scale scientific computing and connectome analysis project built under complex data, workflow, and implementation constraints — a case study in data-intensive research and pipeline development.',
+        tags: ['Analysis','Case Study','Data'], href: 'projects.html' },
+      { title: 'AI Geopositioning System',
+        desc: 'Deep learning project using WiFi signal fingerprinting and GPS-supervised data to predict outdoor geographic position from signal strength data.',
+        tags: ['Python','ML'], href: 'projects.html' },
+      { title: 'Connectome Optimisation',
+        desc: 'Computational optimisation of connectome analysis workflows, including geodesic matrix methods for synapse distance calculations.',
+        tags: ['R','Statistics'], href: 'projects.html' },
+      { title: 'Genetic Algorithm Work',
+        desc: 'Algorithmic exploration using genetic algorithm concepts for optimisation and search problems.',
+        tags: ['Visualisation'], href: 'projects.html' }
+    ]},
+    { label: 'Bio', href: 'bio.html', items: [
+      { title: 'M.Sc. \u2014 Computational Neuroscience',
+        desc: 'Computational and graph-based analysis of Drosophila connectome data, neuron skeleton processing, synaptic analysis, and large-scale data pipelines. University of Haifa, 2024\u2013.',
+        tags: ['University of Haifa','2024\u2013'], href: 'bio.html' },
+      { title: 'Scientific Operations',
+        desc: 'Research and imaging support at Weizmann Institute of Science, including core facility management, microscopy, researcher training, and cross-team project coordination. 2020\u20132024.',
+        tags: ['Weizmann Institute','2020\u201324'], href: 'bio.html' },
+      { title: 'Data & Information Systems',
+        desc: 'Data operations and information systems support for Moderna\'s EMEA call center through IQVIA, including KPI monitoring, reporting, and process documentation. 2017\u20132020.',
+        tags: ['IQVIA / Moderna','2017\u201320'], href: 'bio.html' }
+    ]}
+  ];
+
+  const subsRow     = document.getElementById('map-subs-row');
+  const subsLabel   = document.getElementById('map-subs-label');
+  const subsViewAll = document.getElementById('map-subs-viewall');
+
+  function updateSubs(idx, animate) {
+    const d = SUBS_DATA[idx];
+    if (!d || !subsRow) return;
+    const subsContainer = document.getElementById('map-subs');
+    if (subsContainer) subsContainer.style.setProperty('--subs-accent', 'var(--' + SUBS_ACCENTS[idx] + ')');
+    function render() {
+      if (subsLabel)   subsLabel.textContent = d.label;
+      if (subsViewAll) subsViewAll.href = d.href;
+      subsRow.innerHTML = d.items.map(item =>
+        `<a class="map-sub" href="${item.href}">` +
+        `<h3 class="map-sub__title">${item.title}</h3>` +
+        `<p class="map-sub__desc">${item.desc}</p>` +
+        `<div class="map-sub__tags">${item.tags.map(t => `<span class="map-sub__tag">${t}</span>`).join('')}</div>` +
+        `</a>`
+      ).join('');
+      subsRow.classList.remove('is-updating');
+    }
+    if (animate) {
+      subsRow.classList.add('is-updating');
+      setTimeout(render, 180);
+    } else {
+      render();
+    }
+  }
+
   if (labels.length && cards.length) {
     function activate(id) {
+      const idx = parseInt(id, 10);
       labels.forEach(label => {
         const on = label.dataset.card === id;
         label.classList.toggle('active', on);
@@ -43,16 +156,20 @@
       });
     }
 
+    // Render subsections immediately on load (no animation)
+    updateSubs(0, false);
     activate('0');
 
     labels.forEach(label => {
-      // Click persists the selection
-      label.addEventListener('click', () => activate(label.dataset.card));
-      // Keyboard Enter or Space also selects
+      label.addEventListener('click', () => {
+        activate(label.dataset.card);
+        updateSubs(parseInt(label.dataset.card, 10), true);
+      });
       label.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           activate(label.dataset.card);
+          updateSubs(parseInt(label.dataset.card, 10), true);
         }
       });
       // Hover: no card switch, CSS handles subtle visual hint

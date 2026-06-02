@@ -252,7 +252,42 @@
     }
     @media (prefers-reduced-motion: reduce) {
       .map-card { transition: none; }
+      .map-subs__row { transition: none; }
     }
+
+    /* ── Subsection strip (appears below wheel, updates on topic click) ── */
+    .map-subs {
+      margin-top: var(--sp-32);
+      padding-top: var(--sp-24);
+      border-top: 1px solid var(--border-light);
+    }
+    .map-subs__header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: var(--sp-16);
+    }
+    .map-subs__label { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
+    .map-subs__link  { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--subs-accent, var(--amber)); transition: opacity 0.15s; }
+    .map-subs__link:hover { opacity: 0.7; }
+    .map-subs__row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: var(--sp-12);
+      transition: opacity 0.18s ease;
+    }
+    .map-subs__row.is-updating { opacity: 0; }
+    .map-sub {
+      display: flex; flex-direction: column; gap: var(--sp-8);
+      padding: var(--sp-16);
+      border-top: 2px solid var(--subs-accent, var(--border));
+      background: var(--surface);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .map-sub:hover { background: var(--surface-raised, #1a1a1a); }
+    .map-sub__title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 300; color: var(--text-primary); line-height: 1.25; margin: 0; }
+    .map-sub__desc  { font-size: 0.875rem; color: var(--text-secondary); line-height: 1.65; margin: 0; flex: 1; }
+    .map-sub__tags  { display: flex; flex-wrap: wrap; gap: var(--sp-4); margin-top: auto; padding-top: var(--sp-8); }
+    .map-sub__tag   { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.09em; text-transform: uppercase; padding: 2px 6px; border: 1px solid var(--border); color: var(--text-muted); border-radius: 2px; }
 
     /* ── Section cards (scrollable, below wheel) ── */
     .section-cards {
@@ -528,6 +563,15 @@
             <a href="bio.html" class="map-card__link">&#x2192; View section</a>
           </div>
         </div>
+      </div>
+
+      <!-- Subsection strip — updates when a wheel topic is clicked -->
+      <div class="map-subs" id="map-subs">
+        <div class="map-subs__header">
+          <span class="map-subs__label" id="map-subs-label">Data Science &amp; Computing</span>
+          <a class="map-subs__link" href="data-science.html" id="map-subs-viewall">&#x2192; View full section</a>
+        </div>
+        <div class="map-subs__row" id="map-subs-row" aria-live="polite"></div>
       </div>
 
     </div>
