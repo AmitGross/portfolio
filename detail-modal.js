@@ -15,7 +15,25 @@
       did: 'Built and modified Python workflows for connectome analysis \u00b7 Represented neuron structures as graph/tree objects \u00b7 Processed synapse and neuron data into tables and features \u00b7 Created visualizations and statistical summaries \u00b7 Organized the workflow into a reusable analysis pipeline.',
       methods: 'Python \u00b7 Pandas \u00b7 NumPy \u00b7 NetworkX \u00b7 Navis \u00b7 NGLUI \u00b7 statistical analysis \u00b7 data visualization \u00b7 graph analysis',
       output: 'Pipeline diagrams \u00b7 neuron/synapse visualizations \u00b7 connectivity matrices \u00b7 graph-based summaries \u00b7 statistical plots \u00b7 thesis/project figures',
-      figLabel: '[Add connectome pipeline image, neuron visualization, matrix, graph, or statistical figure]'
+      figures: {
+        featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 — Connectome overview and neuron classification.' },
+        gallery: [
+          { src: 'data/connectome/article_fig2.png',       caption: 'Figure 2 — Synaptic connectivity analysis.' },
+          { src: 'data/connectome/article_fig3.png',       caption: 'Figure 3 — Circuit structure and graph representation.' },
+          { src: 'data/connectome/article_fig5.png',       caption: 'Figure 5 — Statistical summary and feature distributions.' },
+          { src: 'data/connectome/acticle_fig4.png',       caption: 'Figure 4 — Morphology and branching analysis.' },
+          { src: 'data/connectome/fig4_splitB_v4.png',     caption: 'Figure 4B — Split neuron analysis.' },
+          { src: 'data/connectome/article_fig1_supp1.png', caption: 'Supplementary 1.1 — Additional neuron data.' },
+          { src: 'data/connectome/article_fig2_supp1.png', caption: 'Supplementary 2.1 — Connectivity detail.' },
+          { src: 'data/connectome/article_fig2_supp2.png', caption: 'Supplementary 2.2 — Connectivity detail.' },
+          { src: 'data/connectome/article_fig2_supp3.png', caption: 'Supplementary 2.3 — Connectivity detail.' },
+          { src: 'data/connectome/article_fig2_supp4.png', caption: 'Supplementary 2.4 — Connectivity detail.' },
+          { src: 'data/connectome/article_fig3_supp1.png', caption: 'Supplementary 3.1 — Circuit detail.' },
+          { src: 'data/connectome/article_fig3_supp2.png', caption: 'Supplementary 3.2 — Circuit detail.' },
+          { src: 'data/connectome/article_fig5_supp1.png', caption: 'Supplementary 5.1 — Statistical detail.' },
+          { src: 'data/connectome/article_fig5_supp2.png', caption: 'Supplementary 5.2 — Statistical detail.' }
+        ]
+      }
     },
     'ds-02': {
       num: '02', category: 'Data Science & Computing',
@@ -283,7 +301,7 @@
             '<p class="di-desc" id="di-desc"></p>' +
             '<div class="di-figure">' +
               '<div class="fig-placeholder" aria-label="Figure placeholder">' +
-                '<span class="fig-placeholder__label" id="di-fig-label">Figure \u2014 placeholder</span>' +
+                '<span class="fig-placeholder__label">Figure \u2014 placeholder</span>' +
               '</div>' +
             '</div>' +
           '</div>' +
@@ -327,7 +345,39 @@
     document.getElementById('di-category').textContent  = data.category || '';
     document.getElementById('di-title').textContent     = data.title    || '';
     document.getElementById('di-desc').textContent      = data.desc     || '';
-    document.getElementById('di-fig-label').textContent = data.figLabel || 'Figure \u2014 placeholder';
+
+    /* Render figure area: real gallery if data.figures exists, else placeholder text */
+    var figureEl = panel.querySelector('.di-figure');
+    if (data.figures) {
+      var f = data.figures;
+      var galleryHTML =
+        '<div class="di-gallery">' +
+          '<figure class="connectome-feature">' +
+            '<div class="figure-frame">' +
+              '<img src="' + esc(f.featured.src) + '" alt="' + esc(f.featured.caption) + '" loading="lazy">' +
+            '</div>' +
+            '<figcaption>' + esc(f.featured.caption) + '</figcaption>' +
+          '</figure>' +
+          '<div class="connectome-gallery">' +
+            f.gallery.map(function (img) {
+              return (
+                '<figure>' +
+                  '<div class="figure-frame">' +
+                    '<img src="' + esc(img.src) + '" alt="' + esc(img.caption) + '" loading="lazy">' +
+                  '</div>' +
+                  '<figcaption>' + esc(img.caption) + '</figcaption>' +
+                '</figure>'
+              );
+            }).join('') +
+          '</div>' +
+        '</div>';
+      figureEl.innerHTML = galleryHTML;
+    } else {
+      figureEl.innerHTML =
+        '<div class="fig-placeholder" aria-label="Figure placeholder">' +
+          '<span class="fig-placeholder__label" id="di-fig-label">' + esc(data.figLabel || 'Figure \u2014 placeholder') + '</span>' +
+        '</div>';
+    }
 
     document.getElementById('di-tags').innerHTML = (data.tags || []).map(function (t) {
       return '<span class="di-tag">' + esc(t) + '</span>';

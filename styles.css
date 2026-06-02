@@ -1938,6 +1938,98 @@ ul, ol { list-style: none; }
   border: none;
 }
 
+/* ── Connectome image gallery ────────────────────────────── */
+.di-gallery {
+  padding: var(--sp-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-16);
+}
+
+/* Reusable dark figure frame — keeps aspect ratio, never crops */
+.figure-frame {
+  width: 100%;
+  min-height: 220px;
+  max-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.figure-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Featured image — taller frame */
+.connectome-feature {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+.connectome-feature .figure-frame {
+  min-height: 360px;
+  max-height: 640px;
+}
+
+.connectome-feature figcaption {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* Gallery grid */
+.connectome-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.connectome-gallery figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.connectome-gallery .figure-frame {
+  min-height: 180px;
+  max-height: 260px;
+}
+
+.connectome-gallery figcaption {
+  font-size: 0.65rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .connectome-feature .figure-frame {
+    min-height: 200px;
+    max-height: 340px;
+  }
+  .connectome-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+  .connectome-gallery .figure-frame {
+    min-height: 120px;
+    max-height: 180px;
+  }
+}
+
 /* â”€â”€ Sections column â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .di-sections {
   display: flex;
