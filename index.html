@@ -300,10 +300,30 @@
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: var(--sp-32);
     }
+    .section-cards__toggle {
+      font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em;
+      text-transform: uppercase; background: none; border: 1px solid var(--border);
+      color: var(--text-muted); padding: 5px 14px; cursor: pointer; border-radius: 2px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .section-cards__toggle:hover { color: var(--text-primary); border-color: var(--text-muted); }
     .section-cards__grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--sp-16);
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      max-height: 1600px;
+      opacity: 1;
+    }
+    .section-cards--collapsed .section-cards__grid {
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+      margin: 0;
+    }
+    .section-cards--collapsed .section-cards__header {
+      margin-bottom: 0;
     }
     .section-card {
       display: flex; flex-direction: column; gap: var(--sp-12);
@@ -563,13 +583,13 @@
   </section>
 
   <!-- SECTION CARDS — scrollable summary, visible at all widths -->
-  <section class="section-cards" id="sections" aria-labelledby="section-cards-label">
+  <section class="section-cards section-cards--collapsed" id="sections" aria-labelledby="section-cards-label">
     <div class="wrap--wide">
       <div class="section-cards__header">
         <span class="t-label" id="section-cards-label">All Sections</span>
-        <span class="t-mono-sm">Scroll to explore</span>
+        <button class="section-cards__toggle" id="sections-toggle" aria-expanded="false" aria-controls="sections-grid">Expand &#x2193;</button>
       </div>
-      <div class="section-cards__grid">
+      <div class="section-cards__grid" id="sections-grid">
 
         <a class="section-card reveal" href="data-science.html" style="--card-accent:var(--sage);">
           <span class="section-card__index">Data Science &amp; Computing</span>

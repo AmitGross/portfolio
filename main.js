@@ -206,4 +206,15 @@
     });
   }
 
+  // ── All Sections collapse toggle ──────────────────────────
+  var sectionsToggle = document.getElementById('sections-toggle');
+  var sectionsSection = document.getElementById('sections');
+  if (sectionsToggle && sectionsSection) {
+    sectionsToggle.addEventListener('click', function () {
+      var collapsed = sectionsSection.classList.toggle('section-cards--collapsed');
+      sectionsToggle.setAttribute('aria-expanded', String(!collapsed));
+      sectionsToggle.innerHTML = collapsed ? 'Expand &#x2193;' : 'Collapse &#x2191;';
+    });
+  }
+
 })();
