@@ -268,8 +268,7 @@
     '<div class="di-inner">' +
       '<div class="di-head">' +
         '<div class="di-meta">' +
-          '<span class="di-num" id="di-num"></span>' +
-          '<span class="di-sep" aria-hidden="true">\u00B7</span>' +
+
           '<span class="di-category" id="di-category"></span>' +
         '</div>' +
         '<button class="di-close" id="di-close" type="button" aria-label="Collapse detail panel">' +
@@ -324,7 +323,7 @@
   ];
 
   function populate(data) {
-    document.getElementById('di-num').textContent       = data.num      || '';
+
     document.getElementById('di-category').textContent  = data.category || '';
     document.getElementById('di-title').textContent     = data.title    || '';
     document.getElementById('di-desc').textContent      = data.desc     || '';
