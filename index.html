@@ -251,8 +251,23 @@
     }
     @media (max-width: 768px) {
       .intro__grid { grid-template-columns: 1fr; gap: var(--sp-16); }
-      .map-layout { display: none; }
-      .map-mobile-list { display: flex; }
+      /* wheel stays visible — mobile list stays hidden */
+    }
+    /* ── Compact wheel on phones ── */
+    @media (max-width: 540px) {
+      .map-donut-wrap {
+        width: min(86vw, 360px);
+        height: min(86vw, 360px);
+      }
+      /* Show numbers only; full title is in the card below */
+      .map-label__name { display: none; }
+      .map-label {
+        min-width: 0;
+        padding: 5px 9px;
+        gap: 0;
+      }
+      .map-card-panel { min-height: 240px; }
+      .map-card__title { font-size: clamp(1.15rem, 5vw, 1.6rem); }
     }
     @media (prefers-reduced-motion: reduce) {
       .map-card { transition: none; }
