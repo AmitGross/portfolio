@@ -181,7 +181,7 @@
       font-size: 0.75rem;
       font-weight: 700;
       white-space: nowrap;
-      color: #111;
+      color: inherit;
     }
 
     /* Six positions (clock positions: 12, 2, 4, 6, 8, 10 o'clock) */
@@ -301,9 +301,9 @@
       margin-bottom: var(--sp-32);
     }
     .section-cards__toggle {
-      font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.08em;
+      font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em;
       text-transform: uppercase; background: none; border: 1px solid var(--border);
-      color: var(--text-muted); padding: 5px 14px; cursor: pointer; border-radius: 2px;
+      color: var(--text-secondary); padding: 8px 20px; cursor: pointer; border-radius: 2px;
       transition: color 0.15s, border-color 0.15s;
     }
     .section-cards__toggle:hover { color: var(--text-primary); border-color: var(--text-muted); }
@@ -464,7 +464,7 @@
       <circle cx="80"  cy="200" r="3"  fill="#c4824a" opacity="0.5"/>
       <circle cx="320" cy="200" r="3"  fill="#c4824a" opacity="0.5"/>
     </svg>
-    <div class="wrap hero__content">
+    <div class="wrap--wide hero__content">
       <div class="hero__eyebrow">
         <div class="hero__rule" aria-hidden="true"></div>
         <span class="t-label">Portfolio &middot; 2026</span>
