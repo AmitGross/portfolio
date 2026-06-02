@@ -27,14 +27,16 @@
     reveals.forEach(el => io.observe(el));
   }
 
-  // ── Portfolio map wheel (homepage only) ───────────────────
-  const segs  = document.querySelectorAll('.map-seg');
-  const cards = document.querySelectorAll('.map-card');
+  // ── Portfolio map (homepage only) ────────────────────────
+  const labels = document.querySelectorAll('.map-label');
+  const cards  = document.querySelectorAll('.map-card');
 
-  if (segs.length && cards.length) {
+  if (labels.length && cards.length) {
     function activate(id) {
-      segs.forEach(seg => {
-        seg.setAttribute('aria-pressed', seg.dataset.seg === id ? 'true' : 'false');
+      labels.forEach(label => {
+        const on = label.dataset.card === id;
+        label.classList.toggle('active', on);
+        label.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
       cards.forEach(card => {
         card.classList.toggle('active', card.dataset.card === id);
@@ -43,16 +45,10 @@
 
     activate('0');
 
-    segs.forEach(seg => {
-      seg.addEventListener('mouseenter', () => activate(seg.dataset.seg));
-      seg.addEventListener('focus',      () => activate(seg.dataset.seg));
-      seg.addEventListener('click',      () => activate(seg.dataset.seg));
-      seg.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          activate(seg.dataset.seg);
-        }
-      });
+    labels.forEach(label => {
+      label.addEventListener('mouseenter', () => activate(label.dataset.card));
+      label.addEventListener('focus',      () => activate(label.dataset.card));
+      label.addEventListener('click',      () => activate(label.dataset.card));
     });
   }
 

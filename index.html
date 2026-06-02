@@ -61,48 +61,156 @@
     .map-section { padding-block: var(--sp-32) var(--sp-64); }
     .map-section__header {
       display: flex; align-items: center; justify-content: space-between;
-      padding-bottom: var(--sp-16); margin-bottom: var(--sp-32);
+      padding-bottom: var(--sp-16); margin-bottom: var(--sp-40);
       border-bottom: 1px solid var(--border);
     }
-    .map-layout { display: flex; align-items: center; gap: clamp(32px, 5vw, 72px); }
-    .map-wheel-wrap { flex: 0 0 auto; width: clamp(260px, 38vw, 420px); }
-    .map-wheel { width: 100%; height: auto; display: block; }
+    .map-layout { display: flex; align-items: center; gap: clamp(32px, 5vw, 80px); }
 
-    /* SVG Segments */
-    .map-seg { cursor: pointer; }
-    .map-seg path {
-      fill: var(--seg-fill); stroke: var(--bg); stroke-width: 2.5;
-      transition: fill var(--t-base) var(--ease);
+    /* Donut container */
+    .map-donut-wrap {
+      flex: 0 0 auto;
+      width: clamp(280px, 36vw, 440px);
+      aspect-ratio: 1;
+      position: relative;
     }
-    .map-seg .map-seg-num {
-      font-family: var(--font-mono); font-size: 13px; fill: var(--text-muted);
-      pointer-events: none; dominant-baseline: central;
-      transition: fill var(--t-base) var(--ease); letter-spacing: 0.06em;
+
+    /* Visual-only conic-gradient ring — not interactive */
+    .map-donut {
+      position: absolute;
+      inset: 12%;
+      border-radius: 50%;
+      background: conic-gradient(
+        from -90deg,
+        rgba(69,176,158,0.50)  0deg   59deg,
+        rgba(11,11,11,0.90)   59deg   61deg,
+        rgba(114,168,130,0.50) 61deg  119deg,
+        rgba(11,11,11,0.90)  119deg  121deg,
+        rgba(94,143,181,0.50) 121deg  179deg,
+        rgba(11,11,11,0.90)  179deg  181deg,
+        rgba(200,168,78,0.50) 181deg  239deg,
+        rgba(11,11,11,0.90)  239deg  241deg,
+        rgba(196,130,74,0.50) 241deg  299deg,
+        rgba(11,11,11,0.90)  299deg  301deg,
+        rgba(140,120,98,0.50) 301deg  360deg
+      );
+      box-shadow: 0 0 48px rgba(0,0,0,0.55), inset 0 0 32px rgba(0,0,0,0.3);
     }
-    .map-seg:hover path,
-    .map-seg:focus-visible path,
-    .map-seg[aria-pressed="true"] path { fill: var(--seg-active-fill); }
-    .map-seg:hover .map-seg-num,
-    .map-seg:focus-visible .map-seg-num,
-    .map-seg[aria-pressed="true"] .map-seg-num { fill: var(--text-secondary); }
-    .map-seg:focus-visible { outline: none; }
-    .map-seg:focus-visible path { stroke: var(--seg-accent); stroke-width: 3; }
-    .map-center circle, .map-center line { stroke: var(--text-muted); fill: none; opacity: 0.35; }
-    .map-center-dot { fill: var(--text-muted); opacity: 0.5; }
+
+    /* Dark donut hole */
+    .map-donut::after {
+      content: '';
+      position: absolute;
+      inset: 27%;
+      border-radius: 50%;
+      background: var(--bg);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 24px rgba(0,0,0,0.6);
+    }
+
+    /* Centre label (sits above the ::after hole via z-index) */
+    .map-donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 2;
+      text-align: center;
+      gap: 3px;
+    }
+    .map-donut-center__num {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: 0.7;
+    }
+    .map-donut-center__word {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      opacity: 0.5;
+    }
+
+    /* Interactive label buttons positioned around the ring */
+    .map-label {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      padding: 7px 11px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition:
+        border-color 0.18s ease,
+        color        0.18s ease,
+        background   0.18s ease,
+        box-shadow   0.18s ease;
+      z-index: 3;
+      text-align: center;
+      min-width: 68px;
+      line-height: 1;
+    }
+    .map-label:hover,
+    .map-label:focus-visible,
+    .map-label.active {
+      border-color: var(--label-accent, var(--border));
+      color: var(--text-primary);
+      background: var(--surface-raised);
+      box-shadow: 0 0 0 1px var(--label-accent, transparent),
+                  0 4px 20px rgba(0,0,0,0.4);
+      outline: none;
+    }
+    .map-label__num {
+      font-family: var(--font-mono);
+      font-size: 0.52rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--label-accent, var(--text-muted));
+      opacity: 0.8;
+      transition: opacity 0.18s ease;
+    }
+    .map-label.active .map-label__num { opacity: 1; }
+    .map-label__name {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      font-weight: 300;
+      white-space: nowrap;
+      color: inherit;
+    }
+
+    /* Six positions (clock positions: 12, 2, 4, 6, 8, 10 o'clock) */
+    .map-label--data     { top:  5%; left: 50%;  --label-accent: var(--teal);  }
+    .map-label--life     { top: 25%; left: 88%;  --label-accent: var(--sage);  }
+    .map-label--ops      { top: 75%; left: 88%;  --label-accent: var(--sky);   }
+    .map-label--teaching { top: 95%; left: 50%;  --label-accent: var(--gold);  }
+    .map-label--projects { top: 75%; left: 12%;  --label-accent: var(--amber); }
+    .map-label--bio      { top: 25%; left: 12%;  --label-accent: var(--warm);  }
 
     /* Card panel */
-    .map-card-panel { flex: 1; min-width: 0; position: relative; min-height: 300px; padding-left: 20px; }
+    .map-card-panel {
+      flex: 1; min-width: 0; position: relative; min-height: 300px;
+      padding-left: 24px;
+    }
     .map-card {
       position: absolute; top: 0; left: 0; right: 0;
-      opacity: 0; transform: translateX(10px);
-      transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease);
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.22s ease, transform 0.22s ease;
       pointer-events: none;
       display: flex; flex-direction: column; gap: var(--sp-12);
+      border-left: 2px solid transparent;
     }
-    .map-card.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
-    .map-card::before {
-      content: ''; display: block; width: 2px; height: 100%;
-      background: var(--card-accent); position: absolute; left: -20px; top: 0; opacity: 0.6;
+    .map-card.active {
+      opacity: 1; transform: translateY(0); pointer-events: auto;
+      border-left-color: var(--card-accent);
     }
     .map-card__index { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--card-accent); }
     .map-card__title { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 300; color: var(--text-primary); line-height: 1.1; }
@@ -114,21 +222,21 @@
 
     /* Mobile list */
     .map-mobile-list { display: none; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
-    .map-mobile-card { display: flex; align-items: stretch; background: var(--surface); transition: background var(--t-fast); min-height: 72px; }
+    .map-mobile-card { display: flex; align-items: stretch; background: var(--surface); transition: background var(--t-fast); min-height: 72px; text-decoration: none; color: inherit; }
     .map-mobile-card:hover { background: var(--surface-raised); }
     .map-mobile-card__stripe { width: 3px; background: var(--mc-accent, var(--amber)); flex-shrink: 0; }
     .map-mobile-card__body { flex: 1; padding: var(--sp-16) var(--sp-20); display: flex; flex-direction: column; gap: var(--sp-4); justify-content: center; }
     .map-mobile-card__index { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mc-accent, var(--text-muted)); }
     .map-mobile-card__title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 300; color: var(--text-primary); }
-    .map-mobile-card__tags { display: flex; gap: var(--sp-8); flex-wrap: wrap; }
+    .map-mobile-card__tags { display: flex; gap: var(--sp-8); flex-wrap: wrap; margin-top: 3px; }
     .map-mobile-card__tag { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 2px 6px; border: 1px solid var(--border); color: var(--text-muted); border-radius: 2px; }
     .map-mobile-card__arrow { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); padding-right: var(--sp-16); align-self: center; flex-shrink: 0; }
 
     /* Responsive */
     @media (max-width: 900px) {
       .map-layout { flex-direction: column; align-items: center; }
-      .map-wheel-wrap { width: clamp(240px, 72vw, 380px); }
-      .map-card-panel { width: 100%; }
+      .map-donut-wrap { width: clamp(260px, 72vw, 380px); }
+      .map-card-panel { width: 100%; padding-left: 0; padding-top: 20px; }
       .map-card__desc { max-width: 100%; }
     }
     @media (max-width: 768px) {
@@ -227,63 +335,51 @@
         <span class="t-mono-sm">06 sections</span>
       </div>
 
-      <!-- Desktop: wheel + card panel -->
+      <!-- Desktop: donut + card panel -->
       <div class="map-layout" role="region" aria-label="Interactive portfolio map">
-        <div class="map-wheel-wrap">
-          <svg class="map-wheel" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-            <!-- 01 Data Science — teal -->
-            <g class="map-seg" data-seg="0" role="button" tabindex="0"
-               aria-label="01 Data Science and Computing" aria-pressed="true"
-               style="--seg-fill:rgba(69,176,158,0.14);--seg-active-fill:rgba(69,176,158,0.28);--seg-accent:#45b09e;">
-              <path d="M 200,30 A 170,170 0 0,1 347.2,115 L 239.8,177 A 46,46 0 0,0 200,154 Z"/>
-              <text class="map-seg-num" x="254" y="107" text-anchor="middle">01</text>
-            </g>
-            <!-- 02 Life Sciences — sage -->
-            <g class="map-seg" data-seg="1" role="button" tabindex="0"
-               aria-label="02 Life Sciences" aria-pressed="false"
-               style="--seg-fill:rgba(114,168,130,0.14);--seg-active-fill:rgba(114,168,130,0.28);--seg-accent:#72a882;">
-              <path d="M 347.2,115 A 170,170 0 0,1 347.2,285 L 239.8,223 A 46,46 0 0,0 239.8,177 Z"/>
-              <text class="map-seg-num" x="308" y="200" text-anchor="middle">02</text>
-            </g>
-            <!-- 03 Operations — sky -->
-            <g class="map-seg" data-seg="2" role="button" tabindex="0"
-               aria-label="03 Operations" aria-pressed="false"
-               style="--seg-fill:rgba(94,143,181,0.14);--seg-active-fill:rgba(94,143,181,0.28);--seg-accent:#5e8fb5;">
-              <path d="M 347.2,285 A 170,170 0 0,1 200,370 L 200,246 A 46,46 0 0,0 239.8,223 Z"/>
-              <text class="map-seg-num" x="254" y="294" text-anchor="middle">03</text>
-            </g>
-            <!-- 04 Teaching — gold -->
-            <g class="map-seg" data-seg="3" role="button" tabindex="0"
-               aria-label="04 Teaching and Communication" aria-pressed="false"
-               style="--seg-fill:rgba(200,168,78,0.14);--seg-active-fill:rgba(200,168,78,0.28);--seg-accent:#c8a84e;">
-              <path d="M 200,370 A 170,170 0 0,1 52.8,285 L 160.2,223 A 46,46 0 0,0 200,246 Z"/>
-              <text class="map-seg-num" x="146" y="294" text-anchor="middle">04</text>
-            </g>
-            <!-- 05 Projects — amber -->
-            <g class="map-seg" data-seg="4" role="button" tabindex="0"
-               aria-label="05 Selected Projects" aria-pressed="false"
-               style="--seg-fill:rgba(196,130,74,0.14);--seg-active-fill:rgba(196,130,74,0.28);--seg-accent:#c4824a;">
-              <path d="M 52.8,285 A 170,170 0 0,1 52.8,115 L 160.2,177 A 46,46 0 0,0 160.2,223 Z"/>
-              <text class="map-seg-num" x="92" y="200" text-anchor="middle">05</text>
-            </g>
-            <!-- 06 Bio — warm -->
-            <g class="map-seg" data-seg="5" role="button" tabindex="0"
-               aria-label="06 Bio" aria-pressed="false"
-               style="--seg-fill:rgba(140,120,98,0.14);--seg-active-fill:rgba(140,120,98,0.28);--seg-accent:#8c7862;">
-              <path d="M 52.8,115 A 170,170 0 0,1 200,30 L 200,154 A 46,46 0 0,0 160.2,177 Z"/>
-              <text class="map-seg-num" x="146" y="107" text-anchor="middle">06</text>
-            </g>
-            <!-- Centre ornament -->
-            <g class="map-center" aria-hidden="true">
-              <circle cx="200" cy="200" r="38" stroke-width="0.6"/>
-              <circle cx="200" cy="200" r="24" stroke-width="0.5"/>
-              <line x1="200" y1="162" x2="200" y2="176" stroke-width="0.6"/>
-              <line x1="200" y1="224" x2="200" y2="238" stroke-width="0.6"/>
-              <line x1="162" y1="200" x2="176" y2="200" stroke-width="0.6"/>
-              <line x1="224" y1="200" x2="238" y2="200" stroke-width="0.6"/>
-              <circle cx="200" cy="200" r="2.5" class="map-center-dot"/>
-            </g>
-          </svg>
+        <div class="map-donut-wrap">
+
+          <!-- Visual ring (not interactive) -->
+          <div class="map-donut" aria-hidden="true"></div>
+
+          <!-- Centre text -->
+          <div class="map-donut-center" aria-hidden="true">
+            <span class="map-donut-center__num">06</span>
+            <span class="map-donut-center__word">sections</span>
+          </div>
+
+          <!-- Interactive labels clockwise from 12 -->
+          <button class="map-label map-label--data active" data-card="0"
+                  aria-pressed="true" aria-label="01 Data Science and Computing">
+            <span class="map-label__num">01</span>
+            <span class="map-label__name">Data Science</span>
+          </button>
+          <button class="map-label map-label--life" data-card="1"
+                  aria-pressed="false" aria-label="02 Life Sciences">
+            <span class="map-label__num">02</span>
+            <span class="map-label__name">Life Sciences</span>
+          </button>
+          <button class="map-label map-label--ops" data-card="2"
+                  aria-pressed="false" aria-label="03 Operations">
+            <span class="map-label__num">03</span>
+            <span class="map-label__name">Operations</span>
+          </button>
+          <button class="map-label map-label--teaching" data-card="3"
+                  aria-pressed="false" aria-label="04 Teaching and Communication">
+            <span class="map-label__num">04</span>
+            <span class="map-label__name">Teaching</span>
+          </button>
+          <button class="map-label map-label--projects" data-card="4"
+                  aria-pressed="false" aria-label="05 Selected Projects">
+            <span class="map-label__num">05</span>
+            <span class="map-label__name">Projects</span>
+          </button>
+          <button class="map-label map-label--bio" data-card="5"
+                  aria-pressed="false" aria-label="06 Bio">
+            <span class="map-label__num">06</span>
+            <span class="map-label__name">Bio</span>
+          </button>
+
         </div>
 
         <div class="map-card-panel" aria-live="polite" aria-atomic="true">
