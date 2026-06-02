@@ -144,41 +144,36 @@
       align-items: center;
       justify-content: center;
       gap: 2px;
-      padding: 7px 11px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 3px;
+      padding: 6px 8px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
       cursor: pointer;
       color: var(--text-muted);
       transition:
-        border-color 0.18s ease,
         color        0.18s ease,
-        background   0.18s ease,
-        box-shadow   0.18s ease;
+        text-shadow  0.18s ease;
       z-index: 3;
       text-align: center;
       width: 92px;
       height: 48px;
       line-height: 1;
     }
-    /* Hover: subtle hint only — does not switch card */
+    /* Hover: accent text color only */
     .map-label:hover {
-      border-color: color-mix(in srgb, var(--label-accent) 50%, var(--border));
-      background: #1a1a1a;
+      color: var(--label-accent);
       outline: none;
     }
-    /* Focus: accessible ring, does not switch card */
+    /* Focus: accessible but subtle — accent underline glow */
     .map-label:focus-visible {
-      outline: 2px solid var(--label-accent, var(--amber));
-      outline-offset: 2px;
+      outline: none;
+      color: var(--label-accent, var(--amber));
+      text-shadow: 0 1px 8px color-mix(in srgb, var(--label-accent, var(--amber)) 60%, transparent);
     }
     /* Selected state — set by click or Enter/Space */
     .map-label.active {
-      border-color: var(--label-accent, var(--border));
-      color: var(--text-primary);
-      background: var(--surface-raised);
-      box-shadow: 0 0 0 1px var(--label-accent, transparent),
-                  0 4px 20px rgba(0,0,0,0.4);
+      color: var(--label-accent, var(--text-primary));
+      text-shadow: 0 0 12px color-mix(in srgb, var(--label-accent) 40%, transparent);
       outline: none;
     }
     .map-label__name {
@@ -251,7 +246,7 @@
         width: min(86vw, 360px);
         height: min(86vw, 360px);
       }
-      .map-label { width: 72px; height: 40px; padding: 4px 6px; font-size: 0.6rem; }
+      .map-label { width: 72px; height: 40px; padding: 4px 6px; font-size: 0.6rem; background: transparent; border: none; }
       .map-card-panel { min-height: 240px; }
       .map-card__title { font-size: clamp(1.15rem, 5vw, 1.6rem); }
     }
