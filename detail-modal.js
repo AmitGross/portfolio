@@ -16,22 +16,22 @@
       methods: 'Python \u00b7 Pandas \u00b7 NumPy \u00b7 NetworkX \u00b7 Navis \u00b7 NGLUI \u00b7 statistical analysis \u00b7 data visualization \u00b7 graph analysis',
       output: 'Pipeline diagrams \u00b7 neuron/synapse visualizations \u00b7 connectivity matrices \u00b7 graph-based summaries \u00b7 statistical plots \u00b7 thesis/project figures',
       figures: {
-        featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 — Connectome overview and neuron classification.' },
+        featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 — Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 117,570 intrinsic neurons.' },
         gallery: [
-          { src: 'data/connectome/article_fig2.png',       caption: 'Figure 2 — Synaptic connectivity analysis.' },
-          { src: 'data/connectome/article_fig3.png',       caption: 'Figure 3 — Circuit structure and graph representation.' },
-          { src: 'data/connectome/article_fig5.png',       caption: 'Figure 5 — Statistical summary and feature distributions.' },
-          { src: 'data/connectome/acticle_fig4.png',       caption: 'Figure 4 — Morphology and branching analysis.' },
-          { src: 'data/connectome/fig4_splitB_v4.png',     caption: 'Figure 4B — Split neuron analysis.' },
-          { src: 'data/connectome/article_fig1_supp1.png', caption: 'Supplementary 1.1 — Additional neuron data.' },
-          { src: 'data/connectome/article_fig2_supp1.png', caption: 'Supplementary 2.1 — Connectivity detail.' },
-          { src: 'data/connectome/article_fig2_supp2.png', caption: 'Supplementary 2.2 — Connectivity detail.' },
-          { src: 'data/connectome/article_fig2_supp3.png', caption: 'Supplementary 2.3 — Connectivity detail.' },
-          { src: 'data/connectome/article_fig2_supp4.png', caption: 'Supplementary 2.4 — Connectivity detail.' },
-          { src: 'data/connectome/article_fig3_supp1.png', caption: 'Supplementary 3.1 — Circuit detail.' },
-          { src: 'data/connectome/article_fig3_supp2.png', caption: 'Supplementary 3.2 — Circuit detail.' },
-          { src: 'data/connectome/article_fig5_supp1.png', caption: 'Supplementary 5.1 — Statistical detail.' },
-          { src: 'data/connectome/article_fig5_supp2.png', caption: 'Supplementary 5.2 — Statistical detail.' }
+          { src: 'data/connectome/article_fig2.png',       caption: 'Figure 2 — Mixed polarity across the fly brain. SI distributions by superclass, neurotransmitter type, and predictive modelling of SI from neuronal features.' },
+          { src: 'data/connectome/article_fig3.png',       caption: 'Figure 3 — Connection types across FlyWire. Synaptic type distributions (AD, AA, DD, DA) by neuropil, cell type, and neurotransmitter.' },
+          { src: 'data/connectome/article_fig5.png',       caption: 'Figure 5 — Mixed polarity underlies reciprocal connectivity. Reciprocal fraction, synapse counts, and synaptic-type compositions of reciprocal connections.' },
+          { src: 'data/connectome/acticle_fig4.png',       caption: 'Figure 4 — Synaptic-type prediction models. Confusion matrices and decision surfaces using PC1 as a predictor of connection type.' },
+          { src: 'data/connectome/fig4_splitB_v4.png',     caption: 'Figure 4B — Decision surface of the PC1-based synaptic-type model with illustrated reciprocal connection examples.' },
+          { src: 'data/connectome/article_fig1_supp1.png', caption: 'Supp 1-S1 — Synaptic compartmentalization and canonicality. SFC schematic, Neuroglancer renderings, and canonical synapse percentages per compartment.' },
+          { src: 'data/connectome/article_fig2_supp1.png', caption: 'Supp 2-S1 — SI comparison across all detected vs. skeleton-assigned synapses and across two independent detection pipelines (Princeton vs. Buhmann; r = 0.91).' },
+          { src: 'data/connectome/article_fig2_supp2.png', caption: 'Supp 2-S2 — SI values of homologous left-right neuron pairs (n = 3,554 pairs; Pearson r = 0.92), with example sources of SI divergence and concordance.' },
+          { src: 'data/connectome/article_fig2_supp3.png', caption: 'Supp 2-S3 — SI distributions across non-intrinsic superclasses. Descending neurons show high SI despite missing outputs.' },
+          { src: 'data/connectome/article_fig2_supp4.png', caption: 'Supp 2-S4 — Feature correlations, Random Forest importance for SI prediction, and PC1–SI relationships in optic and visual-centrifugal neurons.' },
+          { src: 'data/connectome/article_fig3_supp1.png', caption: 'Supp 3-S1 — Canonicality thresholds and connection-type schematics (Princeton and Buhmann pipelines). Axonal compartments in purple, dendritic in orange.' },
+          { src: 'data/connectome/article_fig3_supp2.png', caption: 'Supp 3-S2 — Synaptic type proportions across superclasses and neuropils using the Buhmann detection dataset (44,342,339 synapses).' },
+          { src: 'data/connectome/article_fig5_supp1.png', caption: 'Supp 5-S1 — Reciprocal vs. non-reciprocal synapse counts by type, same-type proportions, and Random Forest regression of reciprocal fraction (r² = 0.79).' },
+          { src: 'data/connectome/article_fig5_supp2.png', caption: 'Supp 5-S2 — Additional analysis of reciprocal connection properties.' }
         ]
       }
     },
