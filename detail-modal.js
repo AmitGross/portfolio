@@ -22,7 +22,6 @@
           { src: 'data/connectome/article_fig3.png',       caption: 'Figure 3 — Connection types across FlyWire. Synaptic type distributions (AD, AA, DD, DA) by neuropil, cell type, and neurotransmitter.' },
           { src: 'data/connectome/article_fig5.png',       caption: 'Figure 5 — Mixed polarity underlies reciprocal connectivity. Reciprocal fraction, synapse counts, and synaptic-type compositions of reciprocal connections.' },
           { src: 'data/connectome/acticle_fig4.png',       caption: 'Figure 4 — Synaptic-type prediction models. Confusion matrices and decision surfaces using PC1 as a predictor of connection type.' },
-          { src: 'data/connectome/fig4_splitB_v4.png',     caption: 'Figure 4B — Decision surface of the PC1-based synaptic-type model with illustrated reciprocal connection examples.' },
           { src: 'data/connectome/article_fig1_supp1.png', caption: 'Supp 1-S1 — Synaptic compartmentalization and canonicality. SFC schematic, Neuroglancer renderings, and canonical synapse percentages per compartment.' },
           { src: 'data/connectome/article_fig2_supp1.png', caption: 'Supp 2-S1 — SI comparison across all detected vs. skeleton-assigned synapses and across two independent detection pipelines (Princeton vs. Buhmann; r = 0.91).' },
           { src: 'data/connectome/article_fig2_supp2.png', caption: 'Supp 2-S2 — SI values of homologous left-right neuron pairs (n = 3,554 pairs; Pearson r = 0.92), with example sources of SI divergence and concordance.' },
