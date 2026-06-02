@@ -1,267 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>[Your Name] — Portfolio</title>
-  <meta name="description" content="Portfolio of [Your Name] — neuroscience, data science, operations, and creative work.">
+  <meta name="description" content="Portfolio of [Your Name] — neuroscience, data science, operations, and scientific communication.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="styles.css">
   <style>
-    /* ============================================================
-       DESIGN SYSTEM — CSS CUSTOM PROPERTIES
-    ============================================================ */
-    :root {
-      /* Background & surface */
-      --bg:              #0b0b0b;
-      --surface:         #121212;
-      --surface-raised:  #191919;
-      --surface-hover:   #1f1f1f;
-
-      /* Borders */
-      --border:          #242424;
-      --border-light:    #191919;
-
-      /* Text */
-      --text-primary:    #ede7d9;
-      --text-secondary:  #a39b90;
-      --text-muted:      #6b6560;
-
-      /* Accent palette — one per section */
-      --amber:   #c4824a;
-      --teal:    #45b09e;
-      --sage:    #72a882;
-      --sky:     #5e8fb5;
-      --gold:    #c8a84e;
-      --rose:    #b85e6e;
-      --warm:    #8c7862;
-
-      /* Typography */
-      --font-display: 'Cormorant Garamond', Georgia, serif;
-      --font-body:    'Source Serif 4', Georgia, serif;
-      --font-mono:    'DM Mono', 'Courier New', monospace;
-
-      /* Spacing */
-      --sp-2:    2px;
-      --sp-4:    4px;
-      --sp-8:    8px;
-      --sp-12:   12px;
-      --sp-16:   16px;
-      --sp-24:   24px;
-      --sp-32:   32px;
-      --sp-48:   48px;
-      --sp-64:   64px;
-      --sp-96:   96px;
-      --sp-128:  128px;
-
-      /* Layout */
-      --max-w:        1200px;
-      --max-w-wide:   1440px;
-      --gutter:       clamp(16px, 4vw, 48px);
-      --nav-h:        56px;
-
-      /* Shape */
-      --r-sm:  4px;
-      --r-md:  8px;
-      --r-lg:  12px;
-
-      /* Motion */
-      --ease:  cubic-bezier(0.25, 0.1, 0.25, 1);
-      --t-fast: 140ms;
-      --t-base: 240ms;
-      --t-slow: 420ms;
-    }
-
-    /* ============================================================
-       RESET
-    ============================================================ */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text-primary);
-      font-family: var(--font-body);
-      font-weight: 300;
-      line-height: 1.65;
-      min-height: 100vh;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img, svg {
-      display: block;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    /* ============================================================
-       TYPOGRAPHY TOKENS
-    ============================================================ */
-    .t-display {
-      font-family: var(--font-display);
-      font-size: clamp(3.8rem, 9vw, 7.5rem);
-      font-weight: 300;
-      line-height: 0.92;
-      letter-spacing: -0.02em;
-    }
-
-    .t-heading-lg {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: -0.01em;
-    }
-
-    .t-heading-md {
-      font-family: var(--font-display);
-      font-size: clamp(1.25rem, 1.8vw, 1.7rem);
-      font-weight: 400;
-      line-height: 1.15;
-    }
-
-    .t-label {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      font-weight: 400;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .t-mono-sm {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-    }
-
-    .t-body {
-      font-family: var(--font-body);
-      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-
-    /* ============================================================
-       LAYOUT UTILITIES
-    ============================================================ */
-    .wrap {
-      max-width: var(--max-w);
-      margin-inline: auto;
-      padding-inline: var(--gutter);
-    }
-
-    .wrap--wide {
-      max-width: var(--max-w-wide);
-      margin-inline: auto;
-      padding-inline: var(--gutter);
-    }
-
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border-light);
-    }
-
-    /* ============================================================
-       SCROLLBAR & SELECTION
-    ============================================================ */
-    ::selection {
-      background: var(--amber);
-      color: var(--bg);
-    }
-
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
-
-    /* ============================================================
-       NAVIGATION
-    ============================================================ */
-    .nav {
-      position: fixed;
-      inset: 0 0 auto 0;
-      height: var(--nav-h);
-      z-index: 200;
-      background: rgba(11, 11, 11, 0.82);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .nav__inner {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav__logo {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-12);
-    }
-
-    .nav__logo-mark {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--amber);
-    }
-
-    .nav__logo-text {
-      font-family: var(--font-mono);
-      font-size: 0.76rem;
-      letter-spacing: 0.1em;
-      color: var(--text-primary);
-      opacity: 0.85;
-    }
-
-    .nav__links {
-      display: flex;
-      gap: var(--sp-32);
-    }
-
-    .nav__link {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-secondary);
-      transition: color var(--t-fast) var(--ease);
-      padding: var(--sp-4) 0;
-      border-bottom: 1px solid transparent;
-    }
-
-    .nav__link:hover {
-      color: var(--text-primary);
-    }
-
-    /* ============================================================
-       HERO
-    ============================================================ */
+    /* ── Hero ── */
     .hero {
       min-height: 72svh;
       display: flex;
@@ -272,523 +21,148 @@
       position: relative;
       overflow: hidden;
     }
-
-    /* Dot-grid texture */
     .hero__bg {
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle, #2a2520 1px, transparent 1px);
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, #2a2520 1px, transparent 1px);
       background-size: 28px 28px;
       pointer-events: none;
     }
-
-    /* Vignette over the dots */
     .hero__vignette {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background:
         radial-gradient(ellipse 70% 50% at 70% 50%, transparent 30%, var(--bg) 90%),
         linear-gradient(to bottom, var(--bg) 0%, transparent 18%),
         linear-gradient(to bottom, transparent 60%, var(--bg) 100%);
       pointer-events: none;
     }
-
-    /* Decorative abstract SVG shape (top-right corner) */
     .hero__ornament {
-      position: absolute;
-      top: var(--nav-h);
-      right: 0;
-      width: min(420px, 40vw);
-      opacity: 0.13;
-      pointer-events: none;
+      position: absolute; top: var(--nav-h); right: 0;
+      width: min(480px, 44vw); opacity: 0.13; pointer-events: none;
     }
+    .hero__content { position: relative; z-index: 1; }
+    .hero__eyebrow { display: flex; align-items: center; gap: var(--sp-16); margin-bottom: var(--sp-32); }
+    .hero__rule { width: 40px; height: 1px; background: var(--amber); flex-shrink: 0; }
+    .hero__name { margin-bottom: var(--sp-24); color: var(--text-primary); }
+    .hero__name em { font-style: italic; color: var(--text-secondary); display: block; }
+    .hero__sub { max-width: 520px; margin-bottom: var(--sp-32); }
+    .hero__chips { display: flex; flex-wrap: wrap; gap: var(--sp-8); }
 
-    .hero__content {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero__eyebrow {
-      display: flex;
-      align-items: center;
-      gap: var(--sp-16);
-      margin-bottom: var(--sp-24);
-    }
-
-    .hero__rule {
-      width: 36px;
-      height: 1px;
-      background: var(--amber);
-      flex-shrink: 0;
-    }
-
-    .hero__name {
-      margin-bottom: var(--sp-24);
-      color: var(--text-primary);
-    }
-
-    .hero__name em {
-      font-style: italic;
-      color: var(--text-secondary);
-      display: block;
-    }
-
-    .hero__sub {
-      max-width: 520px;
-      margin-bottom: var(--sp-32);
-    }
-
-    .hero__chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--sp-8);
-    }
-
-    .chip {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      border-radius: 2px;
-      background: transparent;
-      transition: border-color var(--t-fast), color var(--t-fast);
-    }
-
-    .chip:hover {
-      border-color: var(--text-muted);
-      color: var(--text-secondary);
-    }
-
-    /* ============================================================
-       INTRO
-    ============================================================ */
-    .intro {
-      padding-block: var(--sp-48);
-      border-top: 1px solid var(--border-light);
-    }
-
-    .intro__grid {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: var(--sp-48);
-      align-items: start;
-    }
-
-    .intro__side {
-      padding-top: 3px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-8);
-    }
-
+    /* ── Intro ── */
+    .intro { padding-block: var(--sp-48); border-top: 1px solid var(--border-light); }
+    .intro__grid { display: grid; grid-template-columns: 140px 1fr; gap: var(--sp-48); align-items: start; }
+    .intro__side { padding-top: 3px; display: flex; flex-direction: column; gap: var(--sp-8); }
     .intro__text {
-      font-family: var(--font-display);
-      font-size: clamp(1.15rem, 1.6vw, 1.4rem);
-      font-weight: 300;
-      line-height: 1.6;
-      color: var(--text-secondary);
+      font-family: var(--font-display); font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+      font-weight: 300; line-height: 1.6; color: var(--text-secondary);
     }
+    .intro__text strong { color: var(--text-primary); font-weight: 400; }
 
-    .intro__text strong {
-      color: var(--text-primary);
-      font-weight: 400;
-    }
-
-    /* ============================================================
-       MAP SECTION
-    ============================================================ */
-    .map-section {
-      padding-block: var(--sp-32) var(--sp-64);
-    }
-
+    /* ── Map section ── */
+    .map-section { padding-block: var(--sp-32) var(--sp-64); }
     .map-section__header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: var(--sp-16);
-      margin-bottom: var(--sp-32);
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: var(--sp-16); margin-bottom: var(--sp-32);
       border-bottom: 1px solid var(--border);
     }
+    .map-layout { display: flex; align-items: center; gap: clamp(32px, 5vw, 72px); }
+    .map-wheel-wrap { flex: 0 0 auto; width: clamp(260px, 38vw, 420px); }
+    .map-wheel { width: 100%; height: auto; display: block; }
 
-    /* ── Desktop layout: wheel left, card right ── */
-    .map-layout {
-      display: flex;
-      align-items: center;
-      gap: clamp(32px, 5vw, 72px);
-    }
-
-    .map-wheel-wrap {
-      flex: 0 0 auto;
-      width: clamp(260px, 38vw, 420px);
-    }
-
-    .map-wheel {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* ── SVG Segments ── */
-    .map-seg {
-      cursor: pointer;
-    }
-
+    /* SVG Segments */
+    .map-seg { cursor: pointer; }
     .map-seg path {
-      fill: var(--seg-fill);
-      stroke: var(--bg);
-      stroke-width: 2.5;
+      fill: var(--seg-fill); stroke: var(--bg); stroke-width: 2.5;
       transition: fill var(--t-base) var(--ease);
     }
-
     .map-seg .map-seg-num {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      fill: var(--text-muted);
-      pointer-events: none;
-      dominant-baseline: central;
-      transition: fill var(--t-base) var(--ease);
-      letter-spacing: 0.06em;
+      font-family: var(--font-mono); font-size: 13px; fill: var(--text-muted);
+      pointer-events: none; dominant-baseline: central;
+      transition: fill var(--t-base) var(--ease); letter-spacing: 0.06em;
     }
-
     .map-seg:hover path,
     .map-seg:focus-visible path,
-    .map-seg[aria-pressed="true"] path {
-      fill: var(--seg-active-fill);
-    }
-
+    .map-seg[aria-pressed="true"] path { fill: var(--seg-active-fill); }
     .map-seg:hover .map-seg-num,
     .map-seg:focus-visible .map-seg-num,
-    .map-seg[aria-pressed="true"] .map-seg-num {
-      fill: var(--text-secondary);
-    }
+    .map-seg[aria-pressed="true"] .map-seg-num { fill: var(--text-secondary); }
+    .map-seg:focus-visible { outline: none; }
+    .map-seg:focus-visible path { stroke: var(--seg-accent); stroke-width: 3; }
+    .map-center circle, .map-center line { stroke: var(--text-muted); fill: none; opacity: 0.35; }
+    .map-center-dot { fill: var(--text-muted); opacity: 0.5; }
 
-    .map-seg:focus-visible {
-      outline: none;
-    }
-
-    .map-seg:focus-visible path {
-      stroke: var(--seg-accent);
-      stroke-width: 3;
-    }
-
-    /* Centre ornament */
-    .map-center circle,
-    .map-center line {
-      stroke: var(--text-muted);
-      fill: none;
-      opacity: 0.3;
-    }
-
-    .map-center .map-center-dot {
-      fill: var(--text-muted);
-      stroke: none;
-      opacity: 0.4;
-    }
-
-    /* ── Info Card Panel ── */
-    .map-card-panel {
-      flex: 1;
-      position: relative;
-      min-height: 288px;
-    }
-
+    /* Card panel */
+    .map-card-panel { flex: 1; min-width: 0; position: relative; min-height: 300px; padding-left: 20px; }
     .map-card {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      opacity: 0;
-      transform: translateX(10px);
+      position: absolute; top: 0; left: 0; right: 0;
+      opacity: 0; transform: translateX(10px);
+      transition: opacity var(--t-base) var(--ease), transform var(--t-base) var(--ease);
       pointer-events: none;
-      transition:
-        opacity var(--t-base) var(--ease),
-        transform var(--t-base) var(--ease);
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-12);
-      padding: var(--sp-4) 0 var(--sp-4) var(--sp-24);
-      border-left: 3px solid var(--card-accent, var(--border));
+      display: flex; flex-direction: column; gap: var(--sp-12);
     }
-
-    .map-card.active {
-      opacity: 1;
-      transform: translateX(0);
-      pointer-events: auto;
+    .map-card.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+    .map-card::before {
+      content: ''; display: block; width: 2px; height: 100%;
+      background: var(--card-accent); position: absolute; left: -20px; top: 0; opacity: 0.6;
     }
+    .map-card__index { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--card-accent); }
+    .map-card__title { font-family: var(--font-display); font-size: clamp(1.4rem, 2.2vw, 2rem); font-weight: 300; color: var(--text-primary); line-height: 1.1; }
+    .map-card__desc { font-size: clamp(0.875rem, 1vw, 0.975rem); color: var(--text-secondary); line-height: 1.7; max-width: 440px; }
+    .map-card__tags { display: flex; flex-wrap: wrap; gap: var(--sp-8); }
+    .map-card__tag { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--border); color: var(--text-muted); border-radius: 2px; }
+    .map-card__link { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--card-accent); transition: opacity var(--t-fast); align-self: flex-start; padding-top: var(--sp-8); }
+    .map-card__link:hover { opacity: 0.7; }
 
-    .map-card__index {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--card-accent, var(--text-muted));
-    }
+    /* Mobile list */
+    .map-mobile-list { display: none; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+    .map-mobile-card { display: flex; align-items: stretch; background: var(--surface); transition: background var(--t-fast); min-height: 72px; }
+    .map-mobile-card:hover { background: var(--surface-raised); }
+    .map-mobile-card__stripe { width: 3px; background: var(--mc-accent, var(--amber)); flex-shrink: 0; }
+    .map-mobile-card__body { flex: 1; padding: var(--sp-16) var(--sp-20); display: flex; flex-direction: column; gap: var(--sp-4); justify-content: center; }
+    .map-mobile-card__index { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mc-accent, var(--text-muted)); }
+    .map-mobile-card__title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 300; color: var(--text-primary); }
+    .map-mobile-card__tags { display: flex; gap: var(--sp-8); flex-wrap: wrap; }
+    .map-mobile-card__tag { font-family: var(--font-mono); font-size: 0.55rem; letter-spacing: 0.07em; text-transform: uppercase; padding: 2px 6px; border: 1px solid var(--border); color: var(--text-muted); border-radius: 2px; }
+    .map-mobile-card__arrow { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted); padding-right: var(--sp-16); align-self: center; flex-shrink: 0; }
 
-    .map-card__title {
-      font-family: var(--font-display);
-      font-size: clamp(1.4rem, 2.2vw, 2.1rem);
-      font-weight: 400;
-      line-height: 1.1;
-      color: var(--text-primary);
-    }
-
-    .map-card__desc {
-      font-family: var(--font-body);
-      font-size: 0.9rem;
-      line-height: 1.72;
-      color: var(--text-secondary);
-      max-width: 400px;
-    }
-
-    .map-card__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-    }
-
-    .map-card__tag {
-      font-family: var(--font-mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 3px 7px;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      border-radius: 2px;
-    }
-
-    .map-card__link {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      color: var(--card-accent, var(--text-muted));
-      display: inline-flex;
-      align-items: center;
-      gap: var(--sp-8);
-      opacity: 0.72;
-      margin-top: var(--sp-4);
-      transition:
-        opacity var(--t-fast) var(--ease),
-        gap var(--t-fast) var(--ease);
-    }
-
-    .map-card__link:hover {
-      opacity: 1;
-      gap: var(--sp-12);
-    }
-
-    /* ── Mobile Fallback ── */
-    .map-mobile-list {
-      display: none;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .map-mobile-card {
-      display: flex;
-      align-items: stretch;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-md);
-      text-decoration: none;
-      color: inherit;
-      overflow: hidden;
-      min-height: 72px;
-      transition:
-        background var(--t-fast) var(--ease),
-        border-color var(--t-fast) var(--ease);
-    }
-
-    .map-mobile-card:hover {
-      background: var(--surface-raised);
-      border-color: color-mix(in srgb, var(--mc-accent) 35%, var(--border));
-    }
-
-    .map-mobile-card__stripe {
-      width: 4px;
-      flex-shrink: 0;
-      background: var(--mc-accent, var(--border));
-    }
-
-    .map-mobile-card__body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-4);
-      padding: var(--sp-16);
-      justify-content: center;
-    }
-
-    .map-mobile-card__index {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .map-mobile-card__title {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: var(--text-primary);
-      line-height: 1.2;
-    }
-
-    .map-mobile-card__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 3px;
-    }
-
-    .map-mobile-card__tag {
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      border-radius: 2px;
-    }
-
-    .map-mobile-card__arrow {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      padding-right: var(--sp-16);
-      align-self: center;
-      flex-shrink: 0;
-    }
-
-    /* ============================================================
-       FOOTER
-    ============================================================ */
-    .footer {
-      padding-block: var(--sp-32);
-      border-top: 1px solid var(--border-light);
-    }
-
-    .footer__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer__links {
-      display: flex;
-      gap: var(--sp-24);
-    }
-
-    .footer__link {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      transition: color var(--t-fast) var(--ease);
-    }
-
-    .footer__link:hover {
-      color: var(--text-secondary);
-    }
-
-    /* ============================================================
-       SCROLL-REVEAL
-    ============================================================ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition:
-        opacity 0.55s var(--ease),
-        transform 0.55s var(--ease);
-    }
-
-    .reveal.in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ============================================================
-       RESPONSIVE
-    ============================================================ */
+    /* Responsive */
     @media (max-width: 900px) {
-      .map-layout {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .map-wheel-wrap {
-        width: clamp(240px, 72vw, 380px);
-      }
-
-      .map-card-panel {
-        width: 100%;
-      }
-
-      .map-card__desc {
-        max-width: 100%;
-      }
+      .map-layout { flex-direction: column; align-items: center; }
+      .map-wheel-wrap { width: clamp(240px, 72vw, 380px); }
+      .map-card-panel { width: 100%; }
+      .map-card__desc { max-width: 100%; }
     }
-
     @media (max-width: 768px) {
-      .nav__links { display: none; }
-
-      .intro__grid {
-        grid-template-columns: 1fr;
-        gap: var(--sp-16);
-      }
-
+      .intro__grid { grid-template-columns: 1fr; gap: var(--sp-16); }
       .map-layout { display: none; }
       .map-mobile-list { display: flex; }
     }
-
     @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; }
       .map-card { transition: none; }
-      * { transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ============================================================
-       NAVIGATION
-  ============================================================ -->
   <nav class="nav" aria-label="Main navigation">
     <div class="wrap nav__inner">
-
-      <a href="/" class="nav__logo" aria-label="Home">
+      <a href="index.html" class="nav__logo" aria-label="Home">
         <span class="nav__logo-mark" aria-hidden="true"></span>
         <span class="nav__logo-text">[Your Name]</span>
       </a>
-
       <ul class="nav__links" role="list">
-        <li><a href="#work"    class="nav__link">Work</a></li>
-        <li><a href="#"        class="nav__link">Case Studies</a></li>
-        <li><a href="#"        class="nav__link">Bio</a></li>
-        <li><a href="#"        class="nav__link">Contact</a></li>
+        <li><a href="#work"            class="nav__link">Work</a></li>
+        <li><a href="projects.html"    class="nav__link">Projects</a></li>
+        <li><a href="bio.html"         class="nav__link">Bio</a></li>
+        <li><a href="bio.html#contact" class="nav__link">Contact</a></li>
       </ul>
-
     </div>
   </nav>
 
-
-  <!-- ============================================================
-       HERO
-  ============================================================ -->
+  <!-- HERO -->
   <section class="hero" aria-label="Introduction">
-
     <div class="hero__bg" aria-hidden="true"></div>
     <div class="hero__vignette" aria-hidden="true"></div>
-
-    <!-- Decorative corner ornament (abstract scientific motif) -->
     <svg class="hero__ornament" aria-hidden="true" viewBox="0 0 400 400" fill="none">
       <circle cx="200" cy="200" r="160" stroke="#c4824a" stroke-width="0.5"/>
       <circle cx="200" cy="200" r="120" stroke="#c4824a" stroke-width="0.5"/>
@@ -798,30 +172,25 @@
       <line x1="200" y1="0"   x2="200" y2="400" stroke="#c4824a" stroke-width="0.4"/>
       <line x1="40"  y1="40"  x2="360" y2="360" stroke="#c4824a" stroke-width="0.3"/>
       <line x1="360" y1="40"  x2="40"  y2="360" stroke="#c4824a" stroke-width="0.3"/>
-      <circle cx="200" cy="200" r="4" fill="#c4824a"/>
-      <circle cx="200" cy="80"  r="3" fill="#c4824a" opacity="0.5"/>
-      <circle cx="200" cy="320" r="3" fill="#c4824a" opacity="0.5"/>
-      <circle cx="80"  cy="200" r="3" fill="#c4824a" opacity="0.5"/>
-      <circle cx="320" cy="200" r="3" fill="#c4824a" opacity="0.5"/>
+      <circle cx="200" cy="200" r="4"  fill="#c4824a"/>
+      <circle cx="200" cy="80"  r="3"  fill="#c4824a" opacity="0.5"/>
+      <circle cx="200" cy="320" r="3"  fill="#c4824a" opacity="0.5"/>
+      <circle cx="80"  cy="200" r="3"  fill="#c4824a" opacity="0.5"/>
+      <circle cx="320" cy="200" r="3"  fill="#c4824a" opacity="0.5"/>
     </svg>
-
     <div class="wrap hero__content">
-
       <div class="hero__eyebrow">
         <div class="hero__rule" aria-hidden="true"></div>
-        <span class="t-label">Portfolio · 2026</span>
+        <span class="t-label">Portfolio &middot; 2026</span>
       </div>
-
       <h1 class="t-display hero__name">
         [Your Name]<br>
         <em>[Tagline or title]</em>
       </h1>
-
       <p class="t-body hero__sub">
-        Placeholder: A one- or two-line descriptor of your work — the intersection
+        Placeholder: A one- or two-line descriptor of your work &mdash; the intersection
         you occupy across science, data, and human endeavour.
       </p>
-
       <div class="hero__chips" role="list" aria-label="Areas of work">
         <span class="chip" role="listitem">Neuroscience</span>
         <span class="chip" role="listitem">Data Science</span>
@@ -829,108 +198,82 @@
         <span class="chip" role="listitem">Life Sciences</span>
         <span class="chip" role="listitem">Operations</span>
         <span class="chip" role="listitem">Teaching</span>
-        <span class="chip" role="listitem">Creative</span>
       </div>
-
     </div>
   </section>
 
-
-  <!-- ============================================================
-       SHORT INTRO
-  ============================================================ -->
+  <!-- INTRO -->
   <section class="intro reveal" id="about" aria-labelledby="intro-heading">
     <div class="wrap">
       <div class="intro__grid">
-
         <div class="intro__side">
           <span class="t-label" id="intro-heading">About</span>
         </div>
-
         <p class="intro__text">
-          Placeholder intro — two or three sentences that feel genuinely personal.
+          Placeholder intro &mdash; two or three sentences that feel genuinely personal.
           <strong>What brings these areas together?</strong> Something about the thread
-          connecting bench science, computation, creative thinking, and the people
-          you've taught and worked with. Not a CV summary — a point of view.
+          connecting bench science, computation, and the people you have taught and worked
+          with. Not a CV summary &mdash; a point of view.
         </p>
-
       </div>
     </div>
   </section>
 
-
-  <!-- ============================================================
-       PORTFOLIO MAP
-  ============================================================ -->
+  <!-- PORTFOLIO MAP -->
   <section class="map-section reveal" id="work" aria-labelledby="map-heading">
     <div class="wrap--wide">
-
       <div class="map-section__header">
         <span class="t-label" id="map-heading">Portfolio Map</span>
         <span class="t-mono-sm">06 sections</span>
       </div>
 
-      <!-- Desktop: SVG wheel + info card panel -->
+      <!-- Desktop: wheel + card panel -->
       <div class="map-layout" role="region" aria-label="Interactive portfolio map">
-
         <div class="map-wheel-wrap">
-          <!--
-            SVG donut wheel — 6 × 60° segments.
-            Each <g> is a keyboard-focusable button.
-            Segment path geometry: outer R=170, inner r=46, centre (200,200).
-            Segments are clockwise from top: 01 at top-right, going round.
-          -->
           <svg class="map-wheel" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-
-            <!-- 01 · Data Science & Computing — teal — -90° → -30° -->
+            <!-- 01 Data Science — teal -->
             <g class="map-seg" data-seg="0" role="button" tabindex="0"
-               aria-label="01 — Data Science and Computing" aria-pressed="true"
+               aria-label="01 Data Science and Computing" aria-pressed="true"
                style="--seg-fill:rgba(69,176,158,0.14);--seg-active-fill:rgba(69,176,158,0.28);--seg-accent:#45b09e;">
               <path d="M 200,30 A 170,170 0 0,1 347.2,115 L 239.8,177 A 46,46 0 0,0 200,154 Z"/>
               <text class="map-seg-num" x="254" y="107" text-anchor="middle">01</text>
             </g>
-
-            <!-- 02 · Life Sciences — sage — -30° → 30° -->
+            <!-- 02 Life Sciences — sage -->
             <g class="map-seg" data-seg="1" role="button" tabindex="0"
-               aria-label="02 — Life Sciences" aria-pressed="false"
+               aria-label="02 Life Sciences" aria-pressed="false"
                style="--seg-fill:rgba(114,168,130,0.14);--seg-active-fill:rgba(114,168,130,0.28);--seg-accent:#72a882;">
               <path d="M 347.2,115 A 170,170 0 0,1 347.2,285 L 239.8,223 A 46,46 0 0,0 239.8,177 Z"/>
               <text class="map-seg-num" x="308" y="200" text-anchor="middle">02</text>
             </g>
-
-            <!-- 03 · Operations — sky — 30° → 90° -->
+            <!-- 03 Operations — sky -->
             <g class="map-seg" data-seg="2" role="button" tabindex="0"
-               aria-label="03 — Operations" aria-pressed="false"
+               aria-label="03 Operations" aria-pressed="false"
                style="--seg-fill:rgba(94,143,181,0.14);--seg-active-fill:rgba(94,143,181,0.28);--seg-accent:#5e8fb5;">
               <path d="M 347.2,285 A 170,170 0 0,1 200,370 L 200,246 A 46,46 0 0,0 239.8,223 Z"/>
               <text class="map-seg-num" x="254" y="294" text-anchor="middle">03</text>
             </g>
-
-            <!-- 04 · Teaching & Communication — gold — 90° → 150° -->
+            <!-- 04 Teaching — gold -->
             <g class="map-seg" data-seg="3" role="button" tabindex="0"
-               aria-label="04 — Teaching and Communication" aria-pressed="false"
+               aria-label="04 Teaching and Communication" aria-pressed="false"
                style="--seg-fill:rgba(200,168,78,0.14);--seg-active-fill:rgba(200,168,78,0.28);--seg-accent:#c8a84e;">
               <path d="M 200,370 A 170,170 0 0,1 52.8,285 L 160.2,223 A 46,46 0 0,0 200,246 Z"/>
               <text class="map-seg-num" x="146" y="294" text-anchor="middle">04</text>
             </g>
-
-            <!-- 05 · Selected Projects — amber — 150° → 210° -->
+            <!-- 05 Projects — amber -->
             <g class="map-seg" data-seg="4" role="button" tabindex="0"
-               aria-label="05 — Selected Projects" aria-pressed="false"
+               aria-label="05 Selected Projects" aria-pressed="false"
                style="--seg-fill:rgba(196,130,74,0.14);--seg-active-fill:rgba(196,130,74,0.28);--seg-accent:#c4824a;">
               <path d="M 52.8,285 A 170,170 0 0,1 52.8,115 L 160.2,177 A 46,46 0 0,0 160.2,223 Z"/>
               <text class="map-seg-num" x="92" y="200" text-anchor="middle">05</text>
             </g>
-
-            <!-- 06 · Bio — warm — 210° → 270° -->
+            <!-- 06 Bio — warm -->
             <g class="map-seg" data-seg="5" role="button" tabindex="0"
-               aria-label="06 — Bio" aria-pressed="false"
+               aria-label="06 Bio" aria-pressed="false"
                style="--seg-fill:rgba(140,120,98,0.14);--seg-active-fill:rgba(140,120,98,0.28);--seg-accent:#8c7862;">
               <path d="M 52.8,115 A 170,170 0 0,1 200,30 L 200,154 A 46,46 0 0,0 160.2,177 Z"/>
               <text class="map-seg-num" x="146" y="107" text-anchor="middle">06</text>
             </g>
-
-            <!-- Centre ornament (decorative scientific motif) -->
+            <!-- Centre ornament -->
             <g class="map-center" aria-hidden="true">
               <circle cx="200" cy="200" r="38" stroke-width="0.6"/>
               <circle cx="200" cy="200" r="24" stroke-width="0.5"/>
@@ -938,279 +281,195 @@
               <line x1="200" y1="224" x2="200" y2="238" stroke-width="0.6"/>
               <line x1="162" y1="200" x2="176" y2="200" stroke-width="0.6"/>
               <line x1="224" y1="200" x2="238" y2="200" stroke-width="0.6"/>
-              <circle class="map-center-dot" cx="200" cy="200" r="3"/>
+              <circle cx="200" cy="200" r="2.5" class="map-center-dot"/>
             </g>
-
           </svg>
-        </div><!-- /map-wheel-wrap -->
+        </div>
 
-        <!-- Info cards — one per segment, toggled by JS -->
         <div class="map-card-panel" aria-live="polite" aria-atomic="true">
-
-          <!-- Card 0: Data Science & Computing -->
           <div class="map-card active" data-card="0" style="--card-accent:var(--teal);">
-            <span class="map-card__index">01 · Data Science &amp; Computing</span>
+            <span class="map-card__index">01 &middot; Data Science &amp; Computing</span>
             <h2 class="map-card__title">Analysis &amp; Machine Learning</h2>
-            <p class="map-card__desc">
-              Placeholder — connectome analysis, statistical simulations, machine
-              learning models, graph methods, and applied software. Includes
-              analytical work, methods &amp; evidence, and selected projects.
-            </p>
-            <div class="map-card__tags">
-              <span class="map-card__tag">ML</span>
-              <span class="map-card__tag">Statistics</span>
-              <span class="map-card__tag">Python</span>
-            </div>
-            <a href="#" class="map-card__link">→ View section</a>
+            <p class="map-card__desc">Placeholder &mdash; connectome analysis, statistical simulations, machine learning models, graph methods, and applied software.</p>
+            <div class="map-card__tags"><span class="map-card__tag">ML</span><span class="map-card__tag">Statistics</span><span class="map-card__tag">Python</span></div>
+            <a href="data-science.html" class="map-card__link">&#x2192; View section</a>
           </div>
-
-          <!-- Card 1: Life Sciences -->
           <div class="map-card" data-card="1" style="--card-accent:var(--sage);">
-            <span class="map-card__index">02 · Life Sciences</span>
+            <span class="map-card__index">02 &middot; Life Sciences</span>
             <h2 class="map-card__title">Research &amp; Neurobiology</h2>
-            <p class="map-card__desc">
-              Placeholder — connectomics, behaviour, optical imaging, and molecular
-              methods. Research spanning neurobiology and life science methodology.
-            </p>
-            <div class="map-card__tags">
-              <span class="map-card__tag">Neuro</span>
-              <span class="map-card__tag">Imaging</span>
-              <span class="map-card__tag">Connectomics</span>
-            </div>
-            <a href="#" class="map-card__link">→ View section</a>
+            <p class="map-card__desc">Placeholder &mdash; connectomics, behaviour, optical imaging, and molecular methods. Research spanning neurobiology and life science methodology.</p>
+            <div class="map-card__tags"><span class="map-card__tag">Neuro</span><span class="map-card__tag">Imaging</span><span class="map-card__tag">Connectomics</span></div>
+            <a href="life-sciences.html" class="map-card__link">&#x2192; View section</a>
           </div>
-
-          <!-- Card 2: Operations -->
           <div class="map-card" data-card="2" style="--card-accent:var(--sky);">
-            <span class="map-card__index">03 · Operations</span>
+            <span class="map-card__index">03 &middot; Operations</span>
             <h2 class="map-card__title">Systems &amp; Coordination</h2>
-            <p class="map-card__desc">
-              Placeholder — scientific core facilities, pharmaceutical operations,
-              KPI reporting, and cross-team coordination at scale.
-            </p>
-            <div class="map-card__tags">
-              <span class="map-card__tag">Pharma</span>
-              <span class="map-card__tag">Ops</span>
-              <span class="map-card__tag">KPI</span>
-            </div>
-            <a href="#" class="map-card__link">→ View section</a>
+            <p class="map-card__desc">Placeholder &mdash; scientific core facilities, pharmaceutical operations, KPI reporting, and cross-team coordination at scale.</p>
+            <div class="map-card__tags"><span class="map-card__tag">Pharma</span><span class="map-card__tag">Ops</span><span class="map-card__tag">KPI</span></div>
+            <a href="operations.html" class="map-card__link">&#x2192; View section</a>
           </div>
-
-          <!-- Card 3: Teaching & Communication -->
           <div class="map-card" data-card="3" style="--card-accent:var(--gold);">
-            <span class="map-card__index">04 · Teaching &amp; Communication</span>
+            <span class="map-card__index">04 &middot; Teaching &amp; Communication</span>
             <h2 class="map-card__title">Pedagogy &amp; Training</h2>
-            <p class="map-card__desc">
-              Placeholder — course instruction, research methods, neurohistology
-              training, Python TA work, and public-facing technical workshops.
-            </p>
-            <div class="map-card__tags">
-              <span class="map-card__tag">Teaching</span>
-              <span class="map-card__tag">Workshops</span>
-              <span class="map-card__tag">Curriculum</span>
-            </div>
-            <a href="#" class="map-card__link">→ View section</a>
+            <p class="map-card__desc">Placeholder &mdash; course instruction, research methods, neurohistology training, Python TA work, and public-facing technical workshops.</p>
+            <div class="map-card__tags"><span class="map-card__tag">Teaching</span><span class="map-card__tag">Workshops</span><span class="map-card__tag">Curriculum</span></div>
+            <a href="teaching.html" class="map-card__link">&#x2192; View section</a>
           </div>
-
-          <!-- Card 4: Selected Projects -->
           <div class="map-card" data-card="4" style="--card-accent:var(--amber);">
-            <span class="map-card__index">05 · Selected Projects</span>
+            <span class="map-card__index">05 &middot; Selected Projects</span>
             <h2 class="map-card__title">Case Studies &amp; Builds</h2>
-            <p class="map-card__desc">
-              Placeholder — a curated set of analytical, engineering, and applied
-              projects. Case studies, optimisation work, and software tools.
-            </p>
-            <div class="map-card__tags">
-              <span class="map-card__tag">Case Study</span>
-              <span class="map-card__tag">Analysis</span>
-              <span class="map-card__tag">Tools</span>
-            </div>
-            <a href="#" class="map-card__link">→ View section</a>
+            <p class="map-card__desc">Placeholder &mdash; a curated set of analytical, engineering, and applied projects. Case studies, optimisation work, and software tools.</p>
+            <div class="map-card__tags"><span class="map-card__tag">Case Study</span><span class="map-card__tag">Analysis</span><span class="map-card__tag">Tools</span></div>
+            <a href="projects.html" class="map-card__link">&#x2192; View section</a>
           </div>
-
-          <!-- Card 5: Bio -->
           <div class="map-card" data-card="5" style="--card-accent:var(--warm);">
-            <span class="map-card__index">06 · Bio</span>
+            <span class="map-card__index">06 &middot; Bio</span>
             <h2 class="map-card__title">Background &amp; Timeline</h2>
-            <p class="map-card__desc">
-              Placeholder — education, career path, CV, and contact. The longer
-              story of how these areas connect and what comes next.
-            </p>
-            <div class="map-card__tags">
-              <span class="map-card__tag">CV</span>
-              <span class="map-card__tag">Education</span>
-              <span class="map-card__tag">Contact</span>
-            </div>
-            <a href="#" class="map-card__link">→ View section</a>
+            <p class="map-card__desc">Placeholder &mdash; education, career path, CV, and contact. The longer story of how these areas connect and what comes next.</p>
+            <div class="map-card__tags"><span class="map-card__tag">CV</span><span class="map-card__tag">Education</span><span class="map-card__tag">Contact</span></div>
+            <a href="bio.html" class="map-card__link">&#x2192; View section</a>
           </div>
+        </div>
+      </div>
 
-        </div><!-- /map-card-panel -->
-
-      </div><!-- /map-layout -->
-
-
-      <!-- Mobile fallback: stacked section cards (visible ≤768px) -->
+      <!-- Mobile fallback -->
       <div class="map-mobile-list" role="list" aria-label="Portfolio sections">
-
-        <a class="map-mobile-card reveal" href="#" role="listitem" style="--mc-accent:var(--teal);">
+        <a class="map-mobile-card reveal" href="data-science.html" role="listitem" style="--mc-accent:var(--teal);">
           <span class="map-mobile-card__stripe" aria-hidden="true"></span>
           <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">01 · Data Science &amp; Computing</span>
+            <span class="map-mobile-card__index">01 &middot; Data Science</span>
             <span class="map-mobile-card__title">Analysis &amp; Machine Learning</span>
-            <div class="map-mobile-card__tags">
-              <span class="map-mobile-card__tag">ML</span>
-              <span class="map-mobile-card__tag">Statistics</span>
-              <span class="map-mobile-card__tag">Python</span>
-            </div>
+            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">ML</span><span class="map-mobile-card__tag">Python</span></div>
           </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">→</span>
+          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
         </a>
-
-        <a class="map-mobile-card reveal" href="#" role="listitem" style="--mc-accent:var(--sage);">
+        <a class="map-mobile-card reveal" href="life-sciences.html" role="listitem" style="--mc-accent:var(--sage);">
           <span class="map-mobile-card__stripe" aria-hidden="true"></span>
           <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">02 · Life Sciences</span>
+            <span class="map-mobile-card__index">02 &middot; Life Sciences</span>
             <span class="map-mobile-card__title">Research &amp; Neurobiology</span>
-            <div class="map-mobile-card__tags">
-              <span class="map-mobile-card__tag">Neuro</span>
-              <span class="map-mobile-card__tag">Imaging</span>
-              <span class="map-mobile-card__tag">Connectomics</span>
-            </div>
+            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">Neuro</span><span class="map-mobile-card__tag">Imaging</span></div>
           </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">→</span>
+          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
         </a>
-
-        <a class="map-mobile-card reveal" href="#" role="listitem" style="--mc-accent:var(--sky);">
+        <a class="map-mobile-card reveal" href="operations.html" role="listitem" style="--mc-accent:var(--sky);">
           <span class="map-mobile-card__stripe" aria-hidden="true"></span>
           <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">03 · Operations</span>
+            <span class="map-mobile-card__index">03 &middot; Operations</span>
             <span class="map-mobile-card__title">Systems &amp; Coordination</span>
-            <div class="map-mobile-card__tags">
-              <span class="map-mobile-card__tag">Pharma</span>
-              <span class="map-mobile-card__tag">Ops</span>
-              <span class="map-mobile-card__tag">KPI</span>
-            </div>
+            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">Pharma</span><span class="map-mobile-card__tag">Ops</span></div>
           </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">→</span>
+          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
         </a>
-
-        <a class="map-mobile-card reveal" href="#" role="listitem" style="--mc-accent:var(--gold);">
+        <a class="map-mobile-card reveal" href="teaching.html" role="listitem" style="--mc-accent:var(--gold);">
           <span class="map-mobile-card__stripe" aria-hidden="true"></span>
           <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">04 · Teaching &amp; Communication</span>
+            <span class="map-mobile-card__index">04 &middot; Teaching &amp; Communication</span>
             <span class="map-mobile-card__title">Pedagogy &amp; Training</span>
-            <div class="map-mobile-card__tags">
-              <span class="map-mobile-card__tag">Teaching</span>
-              <span class="map-mobile-card__tag">Workshops</span>
-            </div>
+            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">Teaching</span></div>
           </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">→</span>
+          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
         </a>
-
-        <a class="map-mobile-card reveal" href="#" role="listitem" style="--mc-accent:var(--amber);">
+        <a class="map-mobile-card reveal" href="projects.html" role="listitem" style="--mc-accent:var(--amber);">
           <span class="map-mobile-card__stripe" aria-hidden="true"></span>
           <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">05 · Selected Projects</span>
+            <span class="map-mobile-card__index">05 &middot; Selected Projects</span>
             <span class="map-mobile-card__title">Case Studies &amp; Builds</span>
-            <div class="map-mobile-card__tags">
-              <span class="map-mobile-card__tag">Case Study</span>
-              <span class="map-mobile-card__tag">Analysis</span>
-            </div>
+            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">Case Study</span></div>
           </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">→</span>
+          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
         </a>
-
-        <a class="map-mobile-card reveal" href="#" role="listitem" style="--mc-accent:var(--warm);">
+        <a class="map-mobile-card reveal" href="bio.html" role="listitem" style="--mc-accent:var(--warm);">
           <span class="map-mobile-card__stripe" aria-hidden="true"></span>
           <div class="map-mobile-card__body">
-            <span class="map-mobile-card__index">06 · Bio</span>
+            <span class="map-mobile-card__index">06 &middot; Bio</span>
             <span class="map-mobile-card__title">Background &amp; Timeline</span>
-            <div class="map-mobile-card__tags">
-              <span class="map-mobile-card__tag">CV</span>
-              <span class="map-mobile-card__tag">Education</span>
-            </div>
+            <div class="map-mobile-card__tags"><span class="map-mobile-card__tag">CV</span></div>
           </div>
-          <span class="map-mobile-card__arrow" aria-hidden="true">→</span>
+          <span class="map-mobile-card__arrow" aria-hidden="true">&#x2192;</span>
         </a>
-
-      </div><!-- /map-mobile-list -->
-
-    </div><!-- /wrap--wide -->
+      </div>
+    </div>
   </section>
 
+  <!-- SECTION STRIP -->
+  <section class="section-strip reveal" aria-labelledby="sections-heading">
+    <div class="wrap--wide">
+      <div class="section-strip__header">
+        <span class="t-label" id="sections-heading">Sections</span>
+        <span class="t-mono-sm">Enter any section &#x2192;</span>
+      </div>
+      <nav class="section-strip__grid" aria-label="Portfolio sections">
+        <a class="section-entry" href="data-science.html" style="--entry-accent:var(--teal);">
+          <span class="section-entry__num">01</span>
+          <div class="section-entry__body">
+            <h3 class="section-entry__title">Data Science &amp; Computing</h3>
+            <p class="section-entry__sub">Analysis &middot; ML &middot; Graph Methods</p>
+          </div>
+          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
+          <span class="section-entry__accent" aria-hidden="true"></span>
+        </a>
+        <a class="section-entry" href="life-sciences.html" style="--entry-accent:var(--sage);">
+          <span class="section-entry__num">02</span>
+          <div class="section-entry__body">
+            <h3 class="section-entry__title">Life Sciences</h3>
+            <p class="section-entry__sub">Research &middot; Neurobiology &middot; Imaging</p>
+          </div>
+          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
+          <span class="section-entry__accent" aria-hidden="true"></span>
+        </a>
+        <a class="section-entry" href="operations.html" style="--entry-accent:var(--sky);">
+          <span class="section-entry__num">03</span>
+          <div class="section-entry__body">
+            <h3 class="section-entry__title">Operations</h3>
+            <p class="section-entry__sub">Systems &middot; Coordination &middot; KPIs</p>
+          </div>
+          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
+          <span class="section-entry__accent" aria-hidden="true"></span>
+        </a>
+        <a class="section-entry" href="teaching.html" style="--entry-accent:var(--gold);">
+          <span class="section-entry__num">04</span>
+          <div class="section-entry__body">
+            <h3 class="section-entry__title">Teaching &amp; Communication</h3>
+            <p class="section-entry__sub">Pedagogy &middot; Workshops &middot; Curriculum</p>
+          </div>
+          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
+          <span class="section-entry__accent" aria-hidden="true"></span>
+        </a>
+        <a class="section-entry" href="projects.html" style="--entry-accent:var(--amber);">
+          <span class="section-entry__num">05</span>
+          <div class="section-entry__body">
+            <h3 class="section-entry__title">Selected Projects</h3>
+            <p class="section-entry__sub">Case Studies &middot; Builds &middot; Analysis</p>
+          </div>
+          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
+          <span class="section-entry__accent" aria-hidden="true"></span>
+        </a>
+        <a class="section-entry" href="bio.html" style="--entry-accent:var(--warm);">
+          <span class="section-entry__num">06</span>
+          <div class="section-entry__body">
+            <h3 class="section-entry__title">Bio</h3>
+            <p class="section-entry__sub">Background &middot; Timeline &middot; Contact</p>
+          </div>
+          <span class="section-entry__arrow" aria-hidden="true">&#x2192;</span>
+          <span class="section-entry__accent" aria-hidden="true"></span>
+        </a>
+      </nav>
+    </div>
+  </section>
 
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="wrap footer__inner">
-
-      <span class="t-label">[Your Name] · 2026</span>
-
+      <span class="t-label">[Your Name] &middot; 2026</span>
       <nav class="footer__links" aria-label="Footer links">
         <a href="#" class="footer__link">GitHub</a>
         <a href="#" class="footer__link">LinkedIn</a>
-        <a href="#" class="footer__link">Email</a>
+        <a href="bio.html#contact" class="footer__link">Email</a>
       </nav>
-
     </div>
   </footer>
 
-
-  <!-- ============================================================
-       SCROLL REVEAL + MAP INTERACTION
-  ============================================================ -->
-  <script>
-    (function () {
-      // ── Scroll Reveal ──────────────────────────────────────────
-      const reveals = document.querySelectorAll('.reveal');
-      if (reveals.length) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              const delay = entry.target.closest('.map-mobile-list')
-                ? Array.from(reveals).indexOf(entry.target) * 60
-                : 0;
-              setTimeout(() => entry.target.classList.add('in'), delay);
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.08 });
-        reveals.forEach(el => observer.observe(el));
-      }
-
-      // ── Portfolio Map Wheel ─────────────────────────────────────
-      const segs  = document.querySelectorAll('.map-seg');
-      const cards = document.querySelectorAll('.map-card');
-
-      if (!segs.length || !cards.length) return;
-
-      function activate(id) {
-        segs.forEach(seg => {
-          seg.setAttribute('aria-pressed', seg.dataset.seg === id ? 'true' : 'false');
-        });
-        cards.forEach(card => {
-          card.classList.toggle('active', card.dataset.card === id);
-        });
-      }
-
-      // Pre-select first segment on load
-      activate('0');
-
-      segs.forEach(seg => {
-        seg.addEventListener('mouseenter', () => activate(seg.dataset.seg));
-        seg.addEventListener('focus',      () => activate(seg.dataset.seg));
-        seg.addEventListener('click',      () => activate(seg.dataset.seg));
-        seg.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            activate(seg.dataset.seg);
-          }
-        });
-      });
-
-    })();
-  </script>
-
+  <script src="main.js"></script>
 </body>
 </html>

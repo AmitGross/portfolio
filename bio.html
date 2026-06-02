@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bio — [Your Name]</title>
+  <meta name="description" content="Background, career timeline, and contact information for [Your Name].">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root { --accent: var(--warm); }
+    .bio-intro-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: var(--sp-48);
+      align-items: start;
+      margin-bottom: var(--sp-64);
+    }
+    .bio-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .bio-photo__label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+      padding: var(--sp-16);
+    }
+    .bio-text { display: flex; flex-direction: column; gap: var(--sp-20); }
+    .bio-text p { font-size: clamp(0.9rem, 1.05vw, 1.05rem); color: var(--text-secondary); line-height: 1.75; }
+    .bio-text p strong { color: var(--text-primary); font-weight: 400; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .contact-item {
+      background: var(--surface);
+      padding: var(--sp-24) var(--sp-28);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-8);
+      transition: background var(--t-fast);
+    }
+    .contact-item:hover { background: var(--surface-raised); }
+    .contact-item__label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .contact-item__value { font-family: var(--font-display); font-size: 1.05rem; font-weight: 300; color: var(--text-primary); }
+    .contact-item__value a { color: var(--accent); transition: opacity var(--t-fast); }
+    .contact-item__value a:hover { opacity: 0.7; }
+    @media (max-width: 768px) {
+      .bio-intro-grid { grid-template-columns: 1fr; }
+      .bio-photo { max-width: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="wrap nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Home">
+        <span class="nav__logo-mark" aria-hidden="true"></span>
+        <span class="nav__logo-text">[Your Name]</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html#work"  class="nav__link">Work</a></li>
+        <li><a href="projects.html"    class="nav__link">Projects</a></li>
+        <li><a href="bio.html"         class="nav__link nav__link--active">Bio</a></li>
+        <li><a href="bio.html#contact" class="nav__link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="section-hero">
+    <div class="wrap section-hero__inner">
+      <div class="section-hero__meta">
+        <span class="t-label">06 &middot; Bio</span>
+        <div class="section-hero__rule"></div>
+      </div>
+      <h1 class="section-hero__title">Background &amp;<br>Timeline</h1>
+      <p class="section-hero__lead">
+        Placeholder lead &mdash; the longer story: where you trained, where you worked,
+        and what draws these disciplines together for you.
+      </p>
+    </div>
+    <span class="section-hero__ghost" aria-hidden="true">06</span>
+  </header>
+
+  <main class="section-content">
+    <div class="wrap">
+
+      <!-- Photo + intro text -->
+      <div class="bio-intro-grid reveal">
+        <div class="bio-photo">
+          <span class="bio-photo__label">Photo placeholder</span>
+        </div>
+        <div class="bio-text">
+          <p>
+            <strong>Placeholder paragraph one.</strong> Something about your formation
+            and what shaped your interests — not a list, a genuine paragraph.
+          </p>
+          <p>
+            Placeholder paragraph two. The thread across domains. How neuroscience
+            connected to data science, or how operations work informed your view
+            of research infrastructure.
+          </p>
+          <p>
+            Placeholder paragraph three. Current orientation — what you are working
+            on now and what you are interested in next.
+          </p>
+        </div>
+      </div>
+
+      <!-- Career timeline -->
+      <div class="rule-row reveal">
+        <span class="t-label">Career</span>
+      </div>
+      <ol class="timeline reveal" aria-label="Career timeline">
+        <li class="timeline__item">
+          <span class="timeline__year">2024&#x2013;</span>
+          <div class="timeline__body">
+            <h3 class="timeline__role">Role Placeholder</h3>
+            <p class="timeline__org">Organisation &mdash; Placeholder</p>
+            <p class="timeline__desc">Placeholder description of responsibilities and scope of work.</p>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__year">2020&#x2013;24</span>
+          <div class="timeline__body">
+            <h3 class="timeline__role">Role Placeholder</h3>
+            <p class="timeline__org">Organisation &mdash; Placeholder</p>
+            <p class="timeline__desc">Placeholder description of responsibilities and scope of work.</p>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__year">2017&#x2013;20</span>
+          <div class="timeline__body">
+            <h3 class="timeline__role">Role Placeholder</h3>
+            <p class="timeline__org">Organisation &mdash; Placeholder</p>
+            <p class="timeline__desc">Placeholder description of responsibilities and scope of work.</p>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Education timeline -->
+      <div class="rule-row reveal" style="margin-top: var(--sp-48);">
+        <span class="t-label">Education</span>
+      </div>
+      <ol class="timeline reveal" aria-label="Education timeline">
+        <li class="timeline__item">
+          <span class="timeline__year">20XX&#x2013;XX</span>
+          <div class="timeline__body">
+            <h3 class="timeline__role">Degree Placeholder</h3>
+            <p class="timeline__org">Institution &mdash; Placeholder</p>
+            <p class="timeline__desc">Placeholder thesis title or field of study.</p>
+          </div>
+        </li>
+        <li class="timeline__item">
+          <span class="timeline__year">20XX&#x2013;XX</span>
+          <div class="timeline__body">
+            <h3 class="timeline__role">Degree Placeholder</h3>
+            <p class="timeline__org">Institution &mdash; Placeholder</p>
+            <p class="timeline__desc">Placeholder thesis title or field of study.</p>
+          </div>
+        </li>
+      </ol>
+
+      <!-- Contact -->
+      <div class="rule-row reveal" id="contact" style="margin-top: var(--sp-64);">
+        <span class="t-label">Contact</span>
+      </div>
+      <div class="contact-grid reveal">
+        <div class="contact-item">
+          <span class="contact-item__label">Email</span>
+          <span class="contact-item__value"><a href="mailto:placeholder@example.com">placeholder@example.com</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item__label">GitHub</span>
+          <span class="contact-item__value"><a href="#" target="_blank" rel="noopener">github.com/placeholder</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item__label">LinkedIn</span>
+          <span class="contact-item__value"><a href="#" target="_blank" rel="noopener">linkedin.com/in/placeholder</a></span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item__label">Location</span>
+          <span class="contact-item__value">City, Country</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <nav class="section-nav reveal" aria-label="Section navigation">
+    <div class="wrap section-nav__inner">
+      <a href="projects.html" class="section-nav__link section-nav__link--prev">
+        <span class="section-nav__dir">&#x2190; Prev</span>
+        <span class="section-nav__name">05 &middot; Selected Projects</span>
+      </a>
+      <a href="index.html" class="section-nav__link section-nav__link--next">
+        <span class="section-nav__dir">&#x2191; Top</span>
+        <span class="section-nav__name">Portfolio Home</span>
+      </a>
+    </div>
+  </nav>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span class="t-label">[Your Name] &middot; 2026</span>
+      <nav class="footer__links" aria-label="Footer links">
+        <a href="#" class="footer__link">GitHub</a>
+        <a href="#" class="footer__link">LinkedIn</a>
+        <a href="#contact" class="footer__link">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
