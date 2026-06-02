@@ -132,6 +132,7 @@
           `<h3 class="map-sub__title">${item.title}</h3>` +
           `<p class="map-sub__desc">${item.desc}</p>` +
           `<div class="map-sub__tags">${item.tags.map(t => `<span class="map-sub__tag">${t}</span>`).join('')}</div>` +
+          `<span class="map-sub__cta">Click for more info &#x2192;</span>` +
           `</a>`;
       }).join('');
       subsRow.classList.remove('is-updating');
