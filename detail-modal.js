@@ -19,9 +19,9 @@
     },
     'ds-02': {
       num: '02', category: 'Data Science & Computing',
-      title: 'Statistical Analysis & Simulation',
-      tags: ['R', 'Simulation', 'Statistics', 'ANOVA'],
-      desc: 'Statistical analysis of experimental data including hypothesis testing, ANOVA, regression modeling, simulations, and bootstrapping to evaluate patterns in biological and tabular datasets.',
+      title: 'Pre/Post Program Statistical Analysis & Behavioral Mapping',
+      tags: ['Python', 'Statistics', 'OpenStreetMap', 'Overpass Turbo', 'GIS'],
+      desc: 'Statistical analysis of pre/post program data, integrating behavioral outcomes with geographic and environmental mapping using OpenStreetMap and Overpass Turbo. The project linked program-related behavioral measures with spatial context to support interpretation of intervention effects.',
       context: '[placeholder \u2014 add project topic, research question, and dataset type]',
       did: 'Analyzed project data \u00b7 Applied statistical reasoning and tests \u00b7 Created plots, summaries, or reports \u00b7 Communicated findings to collaborators or stakeholders.',
       methods: 'Python \u00b7 R \u00b7 Pandas \u00b7 NumPy \u00b7 SciPy \u00b7 ANOVA \u00b7 t-tests \u00b7 regression \u00b7 statistical testing \u00b7 visualization',
