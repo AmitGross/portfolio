@@ -1,10 +1,10 @@
 /* ============================================================
-   PORTFOLIO — SHARED DESIGN SYSTEM
+   PORTFOLIO â€” SHARED DESIGN SYSTEM
    Scientific-editorial. Dark. Precise.
-   Cormorant Garamond × Source Serif 4 × DM Mono
+   Cormorant Garamond Ã— Source Serif 4 Ã— DM Mono
    ============================================================ */
 
-/* ── Custom Properties ─────────────────────────────────────── */
+/* â”€â”€ Custom Properties â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 :root {
   /* Backgrounds */
   --bg:             #0b0b0b;
@@ -63,7 +63,7 @@
   --t-slow: 480ms;
 }
 
-/* ── Reset ─────────────────────────────────────────────────── */
+/* â”€â”€ Reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -101,7 +101,7 @@ ul, ol { list-style: none; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
 
-/* ── Typography ────────────────────────────────────────────── */
+/* â”€â”€ Typography â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .t-display {
   font-family: var(--font-display);
   font-size: clamp(3.8rem, 9vw, 7.5rem);
@@ -158,7 +158,7 @@ ul, ol { list-style: none; }
   color: var(--text-secondary);
 }
 
-/* ── Layout ────────────────────────────────────────────────── */
+/* â”€â”€ Layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .wrap {
   max-width: var(--max-w);
   margin-inline: auto;
@@ -171,7 +171,7 @@ ul, ol { list-style: none; }
   padding-inline: var(--gutter);
 }
 
-/* ── Navigation ────────────────────────────────────────────── */
+/* â”€â”€ Navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav {
   position: fixed;
   inset: 0 0 auto 0;
@@ -233,7 +233,7 @@ ul, ol { list-style: none; }
 .nav__link:hover,
 .nav__link.active { color: var(--text-primary); }
 
-/* ── Hamburger button ──────────────────────────────────────── */
+/* â”€â”€ Hamburger button â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav__hamburger {
   background: none;
   border: 1px solid var(--border);
@@ -260,7 +260,7 @@ ul, ol { list-style: none; }
 .nav__hamburger[aria-expanded="true"] .nav__hamburger-bar:nth-child(2) { opacity: 0; }
 .nav__hamburger[aria-expanded="true"] .nav__hamburger-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-/* ── Hamburger slide-out menu ──────────────────────────────── */
+/* â”€â”€ Hamburger slide-out menu â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .nav-scrim {
   display: none;
   position: fixed;
@@ -318,7 +318,7 @@ ul, ol { list-style: none; }
 }
 .nav-menu__label { font-family: var(--font-display); font-size: 0.95rem; font-weight: 300; }
 
-/* ── Chip ──────────────────────────────────────────────────── */
+/* â”€â”€ Chip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .chip {
   font-family: var(--font-mono);
   font-size: 0.62rem;
@@ -332,7 +332,7 @@ ul, ol { list-style: none; }
   transition: border-color var(--t-fast), color var(--t-fast);
 }
 
-/* ── Divider Row ───────────────────────────────────────────── */
+/* â”€â”€ Divider Row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .rule-row {
   display: flex;
   align-items: center;
@@ -355,7 +355,7 @@ ul, ol { list-style: none; }
   white-space: nowrap;
 }
 
-/* ── Stats Band ────────────────────────────────────────────── */
+/* â”€â”€ Stats Band â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .stats-band {
   display: flex;
   gap: clamp(var(--sp-32), 6vw, var(--sp-80));
@@ -388,7 +388,7 @@ ul, ol { list-style: none; }
   color: var(--text-muted);
 }
 
-/* ── Card Grid ─────────────────────────────────────────────── */
+/* â”€â”€ Card Grid â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
@@ -478,7 +478,7 @@ ul, ol { list-style: none; }
   color: var(--accent, var(--amber));
 }
 
-/* ── Figure / Placeholder ──────────────────────────────────── */
+/* â”€â”€ Figure / Placeholder â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .fig-wrap {
   margin-bottom: var(--sp-64);
 }
@@ -558,7 +558,7 @@ ul, ol { list-style: none; }
   text-align: center;
 }
 
-/* ── Section Hero ──────────────────────────────────────────── */
+/* â”€â”€ Section Hero â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-hero {
   padding-top: calc(var(--nav-h) + var(--sp-80));
   padding-bottom: var(--sp-64);
@@ -627,7 +627,7 @@ ul, ol { list-style: none; }
   line-height: 1.7;
 }
 
-/* ── Section Content ───────────────────────────────────────── */
+/* â”€â”€ Section Content â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-content {
   padding-block: var(--sp-64);
 }
@@ -652,7 +652,7 @@ ul, ol { list-style: none; }
   background: var(--border);
 }
 
-/* ── Timeline ──────────────────────────────────────────────── */
+/* â”€â”€ Timeline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .timeline {
   display: grid;
   grid-template-columns: 76px 1fr;
@@ -721,7 +721,7 @@ ul, ol { list-style: none; }
   line-height: 1.65;
 }
 
-/* ── Section Navigation (prev / next) ──────────────────────── */
+/* â”€â”€ Section Navigation (prev / next) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-nav {
   display: flex;
   align-items: stretch;
@@ -771,7 +771,7 @@ ul, ol { list-style: none; }
   letter-spacing: 0.08em;
 }
 
-/* ── Section Strip (homepage) ──────────────────────────────── */
+/* â”€â”€ Section Strip (homepage) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .section-strip {
   padding-bottom: var(--sp-96);
 }
@@ -873,7 +873,7 @@ ul, ol { list-style: none; }
   transform: translateX(4px);
 }
 
-/* ── Footer ────────────────────────────────────────────────── */
+/* â”€â”€ Footer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .footer {
   padding-block: var(--sp-32);
   border-top: 1px solid var(--border-light);
@@ -903,7 +903,7 @@ ul, ol { list-style: none; }
 
 .footer__link:hover { color: var(--text-secondary); }
 
-/* ── Scroll Reveal ─────────────────────────────────────────── */
+/* â”€â”€ Scroll Reveal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
@@ -917,7 +917,7 @@ ul, ol { list-style: none; }
   transform: translateY(0);
 }
 
-/* ── Methods Grid (Data Science) ───────────────────────────── */
+/* â”€â”€ Methods Grid (Data Science) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .methods-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -950,7 +950,7 @@ ul, ol { list-style: none; }
   color: var(--text-muted);
 }
 
-/* ── Research Areas List ───────────────────────────────────── */
+/* â”€â”€ Research Areas List â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .research-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -990,7 +990,7 @@ ul, ol { list-style: none; }
   line-height: 1.65;
 }
 
-/* ── Plate Figure (Life Sciences microscopy) ───────────────── */
+/* â”€â”€ Plate Figure (Life Sciences microscopy) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .fig-plate {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1029,7 +1029,7 @@ ul, ol { list-style: none; }
   z-index: 1;
 }
 
-/* ── KPI Cards (Operations) ────────────────────────────────── */
+/* â”€â”€ KPI Cards (Operations) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -1075,7 +1075,7 @@ ul, ol { list-style: none; }
   margin-top: var(--sp-8);
 }
 
-/* ── Course Cards (Teaching) ───────────────────────────────── */
+/* â”€â”€ Course Cards (Teaching) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .course-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
@@ -1157,7 +1157,7 @@ ul, ol { list-style: none; }
   color: var(--text-muted);
 }
 
-/* ── Projects Bento (Selected Projects) ────────────────────── */
+/* â”€â”€ Projects Bento (Selected Projects) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1265,7 +1265,7 @@ ul, ol { list-style: none; }
   opacity: 0.3;
 }
 
-/* ── Bio Contact ───────────────────────────────────────────── */
+/* â”€â”€ Bio Contact â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -1302,7 +1302,7 @@ ul, ol { list-style: none; }
   color: var(--text-primary);
 }
 
-/* ── Responsive ────────────────────────────────────────────── */
+/* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 @media (max-width: 900px) {
   .section-strip__grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1375,17 +1375,17 @@ ul, ol { list-style: none; }
 }
 
 /* ============================================================
-   SECTION HERO — alternate element class names used by pages
+   SECTION HERO â€” alternate element class names used by pages
    (aliases to match HTML structure written for section pages)
 ============================================================ */
 
-/* .section-hero__inner — wraps content, sits above ghost number */
+/* .section-hero__inner â€” wraps content, sits above ghost number */
 .section-hero__inner {
   position: relative;
   z-index: 1;
 }
 
-/* .section-hero__meta — eyebrow row: label + accent rule */
+/* .section-hero__meta â€” eyebrow row: label + accent rule */
 .section-hero__meta {
   display: flex;
   align-items: center;
@@ -1393,7 +1393,7 @@ ul, ol { list-style: none; }
   margin-bottom: var(--sp-24);
 }
 
-/* .section-hero__rule — accent bar beside label (alias for __accent) */
+/* .section-hero__rule â€” accent bar beside label (alias for __accent) */
 .section-hero__rule {
   width: clamp(32px, 4vw, 56px);
   height: 2px;
@@ -1401,7 +1401,7 @@ ul, ol { list-style: none; }
   flex-shrink: 0;
 }
 
-/* .section-hero__lead — lead paragraph (alias for __sub) */
+/* .section-hero__lead â€” lead paragraph (alias for __sub) */
 .section-hero__lead {
   font-size: clamp(0.95rem, 1.1vw, 1.05rem);
   font-family: var(--font-body);
@@ -1411,7 +1411,7 @@ ul, ol { list-style: none; }
   line-height: 1.7;
 }
 
-/* .section-hero__ghost — large ghost number (alias for __ghost-num) */
+/* .section-hero__ghost â€” large ghost number (alias for __ghost-num) */
 .section-hero__ghost {
   position: absolute;
   bottom: -0.15em;
@@ -1427,7 +1427,7 @@ ul, ol { list-style: none; }
   z-index: 0;
 }
 
-/* stats-band__inner — inner flex layout for stats band */
+/* stats-band__inner â€” inner flex layout for stats band */
 .stats-band__inner {
   display: flex;
   align-items: stretch;
@@ -1739,7 +1739,7 @@ ul, ol { list-style: none; }
   border-bottom: 1px solid var(--border);
 }
 
-/* stat__num — alias for stat__value */
+/* stat__num â€” alias for stat__value */
 .stat__num {
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
@@ -1748,7 +1748,7 @@ ul, ol { list-style: none; }
   line-height: 1;
 }
 
-/* fig-plate__cell — alias for __panel */
+/* fig-plate__cell â€” alias for __panel */
 .fig-plate__cell {
   background: var(--surface);
   aspect-ratio: 1;
@@ -1769,3 +1769,218 @@ ul, ol { list-style: none; }
   text-align: center;
   padding: var(--sp-16);
 }
+
+/* ============================================================
+   DETAIL INLINE PANEL
+   Expandable inline section â€” no modal, no overlay.
+   ============================================================ */
+
+/* â”€â”€ Clickable card affordance â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+[data-detail] {
+  cursor: pointer;
+}
+
+[data-detail]:hover {
+  background: var(--surface-raised) !important;
+  box-shadow: inset 3px 0 0 var(--accent, var(--teal));
+}
+
+[data-detail]:focus-visible {
+  outline: 2px solid var(--accent, var(--teal));
+  outline-offset: -2px;
+}
+
+[data-detail].detail-active {
+  background: var(--surface-raised) !important;
+  box-shadow: inset 3px 0 0 var(--accent, var(--teal));
+}
+
+/* â”€â”€ Overlay â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.detail-inline {
+  border-top: 2px solid var(--accent, var(--teal));
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  margin-bottom: var(--sp-64);
+}
+
+.di-inner {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* â”€â”€ Panel header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.di-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-16) 0;
+  border-bottom: 1px solid var(--border);
+  gap: var(--sp-16);
+}
+
+.di-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-10);
+}
+
+.di-num {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent, var(--teal));
+}
+
+.di-sep {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--border);
+}
+
+.di-category {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.di-close {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: color var(--t-fast), border-color var(--t-fast);
+}
+
+.di-close:hover {
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+.di-close:focus-visible {
+  outline: 2px solid var(--accent, var(--teal));
+  outline-offset: 2px;
+}
+
+/* â”€â”€ Panel body â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.di-body {
+  padding-block: var(--sp-40);
+}
+
+.di-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--sp-16);
+}
+
+.di-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-8);
+  margin-bottom: var(--sp-32);
+}
+
+.di-tag {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid var(--accent, var(--teal));
+  color: var(--accent, var(--teal));
+  border-radius: 2px;
+}
+
+/* â”€â”€ Two-column content area â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.di-content {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--sp-48);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .di-content {
+    grid-template-columns: 1fr;
+    gap: var(--sp-32);
+  }
+}
+
+.di-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-24);
+}
+
+.di-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.di-figure {
+  border: 1px solid var(--border);
+}
+
+.di-figure .fig-placeholder {
+  min-height: 200px;
+  border: none;
+}
+
+/* â”€â”€ Sections column â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.di-sections {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+}
+
+.di-section {
+  padding: var(--sp-16) 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.di-section:last-child {
+  border-bottom: none;
+}
+
+.di-section__label {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent, var(--teal));
+}
+
+.di-section__text {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.di-section__text.is-placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+
