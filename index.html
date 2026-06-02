@@ -66,102 +66,65 @@
     }
     .map-layout { display: flex; align-items: center; gap: clamp(32px, 5vw, 80px); }
 
-    /* Donut container */
-    .map-donut-wrap {
+    /* ── Wheel ── */
+    .map-wheel {
       flex: 0 0 auto;
-      width: clamp(280px, 36vw, 440px);
-      aspect-ratio: 1;
       position: relative;
-    }
-
-    /* Visual-only conic-gradient ring — not interactive */
-    .map-donut {
-      position: absolute;
-      inset: 12%;
+      width: min(70vw, 520px);
+      aspect-ratio: 1;
       border-radius: 50%;
       background: conic-gradient(
-        from -90deg,
-        rgba(69,176,158,0.50)  0deg   59deg,
-        rgba(11,11,11,0.90)   59deg   61deg,
-        rgba(114,168,130,0.50) 61deg  119deg,
-        rgba(11,11,11,0.90)  119deg  121deg,
-        rgba(94,143,181,0.50) 121deg  179deg,
-        rgba(11,11,11,0.90)  179deg  181deg,
-        rgba(200,168,78,0.50) 181deg  239deg,
-        rgba(11,11,11,0.90)  239deg  241deg,
-        rgba(196,130,74,0.50) 241deg  299deg,
-        rgba(11,11,11,0.90)  299deg  301deg,
-        rgba(140,120,98,0.50) 301deg  360deg
+        from -30deg,
+        rgba(114,168,130,0.80)   0deg   60deg,
+        rgba(94,143,181,0.80)  60deg  120deg,
+        rgba(200,168,78,0.80) 120deg  180deg,
+        rgba(196,130,74,0.80) 180deg  240deg,
+        rgba(140,120,98,0.80) 240deg  300deg,
+        rgba(69,176,158,0.80) 300deg  360deg
       );
-      box-shadow: 0 0 48px rgba(0,0,0,0.55), inset 0 0 32px rgba(0,0,0,0.3);
+      overflow: hidden;
     }
-
-    /* Dark donut hole */
-    .map-donut::after {
-      content: '';
+    .map-wheel::after {
+      content: "";
       position: absolute;
-      inset: 27%;
+      inset: 31%;
       border-radius: 50%;
-      background: var(--bg);
-      box-shadow: 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 24px rgba(0,0,0,0.6);
-    }
-
-    /* Centre label (sits above the ::after hole via z-index) */
-    .map-donut-center {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      background: #050505;
+      box-shadow: 0 0 50px rgba(0,0,0,0.65);
+      z-index: 1;
       pointer-events: none;
-      z-index: 2;
-      text-align: center;
-      gap: 3px;
-    }
-    .map-donut-center__num {
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      opacity: 0.7;
-    }
-    .map-donut-center__word {
-      font-family: var(--font-display);
-      font-size: 0.9rem;
-      font-weight: 300;
-      color: var(--text-muted);
-      opacity: 0.5;
     }
 
-    /* Interactive label buttons positioned around the ring */
+    /* Interactive label buttons positioned around the wheel */
     .map-label {
       position: absolute;
+      z-index: 2;
       transform: translate(-50%, -50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2px;
-      padding: 6px 8px;
       background: transparent;
-      border: none;
-      border-radius: 0;
+      border: 0;
+      box-shadow: none;
+      padding: 0.25rem 0.35rem;
       cursor: pointer;
       color: #111;
-      transition:
-        color        0.18s ease,
-        text-shadow  0.18s ease;
-      z-index: 3;
+      transition: color 0.18s ease;
       text-align: center;
-      width: 92px;
-      height: 48px;
       line-height: 1;
     }
-    /* Hover: accent text color only */
+    /* Hover: accent text color + bg glow */
+    .map-label::before {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--label-accent) 35%, transparent);
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      pointer-events: none;
+    }
+    .map-label:hover::before { opacity: 1; }
+    .map-label.active::before { opacity: 1; background: color-mix(in srgb, var(--label-accent) 45%, transparent); }
     .map-label:hover {
-      color: var(--label-accent);
+      color: #444;
       outline: none;
     }
     /* Focus: accessible but subtle — accent underline glow */
@@ -172,25 +135,27 @@
     }
     /* Selected state — set by click or Enter/Space */
     .map-label.active {
-      color: var(--label-accent, var(--text-primary));
-      text-shadow: 0 0 12px color-mix(in srgb, var(--label-accent) 40%, transparent);
+      color: #666;
       outline: none;
     }
     .map-label__name {
       font-family: var(--font-display);
-      font-size: 0.75rem;
+      font-size: 1.2rem;
       font-weight: 700;
       white-space: nowrap;
       color: inherit;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 1px 4px rgba(255,255,255,0.55);
     }
 
-    /* Six positions (clock positions: 12, 2, 4, 6, 8, 10 o'clock) */
-    .map-label--data     { top: 18%; left: 50%; --label-accent: var(--sage);  }
-    .map-label--life     { top: 34%; left: 74%; --label-accent: var(--sky);   }
-    .map-label--ops      { top: 66%; left: 74%; --label-accent: var(--gold);  }
-    .map-label--teaching { top: 82%; left: 50%; --label-accent: var(--amber); }
-    .map-label--projects { top: 66%; left: 26%; --label-accent: var(--warm);  }
-    .map-label--bio      { top: 34%; left: 26%; --label-accent: var(--teal);  }
+    /* Six positions (clock: 12, 2, 4, 6, 8, 10) */
+    .map-label--data     { top: 16%; left: 50%; --label-accent: var(--sage);  }
+    .map-label--life     { top: 33%; left: 76%; --label-accent: var(--sky);   }
+    .map-label--ops      { top: 67%; left: 76%; --label-accent: var(--gold);  }
+    .map-label--teaching { top: 84%; left: 50%; --label-accent: var(--amber); }
+    .map-label--projects { top: 67%; left: 24%; --label-accent: var(--warm);  }
+    .map-label--bio      { top: 33%; left: 24%; --label-accent: var(--teal);  }
 
     /* Card panel */
     .map-card-panel {
@@ -232,7 +197,7 @@
     /* Responsive */
     @media (max-width: 900px) {
       .map-layout { flex-direction: column; align-items: center; }
-      .map-donut-wrap { width: clamp(260px, 72vw, 380px); }
+      .map-wheel { width: clamp(260px, 72vw, 380px); }
       .map-card-panel { width: 100%; padding-left: 0; padding-top: 20px; }
       .map-card__desc { max-width: 100%; }
     }
@@ -242,11 +207,10 @@
     }
     /* ── Compact wheel on phones ── */
     @media (max-width: 540px) {
-      .map-donut-wrap {
-        width: min(86vw, 360px);
-        height: min(86vw, 360px);
+      .map-wheel {
+        width: min(90vw, 360px);
       }
-      .map-label { width: 72px; height: 40px; padding: 4px 6px; font-size: 0.6rem; background: transparent; border: none; }
+      .map-label { font-size: 0.75rem; padding: 4px 6px; }
       .map-card-panel { min-height: 240px; }
       .map-card__title { font-size: clamp(1.15rem, 5vw, 1.6rem); }
     }
@@ -489,12 +453,7 @@
 
       <!-- Desktop: donut + card panel -->
       <div class="map-layout" role="region" aria-label="Interactive portfolio map">
-        <div class="map-donut-wrap">
-
-          <!-- Visual ring (not interactive) -->
-          <div class="map-donut" aria-hidden="true"></div>
-
-          <!-- Centre text removed (no numbers) -->
+        <div class="map-wheel">
 
           <!-- Interactive labels clockwise from 12 -->
           <button class="map-label map-label--data active" data-card="0"
@@ -503,7 +462,7 @@
           </button>
           <button class="map-label map-label--life" data-card="1"
                   aria-pressed="false" aria-label="Life Sciences">
-            <span class="map-label__name">Life Sci</span>
+            <span class="map-label__name">Life Science</span>
           </button>
           <button class="map-label map-label--ops" data-card="2"
                   aria-pressed="false" aria-label="Operations">
