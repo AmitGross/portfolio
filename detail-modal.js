@@ -424,4 +424,14 @@
     });
   });
 
+  /* ── Auto-open card from URL hash (e.g. #ds-02) ─────────── */
+  var hash = window.location.hash.slice(1);
+  if (hash) {
+    var target = document.querySelector('[data-detail-id="' + hash + '"]');
+    if (target) {
+      /* Small delay so layout is fully painted before scrolling */
+      setTimeout(function () { target.click(); }, 80);
+    }
+  }
+
 })();
