@@ -32,7 +32,7 @@
   const cards  = document.querySelectorAll('.map-card');
 
   // ── Subsection strip data ─────────────────────────────────
-  const SUBS_ACCENTS = ['teal','sage','sky','gold','amber','warm'];
+  const SUBS_ACCENTS = ['sage','sky','gold','amber','warm','teal'];
   const SUBS_DATA = [
     { label: 'Data Science & Computing', href: 'data-science.html', items: [
       { title: 'Connectome Analysis Pipeline',      id: 'ds-01',
