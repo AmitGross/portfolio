@@ -15,6 +15,10 @@
       did: 'Built and modified Python workflows for connectome analysis \u00b7 Represented neuron structures as graph/tree objects \u00b7 Processed synapse and neuron data into tables and features \u00b7 Created visualizations and statistical summaries \u00b7 Organized the workflow into a reusable analysis pipeline.',
       methods: 'Python \u00b7 Pandas \u00b7 NumPy \u00b7 NetworkX \u00b7 Navis \u00b7 NGLUI \u00b7 statistical analysis \u00b7 data visualization \u00b7 graph analysis',
       output: 'Pipeline diagrams \u00b7 neuron/synapse visualizations \u00b7 connectivity matrices \u00b7 graph-based summaries \u00b7 statistical plots \u00b7 thesis/project figures',
+      roadmap: {
+        img: 'data/connectome/core_pipeline_map.svg',
+        text: 'End-to-end map of the connectome analysis workflow. The pipeline begins with raw morphology and synapse data, moves through graph construction and compartmentalization (SFC-based axon/dendrite split), and proceeds to feature extraction, statistical analysis, and figure generation. Each stage is modular and reusable across different neuron datasets.'
+      },
       figures: {
         featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 — Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 117,570 intrinsic neurons.' },
         gallery: [
@@ -354,6 +358,53 @@
     if (e.key === 'Escape' && !panel.hidden) { closePanel(); }
   });
 
+  /* ── Lightbox ───────────────────────────────────────────── */
+  var lb = document.createElement('div');
+  lb.className = 'di-lightbox';
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-modal', 'true');
+  lb.setAttribute('aria-label', 'Image enlarged view');
+  lb.hidden = true;
+  lb.innerHTML =
+    '<div class="di-lightbox__backdrop"></div>' +
+    '<button class="di-lightbox__close" aria-label="Close enlarged view">\u00d7</button>' +
+    '<div class="di-lightbox__img-wrap">' +
+      '<img class="di-lightbox__img" src="" alt="">' +
+    '</div>';
+  document.body.appendChild(lb);
+
+  var lbImg = lb.querySelector('.di-lightbox__img');
+
+  function openLightbox(src, alt) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lb.querySelector('.di-lightbox__close').focus();
+  }
+
+  function closeLightbox() {
+    lb.hidden = true;
+    lbImg.src = '';
+    document.body.style.overflow = '';
+  }
+
+  lb.querySelector('.di-lightbox__close').addEventListener('click', closeLightbox);
+  lb.querySelector('.di-lightbox__backdrop').addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !lb.hidden) { closeLightbox(); }
+  });
+
+  /* Delegate clicks on any image inside the panel */
+  panel.addEventListener('click', function (e) {
+    var img = e.target.closest('img');
+    if (!img) return;
+    /* Skip tiny thumbnails — only images inside figure-frame or di-roadmap */
+    if (img.closest('.figure-frame') || img.closest('.di-roadmap')) {
+      openLightbox(img.src, img.alt);
+    }
+  });
+
   /* ── Populate panel from data ───────────────────────────── */
   var SECTIONS = [
     { key: 'context', label: 'Context' },
@@ -417,7 +468,8 @@
       return '<span class="di-tag">' + esc(t) + '</span>';
     }).join('');
 
-    document.getElementById('di-sections').innerHTML = SECTIONS.map(function (s) {
+    var sectionsEl = document.getElementById('di-sections');
+    sectionsEl.innerHTML = SECTIONS.map(function (s) {
       var val = data[s.key] || '[placeholder]';
       var cls = isPlaceholder(val) ? ' is-placeholder' : '';
       return (
@@ -427,6 +479,19 @@
         '</div>'
       );
     }).join('');
+
+    /* Optional roadmap section with inline SVG/image */
+    if (data.roadmap) {
+      var rm = data.roadmap;
+      sectionsEl.innerHTML +=
+        '<div class="di-section di-section--roadmap">' +
+          '<span class="di-section__label">Pipeline Roadmap</span>' +
+          '<div class="di-roadmap">' +
+            '<img src="' + esc(rm.img) + '" alt="Pipeline roadmap diagram" class="di-roadmap__img" loading="lazy">' +
+            '<p class="di-section__text">' + esc(rm.text) + '</p>' +
+          '</div>' +
+        '</div>';
+    }
   }
 
   /* ── Wire up cards ──────────────────────────────────────── */
