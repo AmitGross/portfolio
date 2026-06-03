@@ -1967,7 +1967,28 @@ ul, ol { list-style: none; }
 
 /* Pipeline Roadmap section */
 .di-section--roadmap {
-  grid-column: 1 / -1;
+  border-top: none;
+  padding-top: var(--sp-16);
+}
+
+.di-roadmap__download {
+  display: inline-block;
+  margin-top: var(--sp-8);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 3px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.di-roadmap__download:hover {
+  color: var(--text-secondary);
+  border-color: var(--text-muted);
 }
 
 .di-roadmap {

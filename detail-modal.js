@@ -480,7 +480,7 @@
       );
     }).join('');
 
-    /* Optional roadmap section with inline SVG/image */
+    /* Optional roadmap section — image + download link */
     if (data.roadmap) {
       var rm = data.roadmap;
       sectionsEl.innerHTML +=
@@ -489,6 +489,7 @@
           '<div class="di-roadmap">' +
             '<img src="' + esc(rm.img) + '" alt="Pipeline roadmap diagram" class="di-roadmap__img" loading="lazy">' +
             '<p class="di-section__text">' + esc(rm.text) + '</p>' +
+            '<a class="di-roadmap__download" href="' + esc(rm.img) + '" download target="_blank" rel="noopener noreferrer">Download map \u2193</a>' +
           '</div>' +
         '</div>';
     }
