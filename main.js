@@ -37,16 +37,20 @@
     { label: 'Data Science & Computing', href: 'data-science.html', items: [
       { title: 'Connectome Analysis Pipeline',      id: 'ds-01',
         desc: 'Computational work on Drosophila connectome data, including extraction, processing, graph-based representation, statistical analysis, feature generation, and visualization of neuronal and synaptic data.',
-        tags: ['Python','NetworkX','Graphs'], href: 'data-science.html' },
+        tags: ['Python','NetworkX','Graphs'], href: 'data-science.html',
+        thumb: 'data/connectome/article_fig1.png' },
       { title: 'Pre/Post Program Statistical Analysis & Behavioral Mapping', id: 'ds-02',
         desc: 'Statistical analysis of pre/post program data, integrating behavioral outcomes with geographic and environmental mapping using OpenStreetMap and Overpass Turbo. The project linked program-related behavioral measures with spatial context to support interpretation of intervention effects.',
-        tags: ['R','Simulation','Statistics'], href: 'data-science.html' },
+        tags: ['R','Simulation','Statistics'], href: 'data-science.html',
+        thumb: 'data/tech/slides/slide_01.png' },
       { title: 'AI Geopositioning System',           id: 'ds-03',
         desc: 'Deep learning project predicting outdoor geographic position from WiFi signal fingerprints supervised by GPS data. The project involved model development, evaluation, and optimization of predictive performance.',
-        tags: ['Scikit-learn','ML','Python'], href: 'data-science.html' },
+        tags: ['Scikit-learn','ML','Python'], href: 'data-science.html',
+        thumb: 'data/geopos/both.png' },
       { title: 'Network & Graph Analysis',           id: 'ds-04',
         desc: 'Graph-based analysis of biological structures using NetworkX: tree representations, adjacency matrices, graph features, clustering, and neuron skeleton analysis for connectome research.',
-        tags: ['Python','NetworkX','Networks'], href: 'data-science.html' }
+        tags: ['Python','NetworkX','Networks'], href: 'data-science.html',
+        thumb: 'data/connectome/pipeline_docv.png' }
     ]},
     { label: 'Life Sciences', href: 'life-sciences.html', items: [
       { title: 'Connectome Research',                id: 'ls-01',
@@ -128,7 +132,11 @@
       if (subsViewAll) subsViewAll.href = d.href;
       subsRow.innerHTML = d.items.map(item => {
         const url = item.id ? item.href + '#' + item.id : item.href;
+        const thumbHTML = item.thumb
+          ? `<div class="map-sub__thumb"><img src="${item.thumb}" alt="" loading="lazy"></div>`
+          : '';
         return `<a class="map-sub" href="${url}">` +
+          thumbHTML +
           `<h3 class="map-sub__title">${item.title}</h3>` +
           `<p class="map-sub__desc">${item.desc}</p>` +
           `<div class="map-sub__tags">${item.tags.map(t => `<span class="map-sub__tag">${t}</span>`).join('')}</div>` +
