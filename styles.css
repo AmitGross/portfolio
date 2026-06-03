@@ -1996,6 +1996,10 @@ ul, ol { list-style: none; }
   justify-content: center;
 }
 
+.di-lightbox[hidden] {
+  display: none;
+}
+
 .di-lightbox__backdrop {
   position: absolute;
   inset: 0;
