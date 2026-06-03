@@ -196,8 +196,20 @@
     }
 
     // No default selection — wait for user to pick a section
-    const wheelHint = document.getElementById('map-wheel-hint');
-    const mapSubsEl = document.getElementById('map-subs');
+    const wheelHint  = document.getElementById('map-wheel-hint');
+    const wheelRotor = document.getElementById('map-wheel-rotor');
+    const mapSubsEl  = document.getElementById('map-subs');
+
+    // Fixed rotation values: move selected subject to 3 o'clock (right side)
+    const WHEEL_ROTATIONS   = ['90deg', '30deg', '-30deg', '-90deg', '-150deg', '150deg'];
+    const COUNTER_ROTATIONS = ['-90deg', '-30deg', '30deg', '90deg', '150deg', '-150deg'];
+
+    function rotateWheel(idx) {
+      if (wheelRotor) {
+        wheelRotor.style.setProperty('--wheel-rotation', WHEEL_ROTATIONS[idx]);
+        wheelRotor.style.setProperty('--label-counter-rotation', COUNTER_ROTATIONS[idx]);
+      }
+    }
 
     function revealSelection() {
       if (wheelHint) wheelHint.classList.add('hidden');
@@ -211,15 +223,19 @@
 
     labels.forEach(label => {
       label.addEventListener('click', () => {
+        const idx = parseInt(label.dataset.card, 10);
         activate(label.dataset.card);
-        updateSubs(parseInt(label.dataset.card, 10), true);
+        updateSubs(idx, true);
+        rotateWheel(idx);
         revealSelection();
       });
       label.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
+          const idx = parseInt(label.dataset.card, 10);
           activate(label.dataset.card);
-          updateSubs(parseInt(label.dataset.card, 10), true);
+          updateSubs(idx, true);
+          rotateWheel(idx);
           revealSelection();
         }
       });

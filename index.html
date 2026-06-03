@@ -66,11 +66,30 @@
     .map-layout { display: flex; align-items: center; gap: clamp(32px, 5vw, 80px); }
 
     /* -- Wheel -- */
-    .map-wheel {
+    /* Static outer frame — holds everything, defines the circle size */
+    .map-wheel-frame {
       flex: 0 0 auto;
       position: relative;
       width: min(70vw, 520px);
       aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    /* Center black hole — fixed, always above rotor */
+    .map-wheel-frame::after {
+      content: "";
+      position: absolute;
+      inset: 31%;
+      border-radius: 50%;
+      background: #050505;
+      box-shadow: 0 0 50px rgba(0,0,0,0.65);
+      z-index: 3;
+      pointer-events: none;
+    }
+    /* Conic gradient disc — inside rotor, rotates with it */
+    .map-wheel {
+      position: absolute;
+      inset: 0;
       border-radius: 50%;
       background: conic-gradient(
         from -30deg,
@@ -81,17 +100,6 @@
         rgba(140,120,98,0.80) 240deg  300deg,
         rgba(69,176,158,0.80) 300deg  360deg
       );
-      overflow: hidden;
-    }
-    .map-wheel::after {
-      content: "";
-      position: absolute;
-      inset: 31%;
-      border-radius: 50%;
-      background: #050505;
-      box-shadow: 0 0 50px rgba(0,0,0,0.65);
-      z-index: 1;
-      pointer-events: none;
     }
     @keyframes hint-pulse {
       0%, 17% { opacity: 1; }
@@ -102,7 +110,7 @@
       position: absolute;
       inset: 31%;
       border-radius: 50%;
-      z-index: 3;
+      z-index: 4;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -118,6 +126,16 @@
       transition: opacity 0.3s;
     }
     .map-wheel__hint.hidden { opacity: 0; animation: none; }
+
+    /* Wheel rotor — rotates when a section is selected */
+    .map-wheel-rotor {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      z-index: 2;
+      transform: rotate(var(--wheel-rotation, 0deg));
+      transition: transform 700ms cubic-bezier(.2, .8, .2, 1);
+    }
 
     /* Interactive label buttons positioned around the wheel */
     .map-label {
@@ -170,6 +188,12 @@
       color: inherit;
       position: relative;
       z-index: 1;
+      display: inline-block;
+      transform: rotate(var(--label-counter-rotation, 0deg));
+      transition: transform 700ms cubic-bezier(.2, .8, .2, 1);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .map-wheel-rotor, .map-label__name { transition: none; }
     }
 
     /* Six positions (clock: 12, 2, 4, 6, 8, 10) */
@@ -220,7 +244,7 @@
     /* Responsive */
     @media (max-width: 900px) {
       .map-layout { flex-direction: column; align-items: center; }
-      .map-wheel { width: clamp(260px, 72vw, 380px); }
+      .map-wheel-frame { width: clamp(260px, 72vw, 380px); }
       .map-card-panel { width: 100%; padding-left: 0; padding-top: 20px; }
       .map-card__desc { max-width: 100%; }
     }
@@ -230,7 +254,7 @@
     }
     /* -- Compact wheel on phones -- */
     @media (max-width: 540px) {
-      .map-wheel {
+      .map-wheel-frame {
         width: min(90vw, 360px);
       }
       .map-label { font-size: 0.75rem; padding: 4px 6px; }
@@ -480,7 +504,13 @@
 
       <!-- Desktop: donut + card panel -->
       <div class="map-layout" role="region" aria-label="Interactive portfolio map">
-        <div class="map-wheel">
+        <div class="map-wheel-frame">
+
+          <!-- Rotating container: conic disc + labels spin together -->
+          <div class="map-wheel-rotor" id="map-wheel-rotor">
+
+          <!-- Conic gradient disc (rotates with rotor) -->
+          <div class="map-wheel"></div>
 
           <!-- Interactive labels clockwise from 12 -->
           <button class="map-label map-label--data" data-card="0"
@@ -508,10 +538,12 @@
             <span class="map-label__name">Bio</span>
           </button>
 
-          <!-- Centre hint (hidden once a section is picked) -->
+          </div><!-- /.map-wheel-rotor -->
+
+          <!-- Centre hint (outside rotor, stays fixed) -->
           <div class="map-wheel__hint" id="map-wheel-hint" aria-hidden="true">Click<br>a subject</div>
 
-        </div>
+        </div><!-- /.map-wheel-frame -->
 
         <div class="map-card-panel" aria-live="polite" aria-atomic="true">
           <div class="map-card" data-card="0" style="--card-accent:var(--sage);">
