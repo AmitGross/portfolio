@@ -251,47 +251,79 @@
     /* TEACHING ──────────────────────────────────────────── */
     'teach-01': {
       num: '01', category: 'Teaching & Communication',
-      title: 'Neurohistology Lab',
-      tags: ['Lab', 'Graduate', 'Weizmann', 'TA'],
-      desc: 'Teaching assistant experience in a neurohistology course at the Weizmann Institute, including topics such as tissue preparation, immunofluorescence, and microscopy for graduate researchers.',
-      context: 'Weizmann Institute of Science. Graduate-level course. Teaching assistant role.',
-      did: 'Supported instruction in neurohistology methods \u00b7 Helped explain immunofluorescence and microscopy workflows \u00b7 Assisted students/researchers with technical and conceptual questions.',
-      methods: 'Neurohistology \u00b7 immunofluorescence \u00b7 microscopy \u00b7 graduate teaching \u00b7 practical instruction',
-      output: '[placeholder \u2014 add teaching diagram or method workflow]',
-      figLabel: '[Add teaching diagram or method workflow]'
+      title: 'Practical Neuroanatomy (TA)',
+      tags: ['Neuroanatomy', 'Graduate', 'Weizmann', 'TA'],
+      desc: 'Teaching assistant in a practical neuroanatomy course at the Weizmann Institute (2019), covering tissue preparation, immunofluorescence staining, and microscopy methods for graduate researchers.',
+      context: 'Weizmann Institute of Science, 2019. Graduate-level practical neuroanatomy course. Teaching assistant role supporting hands-on lab sessions.',
+      did: 'Supported hands-on lab instruction in neuroanatomy methods · Guided tissue preparation and immunofluorescence workflows · Assisted graduate researchers with microscopy and staining techniques · Answered technical and conceptual questions during practical sessions.',
+      methods: 'Neuroanatomy · tissue preparation · immunofluorescence · histology · microscopy · graduate teaching · practical lab instruction',
+      output: 'Hands-on lab support · protocol guidance · student skill development in neuroanatomy methods',
+      figLabel: '[Add neuroanatomy lab diagram or tissue preparation workflow]',
+      figures: {
+        featured: { src: 'teaching/weizmann.png', caption: 'Weizmann Institute of Science — Practical Neuroanatomy, 2019.' },
+        gallery: []
+      }
     },
     'teach-02': {
       num: '02', category: 'Teaching & Communication',
-      title: 'Python for Researchers (TA)',
-      tags: ['Python', 'TA', 'Technion', 'Graduate'],
-      desc: 'Teaching assistant experience in a Python course for graduate students, supporting students in computational thinking, coding, debugging, data handling, visualization, and applied programming.',
-      context: 'Technion \u2014 Israel Institute of Technology. Graduate-level Python course for researchers.',
-      did: 'Supported students learning Python \u00b7 Helped with debugging and code structure \u00b7 Explained data handling and visualization concepts \u00b7 Guided applied programming exercises.',
-      methods: 'Python \u00b7 Pandas \u00b7 data handling \u00b7 visualization \u00b7 debugging \u00b7 Jupyter/Spyder-style workflows',
-      output: '[placeholder \u2014 add course/exercise diagram or teaching material screenshot]',
-      figLabel: '[Add course/exercise diagram or teaching material screenshot]'
+      title: 'University of Haifa (TA)',
+      tags: ['Python', 'Statistics', 'Research Methods', 'University of Haifa', 'Graduate'],
+      desc: 'Teaching assistant at the University of Haifa (2023–2024) across two graduate courses: Python programming and Advanced Statistics, supporting data analysis, statistical reasoning, and applied scientific workflows.',
+      context: 'University of Haifa, 2023–2024. Two graduate-level TA roles: Python for researchers and Advanced Statistics / Research Methods.',
+      did: 'Supported graduate students across Python and statistics courses · Explained data handling, visualization, and coding · Guided statistical reasoning, experimental design, and interpretation · Two courses — see below.',
+      methods: 'Python · Pandas · NumPy · SciPy · data visualization · statistical inference · advanced statistics · research methods · graduate teaching',
+      output: 'Two TA roles — see courses below.',
+      subprojects: [
+        {
+          title: 'Python for Researchers',
+          badge: 'TA · University of Haifa · 2023–2024',
+          figures: {
+            featured: { src: 'teaching/haifa.png', caption: 'University of Haifa — Python for Researchers, TA role, 2023–2024.' },
+            gallery: []
+          },
+          citation: 'Teaching assistant in a Python programming course for graduate researchers. Supported students in data handling, visualization, debugging, and applied computational workflows.'
+        },
+        {
+          title: 'Advanced Statistics & Research Methods',
+          badge: 'TA · University of Haifa · 2023–2024',
+          figures: {
+            featured: { src: 'teaching/haifa.png', caption: 'University of Haifa — Advanced Statistics & Research Methods, TA role, 2023–2024.' },
+            gallery: []
+          },
+          citation: 'Teaching assistant in Advanced Statistics and Research Methods for graduate students. Covered statistical inference, experimental design, correlation, and scientific reasoning.'
+        }
+      ]
     },
     'teach-03': {
       num: '03', category: 'Teaching & Communication',
-      title: 'Research Methods (TA)',
-      tags: ['Methods', 'Undergraduate', 'Technion', 'Statistics'],
-      desc: 'Teaching assistant experience in advanced research methods and correlational research, involving statistical reasoning, experimental design, methodology, and student support.',
-      context: 'Technion \u2014 Israel Institute of Technology. Undergraduate-level advanced research methods course.',
-      did: 'Supported students in research methods \u00b7 Explained statistical and methodological concepts \u00b7 Helped with experimental design and scientific reasoning \u00b7 Assisted in course-related teaching and evaluation.',
-      methods: 'Research methods \u00b7 correlation \u00b7 statistics \u00b7 experimental design \u00b7 scientific writing',
-      output: '[placeholder \u2014 add method/teaching diagram or course materials]',
-      figLabel: '[Add method/teaching diagram]'
+      title: 'Technology & Mapping Education',
+      tags: ['Technion', 'Ministry of Education', 'Curriculum Design', 'GIS', 'Mapping'],
+      desc: 'Created and delivered educational content on mapping technologies for hundreds of students and educators, developed in collaboration with the Israeli Ministry of Education and the Technion.',
+      context: 'Technion — Israel Institute of Technology, in collaboration with the Israeli Ministry of Education. Educational program focused on mapping and spatial technology, reaching hundreds of students and educators.',
+      did: 'Designed and developed educational curriculum on mapping technologies · Created learning materials for students and educators · Delivered content across a wide audience of hundreds of participants · Collaborated with the Ministry of Education on program development · Bridged technical mapping concepts with accessible, structured pedagogy.',
+      methods: 'Curriculum design · educational content development · mapping technologies · GIS concepts · teacher training · student instruction · large-scale program delivery',
+      output: 'Educational curriculum · learning materials for students and educators · program delivery to hundreds of participants · see materials below.',
+      figures: {
+        featured: { src: 'teaching/p1.png', caption: 'Educational material — mapping technology curriculum developed for the Technion / Ministry of Education program.' },
+        gallery: [
+          { src: 'teaching/p2.png', caption: 'Educational material — second module of the mapping technology curriculum.' }
+        ]
+      }
     },
     'teach-04': {
       num: '04', category: 'Teaching & Communication',
-      title: 'Science Communication (MUC)',
-      tags: ['Public', 'Communication', 'Outreach', 'Education'],
-      desc: 'Public-facing science communication and educational content work, bridging research findings and broader audiences through accessible scientific storytelling.',
-      context: '[placeholder \u2014 confirm what MUC stands for, the audience, the exact activity, and what materials can be shown]',
-      did: 'Created or contributed to public-facing science content \u00b7 Bridged research ideas with accessible explanations \u00b7 Engaged audiences across different knowledge backgrounds.',
-      methods: 'Science communication \u00b7 workshops \u00b7 public engagement \u00b7 educational content',
-      output: '[placeholder \u2014 add workshop or outreach visual, materials, or activity description]',
-      figLabel: '[Add workshop or outreach visual]'
+      title: 'Computational Brain Mapping Workshop',
+      tags: ['Invited', 'Workshop', 'Connectome', 'TUM'],
+      desc: 'Invited instructor for a 2-day hands-on workshop in computational brain mapping at the Technical University of Munich (TUM), 2026, covering connectome data analysis and visualization.',
+      context: 'Technical University of Munich (TUM), 2026. Invited instructor role. 2-day hands-on workshop format, focused on computational brain mapping with connectome data.',
+      did: 'Designed and delivered a 2-day hands-on workshop in computational brain mapping · Covered connectome data access, processing, graph-based analysis, and visualization · Guided participants through applied exercises with real connectome datasets · Communicated complex neuroscience and computational concepts to an academic workshop audience.',
+      methods: 'Computational neuroanatomy · connectome analysis · Python · graph analysis · data visualization · hands-on workshop instruction · scientific communication',
+      output: 'Workshop curriculum · hands-on exercises · connectome analysis walkthroughs · participant skill development in brain mapping methods',
+      figLabel: '[Add workshop materials, connectome visualization, or TUM event details]',
+      figures: {
+        featured: { src: 'teaching/TUM.png', caption: 'Technical University of Munich (TUM) — Computational Brain Mapping Workshop, 2026.' },
+        gallery: []
+      }
     },
 
     /* PROJECTS ──────────────────────────────────────────── */
