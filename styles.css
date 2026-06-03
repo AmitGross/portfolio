@@ -110,6 +110,11 @@ ul, ol { list-style: none; }
   letter-spacing: -0.02em;
 }
 
+.hero__name {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  line-height: 1.05;
+}
+
 .t-display-sm {
   font-family: var(--font-display);
   font-size: clamp(2.6rem, 5.5vw, 4.5rem);
