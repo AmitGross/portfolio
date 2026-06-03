@@ -93,6 +93,11 @@
       z-index: 1;
       pointer-events: none;
     }
+    @keyframes hint-pulse {
+      0%, 65% { opacity: 1; }
+      80% { opacity: 0.05; }
+      100% { opacity: 1; }
+    }
     .map-wheel__hint {
       position: absolute;
       inset: 31%;
@@ -103,15 +108,16 @@
       justify-content: center;
       text-align: center;
       font-family: var(--font-mono);
-      font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+      font-size: clamp(0.85rem, 1.6vw, 1.1rem);
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #e05555;
+      color: #f0c040;
       line-height: 1.5;
       pointer-events: none;
+      animation: hint-pulse 3.2s ease-in-out infinite;
       transition: opacity 0.3s;
     }
-    .map-wheel__hint.hidden { opacity: 0; }
+    .map-wheel__hint.hidden { opacity: 0; animation: none; }
 
     /* Interactive label buttons positioned around the wheel */
     .map-label {
