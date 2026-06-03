@@ -111,7 +111,7 @@ ul, ol { list-style: none; }
 }
 
 .hero__name {
-  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  font-size: clamp(2rem, 4vw, 3.4rem);
   line-height: 1.05;
 }
 
