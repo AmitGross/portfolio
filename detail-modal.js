@@ -99,12 +99,29 @@
       num: '01', category: 'Life Sciences',
       title: 'Connectome Research',
       tags: ['Connectomics', 'EM', 'Neuroscience', 'Synapses'],
-      desc: 'Research focused on synaptic organization and neuronal structure in the Drosophila connectome, combining biological questions with computational analysis of neuron morphology, synapses, and connectivity patterns.',
-      context: '[placeholder \u2014 add specific research context, lab, and timeline]',
-      did: 'Worked with connectome data and neuron skeletons \u00b7 Analyzed synaptic organization and structural features \u00b7 Developed biological interpretations from computational outputs \u00b7 Created figures and visualizations for research discussions.',
-      methods: 'Connectomics \u00b7 neuron skeletons \u00b7 synapse analysis \u00b7 axon/dendrite analysis \u00b7 Neuroglancer / NGLUI \u00b7 Navis',
-      output: '[placeholder \u2014 add figures, publications, or poster visuals]',
-      figLabel: '[Add neuron/synapse figure or connectome visualization]'
+      desc: 'Research on synaptic organization and neuronal polarity in the Drosophila connectome, investigating how axons and dendrites are structurally and functionally distinguished across the fly brain. The work combined large-scale EM-derived connectivity data with biological interpretation of mixed-polarity neurons and synaptic type distributions.',
+      context: 'The FlyWire connectome provides electron-microscopy reconstructions of the entire adult Drosophila brain. This project examined the structural basis of synaptic polarity — asking how neurons distribute their input and output synapses, and what this reveals about circuit organization, neurotransmitter identity, and reciprocal connectivity.',
+      did: 'Analyzed synaptic organization across 117,570 intrinsic neurons \u00b7 Investigated axon/dendrite compartmentalization using Synapse Flow Centrality \u00b7 Quantified Segregation Index (SI) values across superclasses, neurotransmitter types, and neuropils \u00b7 Studied reciprocal connectivity patterns and their synaptic-type compositions \u00b7 Produced figures for publication supporting biological interpretation.',
+      methods: 'Connectomics \u00b7 FlyWire EM data \u00b7 synapse analysis \u00b7 axon/dendrite compartmentalization \u00b7 Segregation Index \u00b7 Neuroglancer / NGLUI \u00b7 Navis \u00b7 neurotransmitter mapping \u00b7 statistical analysis',
+      output: 'Publication figures \u00b7 neuron/synapse visualizations \u00b7 SI distributions by cell type \u00b7 synaptic-type composition analyses \u00b7 reciprocal connectivity summaries',
+      figures: {
+        featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 \u2014 Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 117,570 intrinsic neurons.' },
+        gallery: [
+          { src: 'data/connectome/article_fig2.png',       caption: 'Figure 2 \u2014 Mixed polarity across the fly brain. SI distributions by superclass, neurotransmitter type, and predictive modelling of SI from neuronal features.' },
+          { src: 'data/connectome/article_fig3.png',       caption: 'Figure 3 \u2014 Connection types across FlyWire. Synaptic type distributions (AD, AA, DD, DA) by neuropil, cell type, and neurotransmitter.' },
+          { src: 'data/connectome/article_fig5.png',       caption: 'Figure 5 \u2014 Mixed polarity underlies reciprocal connectivity. Reciprocal fraction, synapse counts, and synaptic-type compositions of reciprocal connections.' },
+          { src: 'data/connectome/acticle_fig4.png',       caption: 'Figure 4 \u2014 Synaptic-type prediction models. Confusion matrices and decision surfaces using PC1 as a predictor of connection type.' },
+          { src: 'data/connectome/article_fig1_supp1.png', caption: 'Supp 1-S1 \u2014 Synaptic compartmentalization and canonicality. SFC schematic, Neuroglancer renderings, and canonical synapse percentages per compartment.' },
+          { src: 'data/connectome/article_fig2_supp1.png', caption: 'Supp 2-S1 \u2014 SI comparison across all detected vs. skeleton-assigned synapses and across two independent detection pipelines (Princeton vs. Buhmann; r\u00a0=\u00a00.91).' },
+          { src: 'data/connectome/article_fig2_supp2.png', caption: 'Supp 2-S2 \u2014 SI values of homologous left-right neuron pairs (n\u00a0=\u00a03,554 pairs; Pearson r\u00a0=\u00a00.92), with example sources of SI divergence and concordance.' },
+          { src: 'data/connectome/article_fig2_supp3.png', caption: 'Supp 2-S3 \u2014 SI distributions across non-intrinsic superclasses. Descending neurons show high SI despite missing outputs.' },
+          { src: 'data/connectome/article_fig2_supp4.png', caption: 'Supp 2-S4 \u2014 Feature correlations, Random Forest importance for SI prediction, and PC1\u2013SI relationships in optic and visual-centrifugal neurons.' },
+          { src: 'data/connectome/article_fig3_supp1.png', caption: 'Supp 3-S1 \u2014 Canonicality thresholds and connection-type schematics (Princeton and Buhmann pipelines). Axonal compartments in purple, dendritic in orange.' },
+          { src: 'data/connectome/article_fig3_supp2.png', caption: 'Supp 3-S2 \u2014 Synaptic type proportions across superclasses and neuropils using the Buhmann detection dataset (44,342,339 synapses).' },
+          { src: 'data/connectome/article_fig5_supp1.png', caption: 'Supp 5-S1 \u2014 Reciprocal vs. non-reciprocal synapse counts by type, same-type proportions, and Random Forest regression of reciprocal fraction (r\u00b2\u00a0=\u00a00.79).' },
+          { src: 'data/connectome/article_fig5_supp2.png', caption: 'Supp 5-S2 \u2014 Additional analysis of reciprocal connection properties.' }
+        ]
+      }
     },
     'ls-02': {
       num: '02', category: 'Life Sciences',
