@@ -211,24 +211,27 @@
     'ops-01': {
       num: '01', category: 'Operations',
       title: 'Weizmann Institute Core Facility',
-      tags: ['Core Facility', 'Management', 'Research Support', 'Training'],
-      desc: 'Worked in a core facility environment supporting researchers with microscopy, immunofluorescence, consultation, training, and research project support.',
-      context: '[placeholder \u2014 add facility name, dates, and scope of work]',
-      did: 'Supported researchers using microscopy and immunofluorescence methods \u00b7 Provided training and consultation \u00b7 Helped users troubleshoot scientific and technical workflows \u00b7 Supported multiple research projects in a shared infrastructure environment.',
-      methods: 'Microscopy \u00b7 immunofluorescence \u00b7 researcher training \u00b7 scientific consultation \u00b7 facility support',
-      output: '[placeholder \u2014 add workflow diagram, training materials, or project support examples]',
-      figLabel: '[Add workflow diagram or microscopy-support visual]'
+      tags: ['Core Facility', 'Microscopy', 'Research Support', 'Training'],
+      desc: 'Supported confocal and two-photon microscopy projects at the Weizmann Institute Core Facility, including imaging setup, protocol optimization, sample preparation, immunofluorescence and tissue staining workflows, and practical troubleshooting for research users.',
+      context: 'Weizmann Institute of Science — biological sciences core facility supporting multiple research laboratories. Work spanned both direct researcher support and operational management of shared infrastructure.',
+      did: 'Supported confocal and two-photon microscopy projects · Assisted with imaging setup and protocol optimization · Guided sample preparation and immunofluorescence/staining workflows · Provided hands-on troubleshooting for research users · Coordinated facility operations across laboratories · Handled equipment coordination, user training, and vendor communication · Supported purchasing processes and budget-related administrative tasks.',
+      methods: 'Confocal microscopy · two-photon microscopy · immunofluorescence · tissue staining · protocol optimization · researcher training · vendor coordination · equipment management · facility administration',
+      output: 'Optimized imaging protocols · trained research users · coordinated multi-lab equipment access · streamlined purchasing and vendor workflows',
+      figures: {
+        featured: { src: 'ops/2psystem.jpg', caption: 'Two-photon microscopy system at the Weizmann Institute Core Facility.' },
+        gallery: []
+      }
     },
     'ops-02': {
       num: '02', category: 'Operations',
-      title: 'IQVIA / Moderna EMEA Operations',
-      tags: ['Pharma', 'GxP', 'KPI', 'Power BI'],
-      desc: "Industry operations experience connected to Moderna's call center in EMEA through IQVIA, involving data and information systems, KPI monitoring, system coordination, reporting, and operational support.",
-      context: '[placeholder \u2014 confirm exact public role title, dates, and which KPIs/systems can be mentioned publicly]',
-      did: 'Managed or supported data and information systems \u00b7 Worked with KPI reporting and operational metrics \u00b7 Helped coordinate system changes, issues, and updates \u00b7 Supported cross-functional operational communication.',
-      methods: 'KPI reporting \u00b7 data operations \u00b7 system coordination \u00b7 DAX support \u00b7 Excel \u00b7 Power BI \u00b7 stakeholder communication',
-      output: '[placeholder \u2014 add anonymized dashboard-style mockup or process diagram]',
-      figLabel: '[Add anonymized dashboard-style mockup or process diagram]'
+      title: 'Data & Information Systems Lead',
+      tags: ['KPI', 'Power BI', 'Data Operations', 'Healthcare'],
+      desc: 'Led KPI reporting and data-workflow improvements for a regional healthcare operations program at IQVIA (2021, EMEA), standardizing reporting logic, calculations, and performance tracking across a large operational team.',
+      context: 'IQVIA — Data & Information Systems Lead, EMEA (Remote), 2021. Role embedded within healthcare operations program infrastructure, bridging data quality, reporting systems, and stakeholder communication in a compliance-sensitive environment.',
+      did: 'Led KPI reporting and data-workflow improvements across a large EMEA operational team · Standardized reporting logic, calculations, and performance-tracking procedures · Coordinated reporting between senior stakeholders, operational managers, and frontline teams · Improved data consistency, issue resolution, training alignment, and operational visibility · Translated recurring reporting and data-quality issues into clearer procedures, documentation, and escalation workflows · Operated within a GxP-adjacent, compliance-sensitive healthcare program environment.',
+      methods: 'KPI reporting · data workflow design · Excel · Power BI · DAX · stakeholder communication · process documentation · escalation workflow design · cross-functional coordination',
+      output: 'Standardized KPI reporting framework · improved data consistency across teams · documented escalation and issue-resolution procedures · operational visibility improvements',
+      figLabel: '[Add anonymized KPI dashboard mockup or reporting workflow diagram]'
     },
     'ops-03': {
       num: '03', category: 'Operations',
