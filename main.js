@@ -204,7 +204,7 @@
       if (mapSubsEl && mapSubsEl.classList.contains('is-hidden')) {
         mapSubsEl.classList.remove('is-hidden');
         setTimeout(() => {
-          window.scrollTo({ top: mapSubsEl.offsetTop / 2, behavior: 'smooth' });
+          window.scrollTo({ top: mapSubsEl.offsetTop * 0.75, behavior: 'smooth' });
         }, 200);
       }
     }
