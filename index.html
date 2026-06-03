@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amit Gross — Portfolio</title>
-  <meta name="description" content="Portfolio of Amit Gross — neuroscience, data science, operations, and scientific communication.">
+  <title>Amit Gross � Portfolio</title>
+  <meta name="description" content="Portfolio of Amit Gross � neuroscience, data science, operations, and scientific communication.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ── Hero ── */
+    /* -- Hero -- */
     .hero {
       min-height: 72svh;
       display: flex;
@@ -47,7 +47,7 @@
     .hero__sub { max-width: 800px; margin-bottom: var(--sp-32); }
     .hero__chips { display: flex; flex-wrap: wrap; gap: var(--sp-8); }
 
-    /* ── Intro ── */
+    /* -- Intro -- */
     .intro { padding-block: var(--sp-48); border-top: 1px solid var(--border-light); }
     .intro__grid { display: grid; grid-template-columns: 140px 1fr; gap: var(--sp-48); align-items: start; }
     .intro__side { padding-top: 3px; display: flex; flex-direction: column; gap: var(--sp-8); }
@@ -57,7 +57,7 @@
     }
     .intro__text strong { color: var(--text-primary); font-weight: 400; }
 
-    /* ── Map section ── */
+    /* -- Map section -- */
     .map-section { padding-block: var(--sp-32) var(--sp-64); }
     .map-section__header {
       display: flex; align-items: center; justify-content: space-between;
@@ -66,7 +66,7 @@
     }
     .map-layout { display: flex; align-items: center; gap: clamp(32px, 5vw, 80px); }
 
-    /* ── Wheel ── */
+    /* -- Wheel -- */
     .map-wheel {
       flex: 0 0 auto;
       position: relative;
@@ -127,13 +127,13 @@
       color: #444;
       outline: none;
     }
-    /* Focus: accessible but subtle — accent underline glow */
+    /* Focus: accessible but subtle � accent underline glow */
     .map-label:focus-visible {
       outline: none;
       color: var(--label-accent, var(--amber));
       text-shadow: 0 1px 8px color-mix(in srgb, var(--label-accent, var(--amber)) 60%, transparent);
     }
-    /* Selected state — set by click or Enter/Space */
+    /* Selected state � set by click or Enter/Space */
     .map-label.active {
       color: #111;
       outline: none;
@@ -202,9 +202,9 @@
     }
     @media (max-width: 768px) {
       .intro__grid { grid-template-columns: 1fr; gap: var(--sp-16); }
-      /* wheel stays visible — mobile list stays hidden */
+      /* wheel stays visible � mobile list stays hidden */
     }
-    /* ── Compact wheel on phones ── */
+    /* -- Compact wheel on phones -- */
     @media (max-width: 540px) {
       .map-wheel {
         width: min(90vw, 360px);
@@ -218,7 +218,7 @@
       .map-subs__row { transition: none; }
     }
 
-    /* ── Subsection strip (appears below wheel, updates on topic click) ── */
+    /* -- Subsection strip (appears below wheel, updates on topic click) -- */
     .map-subs {
       margin-top: var(--sp-32);
       padding-top: var(--sp-24);
@@ -257,7 +257,7 @@
     .map-sub__thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; opacity: 0.8; transition: opacity 0.15s; }
     .map-sub:hover .map-sub__thumb img { opacity: 1; }
 
-    /* ── Section cards (scrollable, below wheel) ── */
+    /* -- Section cards (scrollable, below wheel) -- */
     .section-cards {
       padding-block: var(--sp-48) var(--sp-64);
       border-top: 1px solid var(--border-light);
@@ -346,7 +346,7 @@
 <body>
 
   <nav class="nav" aria-label="Main navigation">
-    <div class="wrap nav__inner">
+    <div class="wrap--wide nav__inner">
       <a href="index.html" class="nav__logo" aria-label="Home">
         <span class="nav__logo-mark" aria-hidden="true"></span>
         <span class="nav__logo-text">Amit Gross</span>
@@ -531,7 +531,7 @@
         </div>
       </div>
 
-      <!-- Subsection strip — updates when a wheel topic is clicked -->
+      <!-- Subsection strip � updates when a wheel topic is clicked -->
       <div class="map-subs" id="map-subs">
         <div class="map-subs__header">
           <span class="map-subs__label" id="map-subs-label">Data Science &amp; Computing</span>
@@ -543,7 +543,7 @@
     </div>
   </section>
 
-  <!-- SECTION CARDS — scrollable summary, visible at all widths -->
+  <!-- SECTION CARDS � scrollable summary, visible at all widths -->
   <section class="section-cards section-cards--collapsed" id="sections" aria-labelledby="section-cards-label">
     <div class="wrap--wide">
       <div class="section-cards__header">
