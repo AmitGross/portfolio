@@ -120,13 +120,35 @@
     'ls-03': {
       num: '03', category: 'Life Sciences',
       title: 'Animal Models & Behaviour',
-      tags: ['Behaviour', 'Animal Models', 'Neurobiology'],
-      desc: 'Experience with behavioral research methods in neurobiology contexts, including experimental design and interpretation of behavioral outcomes.',
-      context: '[placeholder \u2014 add specific behavioral assays and exact role]',
-      did: 'Participated in neurobiology research \u00b7 Used or supported biological methods \u00b7 Interpreted experimental results \u00b7 Contributed to research workflows and outputs.',
-      methods: 'Behaviour \u00b7 animal models \u00b7 molecular methods \u00b7 microscopy \u00b7 immunofluorescence',
-      output: '[placeholder \u2014 add behavioral data, plots, or experimental summaries]',
-      figLabel: '[Add behavior setup or result plot]'
+      tags: ['Behaviour', 'Animal Models', 'Mouse', 'Neuroscience', 'Published'],
+      desc: 'Behavioral neuroscience research using transgenic and pharmacological mouse models to investigate glutamatergic signaling, memory, and dopamine-related pathology. Two studies completed at the Gaisler-Salomon lab, University of Haifa.',
+      context: 'University of Haifa, Gaisler-Salomon Lab (2017\u20132018). Research focused on how disruptions in glutamate metabolism affect cognitive and behavioral outcomes in rodents.',
+      did: 'Performed behavioral experiments including novel object recognition and fear conditioning \u00b7 Assisted with pharmacological intervention protocols \u00b7 Contributed to data collection, analysis, and figure preparation \u00b7 Co-authored two peer-reviewed outputs.',
+      methods: 'Conditional knockout mouse model \u00b7 novel object recognition \u00b7 fear conditioning \u00b7 locomotor activity \u00b7 amphetamine sensitization \u00b7 immunofluorescence \u00b7 Western blot \u00b7 behavioral scoring',
+      output: 'Two outputs \u2014 see projects below.',
+      subprojects: [
+        {
+          title: 'GDH Deficiency & Recognition Memory',
+          badge: 'Published \u00b7 Genes, Brain and Behavior 2020',
+          figures: {
+            featured: { src: 'data/lifesci/GDH map.jpg', caption: 'GDH pathway map \u2014 glutamate dehydrogenase role in glutamate\u2013glutamine cycling between neurons and astrocytes.' },
+            gallery: [
+              { src: 'data/lifesci/ifc_freezing_bar.jpg', caption: 'Freezing behavior (fear conditioning) \u2014 GDH-deficient vs. control mice across contextual and cued memory tests.' }
+            ]
+          },
+          citation: 'Lander, S. S., Chornyy, S., Safory, H., Gross, A., Wolosker, H., & Gaisler\u2011Salomon, I. (2020). Glutamate dehydrogenase deficiency disrupts glutamate homeostasis in hippocampus and prefrontal cortex and impairs recognition memory. Genes, Brain and Behavior, 19(6), e12636.'
+        },
+        {
+          title: 'Ebselen & Amphetamine Sensitization',
+          badge: 'Conference Poster \u00b7 SIRS 2018',
+          figures: {
+            featured: { src: 'data/lifesci/ebselen_poster.png', caption: 'Conference poster \u2014 effects of the glutaminase inhibitor ebselen on dopamine receptors and locomotion in amphetamine-sensitized mice.' },
+            gallery: []
+          },
+          posterDownload: 'data/lifesci/ebselen_poster.pptx',
+          citation: 'Heffetz-Giterman, L., Lander, S. S., Cohen, R., Gross, A., & Gaisler-Salomon, I. (2018). Ebselen prevents amphetamine sensitization via glutaminase inhibition. Schizophrenia Bulletin, 44(Suppl 1), S202.'
+        }
+      ]
     },
     'ls-04': {
       num: '04', category: 'Life Sciences',
@@ -405,6 +427,35 @@
     }
   });
 
+  /* ── Subproject carousel ───────────────────────────────── */
+  function initSubprojectCarousel(container, total) {
+    var track   = container.querySelector('.di-carousel__track');
+    var dots    = container.querySelectorAll('.di-carousel__dot');
+    var btnPrev = container.querySelector('.di-carousel__btn--prev');
+    var btnNext = container.querySelector('.di-carousel__btn--next');
+    var counter = container.querySelector('.di-carousel__counter');
+    var current = 0;
+
+    function go(idx) {
+      current = (idx + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
+      if (counter) counter.textContent = (current + 1) + ' / ' + total;
+    }
+
+    btnPrev.addEventListener('click', function () { go(current - 1); });
+    btnNext.addEventListener('click', function () { go(current + 1); });
+    dots.forEach(function (d, i) { d.addEventListener('click', function () { go(i); }); });
+
+    /* Swipe support */
+    var startX = 0;
+    track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(dx < 0 ? current + 1 : current - 1);
+    }, { passive: true });
+  }
+
   /* ── Populate panel from data ───────────────────────────── */
   var SECTIONS = [
     { key: 'context', label: 'Context' },
@@ -427,9 +478,62 @@
       ghEl.innerHTML = '';
     }
 
-    /* Render figure area: real gallery if data.figures exists, else placeholder text */
+    /* Render figure area: real gallery if data.figures exists, subprojects, else placeholder */
     var figureEl = panel.querySelector('.di-figure');
-    if (data.figures) {
+    if (data.subprojects) {
+      var slidesHTML = data.subprojects.map(function (sp, idx) {
+        var figHTML = '';
+        if (sp.figures) {
+          var f = sp.figures;
+          figHTML =
+            '<figure class="connectome-feature">' +
+              '<div class="figure-frame"><img src="' + esc(f.featured.src) + '" alt="' + esc(f.featured.caption) + '" loading="lazy"></div>' +
+              '<figcaption>' + esc(f.featured.caption) + '</figcaption>' +
+            '</figure>' +
+            (f.gallery.length
+              ? '<div class="connectome-gallery">' +
+                  f.gallery.map(function (img) {
+                    return '<figure><div class="figure-frame"><img src="' + esc(img.src) + '" alt="' + esc(img.caption) + '" loading="lazy"></div><figcaption>' + esc(img.caption) + '</figcaption></figure>';
+                  }).join('') +
+                '</div>'
+              : '');
+        } else {
+          figHTML =
+            '<div class="fig-placeholder">' +
+              '<span class="fig-placeholder__label">' + esc(sp.figLabel || 'Figure \u2014 placeholder') + '</span>' +
+            '</div>';
+        }
+        return (
+          '<div class="di-carousel__slide">' +
+            '<div class="di-subproject__header">' +
+              '<h4 class="di-subproject__title">' + esc(sp.title) + '</h4>' +
+              '<span class="di-subproject__badge">' + esc(sp.badge) + '</span>' +
+            '</div>' +
+            '<div class="di-subproject__figures">' + figHTML + '</div>' +
+            (sp.posterDownload ? '<a class="di-roadmap__download" href="' + esc(sp.posterDownload) + '" download target="_blank" rel="noopener noreferrer">Download poster \u2193</a>' : '') +
+            '<p class="di-subproject__citation">' + esc(sp.citation) + '</p>' +
+          '</div>'
+        );
+      }).join('');
+      var dotsHTML = data.subprojects.map(function (_, i) {
+        return '<button class="di-carousel__dot' + (i === 0 ? ' is-active' : '') + '" aria-label="Project ' + (i + 1) + '"></button>';
+      }).join('');
+      figureEl.innerHTML =
+        '<div class="di-subproject-carousel">' +
+          '<div class="di-carousel__header">' +
+            '<span class="di-carousel__counter">1 / ' + data.subprojects.length + '</span>' +
+            '<div class="di-carousel__nav">' +
+              '<button class="di-carousel__btn di-carousel__btn--prev" aria-label="Previous project">\u2190</button>' +
+              '<button class="di-carousel__btn di-carousel__btn--next" aria-label="Next project">\u2192</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="di-carousel__viewport">' +
+            '<div class="di-carousel__track">' + slidesHTML + '</div>' +
+          '</div>' +
+          '<div class="di-carousel__dots">' + dotsHTML + '</div>' +
+        '</div>';
+      initSubprojectCarousel(figureEl, data.subprojects.length);
+    } else if (data.figures) {
       var f = data.figures;
       var galleryHTML =
         '<div class="di-gallery">' +
@@ -457,10 +561,18 @@
           '</div>' +
         '</div>';
       figureEl.innerHTML = galleryHTML;
+      if (data.posterDownload) {
+        figureEl.innerHTML += '<a class="di-roadmap__download" href="' + esc(data.posterDownload) + '" download target="_blank" rel="noopener noreferrer">Download poster \u2193</a>';
+      }
     } else {
+      var placeholderLabel = esc(data.figLabel || 'Figure \u2014 placeholder');
+      var downloadBtn = data.posterDownload
+        ? '<a class="di-roadmap__download" href="' + esc(data.posterDownload) + '" download target="_blank" rel="noopener noreferrer">Download poster \u2193</a>'
+        : '';
       figureEl.innerHTML =
         '<div class="fig-placeholder" aria-label="Figure placeholder">' +
-          '<span class="fig-placeholder__label" id="di-fig-label">' + esc(data.figLabel || 'Figure \u2014 placeholder') + '</span>' +
+          '<span class="fig-placeholder__label" id="di-fig-label">' + placeholderLabel + '</span>' +
+          downloadBtn +
         '</div>';
     }
 
