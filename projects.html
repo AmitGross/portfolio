@@ -98,7 +98,7 @@
 
       <div class="rule-row reveal">
         <span class="t-label">All Projects</span>
-        <span class="t-mono-sm">05 items</span>
+        <span class="t-mono-sm">04 items</span>
       </div>
 
       <!-- Bento grid — featured card spans 2 columns -->
@@ -109,69 +109,44 @@
           <div class="bento-card__inner">
             <div class="bento-card__header">
               <span class="bento-card__tag">Featured</span>
+              <div class="bento-card__ext-links">
+                <a href="https://againstallodds.app/" target="_blank" rel="noopener" class="bento-card__ext-link" onclick="event.stopPropagation()">&#x2197; Site</a>
+                <a href="https://github.com/AmitGross/Against-All-Odds" target="_blank" rel="noopener" class="bento-card__ext-link" onclick="event.stopPropagation()">&#x2197; GitHub</a>
+              </div>
             </div>
             <h3 class="bento-card__title">Against All Odds</h3>
             <p class="bento-card__desc">
-              A large-scale scientific computing and connectome analysis project built under complex data, workflow, and implementation constraints. A case study in data-intensive research, pipeline development, and computational problem-solving.
+              Full-stack WC 2026 prediction game built with Next.js 15 and Supabase, backed by a custom ML model (Random Forest + XGBoost ensemble, 68 features) that predicts match scores and simulates the full tournament bracket. Evaluated on WC 2022: 54.7% accuracy (walk-forward).
             </p>
-            <div class="bento-card__fig">
-              <div class="fig-placeholder" style="height: 200px;" aria-label="Against All Odds — project placeholder">
-                <span class="fig-placeholder__label">Project figure &mdash; placeholder</span>
-              </div>
+            <div class="bento-card__fig" style="position:relative;height:220px;overflow:hidden;border:1px solid var(--border);border-radius:2px;">
+              <img src="projects/wc-homepage.png" alt="Against All Odds — app homepage" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.92;">
             </div>
             <div class="bento-card__footer">
               <div class="bento-card__tags">
-                <span class="bento-card__chip">Analysis</span>
-                <span class="bento-card__chip">Case Study</span>
-                <span class="bento-card__chip">Data</span>
+                <span class="bento-card__chip">Next.js</span>
+                <span class="bento-card__chip">Python ML</span>
+                <span class="bento-card__chip">Supabase</span>
               </div>
               <span class="bento-card__link" aria-hidden="true">&#x2192; Read more</span>
             </div>
           </div>
         </article>
 
-        <!-- Project 02 -->
-        <article class="bento-card" data-detail data-detail-id="proj-02" data-detail-category="Selected Projects">
+        <!-- Project 04 -->
+        <article class="bento-card bento-card--tall" data-detail data-detail-id="proj-04" data-detail-category="Selected Projects">
           <div class="bento-card__inner">
             <div class="bento-card__header">
+              <a href="https://github.com/AmitGross/Genetic-Algorithms-Machine-Learning" target="_blank" rel="noopener" class="bento-card__ext-link" onclick="event.stopPropagation()">&#x2197; GitHub</a>
             </div>
-            <h3 class="bento-card__title">AI Geopositioning System</h3>
-            <p class="bento-card__desc">Deep learning project using WiFi signal fingerprinting and GPS-supervised data to predict outdoor geographic position from wireless signal patterns using TensorFlow/Keras.</p>
+            <h3 class="bento-card__title">Genetic Algorithm Simulation</h3>
+            <p class="bento-card__desc">2D evolutionary simulation where agents learn to find food using genetic algorithms — selection, recombination, and mutation over generations. Demonstrates emergent learning from random vector-based "genetic" data.</p>
+            <div class="bento-card__fig" style="position:relative;height:160px;overflow:hidden;border:1px solid var(--border);border-radius:2px;">
+              <img src="projects/ga.jpg" alt="Genetic Algorithm Simulation" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0.92;">
+            </div>
             <div class="bento-card__footer">
               <div class="bento-card__tags">
                 <span class="bento-card__chip">Python</span>
-                <span class="bento-card__chip">ML</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 03 -->
-        <article class="bento-card" data-detail data-detail-id="proj-03" data-detail-category="Selected Projects">
-          <div class="bento-card__inner">
-            <div class="bento-card__header">
-            </div>
-            <h3 class="bento-card__title">Connectome Optimisation</h3>
-            <p class="bento-card__desc">Computational optimisation of connectome analysis workflows, including geodesic matrix methods for synapse distance calculations and hyperparameter tuning using Optuna.</p>
-            <div class="bento-card__footer">
-              <div class="bento-card__tags">
-                <span class="bento-card__chip">R</span>
-                <span class="bento-card__chip">Statistics</span>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 04 -->
-        <article class="bento-card" data-detail data-detail-id="proj-04" data-detail-category="Selected Projects">
-          <div class="bento-card__inner">
-            <div class="bento-card__header">
-            </div>
-            <h3 class="bento-card__title">Genetic Algorithm Work</h3>
-            <p class="bento-card__desc">Algorithmic exploration using genetic algorithm concepts. Details to be confirmed.</p>
-            <div class="bento-card__footer">
-              <div class="bento-card__tags">
-                <span class="bento-card__chip">Visualisation</span>
+                <span class="bento-card__chip">Genetic Algorithms</span>
               </div>
             </div>
           </div>
@@ -181,16 +156,36 @@
         <article class="bento-card" data-detail data-detail-id="proj-05" data-detail-category="Selected Projects">
           <div class="bento-card__inner">
             <div class="bento-card__header">
+              <a href="https://github.com/AmitGross/AltPiano" target="_blank" rel="noopener" class="bento-card__ext-link" onclick="event.stopPropagation()">&#x2197; GitHub</a>
             </div>
-            <h3 class="bento-card__title">AltKeyboard Layout Tool</h3>
-            <p class="bento-card__desc">Independent app/tool project. Details to be confirmed.</p>
+            <h3 class="bento-card__title">AltPiano</h3>
+            <p class="bento-card__desc">Pygame-based piano learning app featuring an alternative keyboard layout optimised for learning. Highlights active scales in real time, marks in-scale vs. out-of-scale notes (A/B), and supports both keyboard and mouse input — designed to make music theory intuitive at the instrument.</p>
             <div class="bento-card__footer">
               <div class="bento-card__tags">
-                <span class="bento-card__chip">Analysis</span>
+                <span class="bento-card__chip">Python</span>
+                <span class="bento-card__chip">Pygame</span>
               </div>
             </div>
           </div>
         </article>
+
+        <!-- Project 06 -->
+        <article class="bento-card" data-detail data-detail-id="proj-06" data-detail-category="Selected Projects">
+          <div class="bento-card__inner">
+            <div class="bento-card__header">
+              <a href="https://github.com/AmitGross/Application-for-Lab-use" target="_blank" rel="noopener" class="bento-card__ext-link" onclick="event.stopPropagation()">&#x2197; GitHub</a>
+            </div>
+            <h3 class="bento-card__title">Lab Protocol Manager</h3>
+            <p class="bento-card__desc">Desktop app for documenting, calculating, and managing immunohistochemistry lab protocols. Includes protocol search by shared components, concentration calculators, and an auto-dated virtual lab notebook.</p>
+            <div class="bento-card__footer">
+              <div class="bento-card__tags">
+                <span class="bento-card__chip">Python</span>
+                <span class="bento-card__chip">Lab Tools</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
 
       </div><!-- /bento-grid -->
     </div>

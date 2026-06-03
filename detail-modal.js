@@ -330,57 +330,74 @@
     'proj-01': {
       num: '01', category: 'Selected Projects',
       title: 'Against All Odds',
-      tags: ['Analysis', 'Case Study', 'Data', 'Python'],
-      desc: 'A flagship project connected to connectome work: building a large, organized, scalable analysis pipeline under difficult data, workflow, and implementation constraints. A case study in data-intensive research and computational problem-solving.',
-      context: 'The project required managing large scientific datasets, custom computational workflows, complex biological questions, and repeated analysis and visualization needs.',
-      did: 'Built and organized analysis workflows \u00b7 Processed large-scale connectome data \u00b7 Integrated graph, tabular, and visualization methods \u00b7 Created figures and summaries for interpretation \u00b7 Managed technical complexity over a long project timeline.',
-      methods: 'Python \u00b7 Pandas \u00b7 NumPy \u00b7 NetworkX \u00b7 Navis \u00b7 NGLUI \u00b7 graph analysis \u00b7 statistical analysis \u00b7 visualization \u00b7 workflow organization',
-      output: 'Pipeline diagram \u00b7 data flow diagram \u00b7 neuron/synapse visualizations \u00b7 graph/network outputs \u00b7 statistical figures',
-      figLabel: '[Add strongest connectome/pipeline image \u2014 confirm publication/manuscript status first]'
-    },
-    'proj-02': {
-      num: '02', category: 'Selected Projects',
-      title: 'AI Geopositioning System',
-      tags: ['Python', 'ML', 'Deep Learning', 'TensorFlow'],
-      desc: 'Deep learning project using WiFi signal fingerprinting and GPS-supervised data to predict outdoor geographic position from wireless signal patterns using TensorFlow/Keras.',
-      context: 'Signal data from WiFi routers was paired with GPS-supervised location labels. The goal was to estimate geographic position from signal patterns alone.',
-      did: 'Worked with tabular WiFi/GPS data \u00b7 Built or supported deep neural network modeling \u00b7 Used cross-validation and model evaluation \u00b7 Applied hyperparameter optimization.',
-      methods: 'TensorFlow \u00b7 Keras \u00b7 Scikit-learn \u00b7 Pandas \u00b7 NumPy \u00b7 cross-validation \u00b7 Optuna \u00b7 Hyperopt \u00b7 GPS-labeled data',
-      output: 'Training curves \u00b7 error distributions \u00b7 predicted vs. actual plots \u00b7 model evaluation summaries',
-      figLabel: '[Add model architecture, error plot, training curve, or predicted vs. actual plot]'
-    },
-    'proj-03': {
-      num: '03', category: 'Selected Projects',
-      title: 'Connectome Optimisation',
-      tags: ['R', 'Statistics', 'Python', 'Optuna'],
-      desc: 'Computational optimisation of connectome analysis workflows, including geodesic matrix methods for synapse distance calculations and hyperparameter tuning using Optuna.',
-      context: '[placeholder \u2014 add specific project name and final quantitative results]',
-      did: 'Optimised code for synapse distance calculations using geodesic matrices \u00b7 Evaluated time and space complexity trade-offs \u00b7 Applied hyperparameter optimisation in deep learning projects.',
-      methods: 'Python \u00b7 algorithmic optimisation \u00b7 time complexity \u00b7 space complexity \u00b7 Optuna \u00b7 Hyperopt',
-      output: '[placeholder \u2014 add optimisation plot or workflow comparison]',
-      figLabel: '[Add optimisation plot or workflow comparison]'
+      tags: ['Next.js', 'TypeScript', 'Python', 'ML', 'Supabase', 'FastAPI', 'Football'],
+      desc: 'Full-stack WC 2026 prediction game backed by a custom ML model. The app (Next.js 15 + Supabase) lets users predict match scores, group winners, and the full knockout bracket, compete on a leaderboard, and join private rooms. The ML engine (Python, RF + XGBoost ensemble, 68 features) predicts match scores via a Poisson grid and simulates the complete tournament. Evaluated retrospectively: 54.7% outcome accuracy on WC 2022 (walk-forward mode). Predicted WC 2026 champion: France.',
+      context: 'Against All Odds app (Next.js 15, Supabase, TypeScript) — WC 2026 prediction game with private rooms, leaderboard, match questions, and collaborative drawing board. Backed by football-prediction: a Python ML pipeline (RF + XGBoost + Dixon-Coles + Isotonic calibrator) with a FastAPI endpoint serving live predictions.',
+      did: 'Built the full-stack Next.js 15 prediction app with Supabase PostgreSQL, RLS, and Auth \u00b7 Designed and implemented private prediction rooms with leaderboards, match questions, and shared drawing canvas \u00b7 Developed the ML pipeline: feature engineering (68 features), ensemble training, Poisson score grid, probability calibration \u00b7 Ran ablation studies and walk-forward evaluation across WC 2018, 2022, and 2026 \u00b7 Built FastAPI /predict, /result, /health endpoints \u00b7 Simulated full WC 2026 bracket (pre-tournament, April 2026).',
+      methods: 'Next.js 15 \u00b7 React 19 \u00b7 TypeScript \u00b7 Tailwind CSS \u00b7 Supabase (PostgreSQL, RLS, Auth) \u00b7 Python \u00b7 scikit-learn \u00b7 XGBoost \u00b7 Pandas \u00b7 NumPy \u00b7 FastAPI \u00b7 Optuna \u00b7 Dixon-Coles \u00b7 Poisson score grid \u00b7 isotonic calibration',
+      output: 'Live WC 2026 prediction app \u00b7 ML model v1.6 (54.7% WC 2022 accuracy) \u00b7 full tournament bracket simulation \u00b7 FastAPI prediction endpoint \u00b7 feature importance analysis \u00b7 model vs. market comparison',
+      github: 'https://github.com/AmitGross/Against-All-Odds',
+      website: 'https://againstallodds.app/',
+      subprojects: [
+        {
+          title: 'Predict Every Match',
+          badge: 'App',
+          figures: {
+            featured: { src: 'projects/wc-homepage.png', caption: 'Landing page — users predict exact scores for all 72 group-stage matches before kick-off.' },
+            gallery: []
+          }
+        },
+        {
+          title: 'Private Rooms & Leaderboard',
+          badge: 'App',
+          figures: {
+            featured: { src: 'projects/wc-room.png', caption: 'Create private rooms, invite friends, and track rankings on a live leaderboard.' },
+            gallery: []
+          }
+        },
+        {
+          title: 'Full Knockout Bracket',
+          badge: 'App',
+          figures: {
+            featured: { src: 'projects/wc-knockouts.png', caption: 'Live bracket from Round of 32 to the Final — updates automatically as results come in.' },
+            gallery: []
+          }
+        }
+      ]
     },
     'proj-04': {
       num: '04', category: 'Selected Projects',
-      title: 'Genetic Algorithm Work',
-      tags: ['Algorithms', 'Optimisation', 'Visualisation'],
-      desc: '[placeholder \u2014 fill only after confirming the specific genetic algorithm project details]',
-      context: '[placeholder]',
-      did: '[placeholder \u2014 add specific contributions after confirming project details]',
-      methods: 'Genetic algorithms \u00b7 optimisation \u00b7 fitness functions \u00b7 selection \u00b7 mutation \u00b7 crossover',
-      output: '[placeholder \u2014 add genetic algorithm figure if available]',
-      figLabel: '[Add genetic algorithm figure if available]'
+      title: 'Genetic Algorithm Simulation',
+      tags: ['Python', 'Genetic Algorithms', 'Simulation', 'Evolutionary ML'],
+      desc: 'A 2D evolutionary simulation where agents (mice) learn to find food by evolving across generations using genetic algorithm principles. Each agent carries a list of random movement vectors as its \u201cgenetic data\u201d; the two best-performing agents in each generation reproduce, exchanging and mutating vector segments to produce the next generation.',
+      context: 'A standalone Python simulation project. Demonstrates how evolutionary selection, recombination, and mutation can produce emergent goal-directed behaviour without explicit programming of the target behaviour.',
+      did: 'Implemented a generation-based evolutionary loop \u00b7 Encoded agent behaviour as lists of random movement vectors (\u201cchromosomes\u201d) \u00b7 Implemented selection (top-2 by score), recombination (segment exchange between parent vectors), and mutation (random vector modification) \u00b7 Parametrised mutation rate, segment length, and population size \u00b7 Added support for multiple food sources \u00b7 Visualised agent movement and evolutionary progress in 2D space.',
+      methods: 'Python \u00b7 genetic algorithms \u00b7 evolutionary simulation \u00b7 selection \u00b7 genetic recombination \u00b7 mutation \u00b7 2D agent simulation \u00b7 fitness scoring',
+      output: 'Generation-by-generation improvement in food-finding behaviour \u00b7 configurable evolutionary dynamics \u00b7 2D simulation visualization',
+      github: 'https://github.com/AmitGross/Genetic-Algorithms-Machine-Learning',
+      figures: { featured: { src: 'projects/ga.jpg', caption: '2D simulation — agents (mice) evolve across generations to locate food sources.' }, gallery: [] }
     },
     'proj-05': {
       num: '05', category: 'Selected Projects',
-      title: 'AltKeyboard Layout Tool',
-      tags: ['Tool', 'Independent Build', 'Analysis'],
-      desc: '[placeholder \u2014 fill only after confirming what the AltKeyboard app does, why it was built, and what can be shown]',
-      context: '[placeholder]',
-      did: '[placeholder \u2014 add specific contributions after confirming project details]',
-      methods: '[placeholder \u2014 add framework/language/tools]',
-      output: '[placeholder \u2014 add app screenshot or UI flow]',
-      figLabel: '[Add app screenshot or UI flow]'
+      title: 'AltPiano',
+      tags: ['Python', 'Pygame', 'Music', 'Education', 'Interactive'],
+      desc: 'A Pygame-based interactive piano learning app built around an alternative keyboard layout. Teaches scales and chords by highlighting the active scale in real time, marking which notes within the scale are in position A or B, and accepting both mouse-click and keyboard input.',
+      context: 'A standalone Python + Pygame project. Designed to make piano scale and chord learning more visual and interactive through an alternative key layout and real-time scale context.',
+      did: 'Built an interactive piano interface using Pygame \u00b7 Designed an alternative visual keyboard layout \u00b7 Implemented real-time scale highlighting (yellow rectangle for active scale) \u00b7 Added A/B note labelling within the current scale \u00b7 Supported both mouse-click and keyboard input (A=C, S=D \u2026 J=A) \u00b7 Built a tutorial flow for new users.',
+      methods: 'Python \u00b7 Pygame \u00b7 music theory (scales, chords) \u00b7 interactive UI design \u00b7 keyboard/mouse event handling',
+      output: 'Interactive piano app \u00b7 real-time scale visualization \u00b7 note-within-scale marking \u00b7 tutorial mode',
+      github: 'https://github.com/AmitGross/AltPiano'
+    },
+    'proj-06': {
+      num: '06', category: 'Selected Projects',
+      title: 'Lab Protocol Manager',
+      tags: ['Python', 'Lab Tools', 'Immunohistochemistry', 'Desktop App'],
+      desc: 'A desktop application for organizing, calculating, and documenting immunohistochemistry lab protocols. Features a protocol search engine (find protocols using similar reagents), built-in calculators for concentrations and dilutions, automatic ratio calculations, and a virtual lab notebook with date-stamped entries.',
+      context: 'A standalone Python desktop app built for practical lab use in an immunohistochemistry setting. Designed to reduce manual calculation errors, enable protocol reuse by similarity search, and keep a digital record of experimental work.',
+      did: 'Built a desktop app for immunohistochemistry protocol management \u00b7 Implemented protocol documentation with virtual notebook and auto-dating \u00b7 Developed protocol similarity search (find protocols sharing components) \u00b7 Built calculators for solution concentration, dilution, and substance ratios \u00b7 Generated organized protocol output with calculated substance amounts from user inputs.',
+      methods: 'Python \u00b7 desktop app development \u00b7 protocol management \u00b7 concentration and dilution calculators \u00b7 search by component similarity \u00b7 virtual lab notebook',
+      output: 'Organized protocol output with calculated amounts \u00b7 protocol similarity search \u00b7 virtual notebook with date-stamped entries \u00b7 packaged .exe application',
+      github: 'https://github.com/AmitGross/Application-for-Lab-use'
     }
   };
 
@@ -553,13 +570,16 @@
     document.getElementById('di-title').textContent     = data.title    || '';
     document.getElementById('di-desc').textContent      = data.desc     || '';
 
-    /* GitHub link */
+    /* GitHub + website links */
     var ghEl = document.getElementById('di-github');
-    if (data.github) {
-      ghEl.innerHTML = '<a class="di-github__link" href="' + esc(data.github) + '" target="_blank" rel="noopener noreferrer">&#xe000; View on GitHub</a>';
-    } else {
-      ghEl.innerHTML = '';
+    var links = [];
+    if (data.website) {
+      links.push('<a class="di-github__link" href="' + esc(data.website) + '" target="_blank" rel="noopener noreferrer">&#x2197; Visit Site</a>');
     }
+    if (data.github) {
+      links.push('<a class="di-github__link" href="' + esc(data.github) + '" target="_blank" rel="noopener noreferrer">&#xe000; View on GitHub</a>');
+    }
+    ghEl.innerHTML = links.join('');
 
     /* Render figure area: real gallery if data.figures exists, subprojects, else placeholder */
     var figureEl = panel.querySelector('.di-figure');

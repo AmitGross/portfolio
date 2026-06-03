@@ -1670,6 +1670,25 @@ ul, ol { list-style: none; }
   border-radius: 2px;
 }
 
+.bento-card__ext-links {
+  display: flex;
+  gap: var(--sp-12);
+  margin-left: auto;
+}
+
+.bento-card__ext-link {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+
+.bento-card__ext-link:hover {
+  color: var(--accent, var(--amber));
+}
+
 .bento-card__title {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 1.8vw, 1.6rem);
@@ -1921,6 +1940,9 @@ ul, ol { list-style: none; }
 
 .di-github {
   margin-bottom: var(--sp-8);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-8);
 }
 
 .di-github__link {
@@ -1948,6 +1970,10 @@ ul, ol { list-style: none; }
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.7;
+}
+
+.di-github__link:not([href*="github"])::before {
+  display: none;
 }
 
 .di-github__link:hover {
