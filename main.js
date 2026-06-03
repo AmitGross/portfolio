@@ -201,7 +201,12 @@
 
     function revealSelection() {
       if (wheelHint) wheelHint.classList.add('hidden');
-      if (mapSubsEl) mapSubsEl.classList.remove('is-hidden');
+      if (mapSubsEl && mapSubsEl.classList.contains('is-hidden')) {
+        mapSubsEl.classList.remove('is-hidden');
+        setTimeout(() => {
+          window.scrollTo({ top: mapSubsEl.offsetTop / 2, behavior: 'smooth' });
+        }, 200);
+      }
     }
 
     labels.forEach(label => {
