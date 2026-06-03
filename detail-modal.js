@@ -155,11 +155,39 @@
       title: 'Histology & Optical Imaging',
       tags: ['Histology', 'Staining', 'Confocal', 'Fluorescence'],
       desc: 'Tissue preparation, immunohistochemical staining, and optical imaging methods including confocal and fluorescence microscopy for anatomical and molecular characterization.',
-      context: '[placeholder \u2014 add tissue types, organisms, and specific imaging applications]',
-      did: 'Prepared tissue samples for imaging \u00b7 Applied immunofluorescence staining protocols \u00b7 Operated or supported confocal and fluorescence microscopy \u00b7 Interpreted imaging results.',
-      methods: 'Confocal microscopy \u00b7 2-photon microscopy \u00b7 fluorescence imaging \u00b7 immunofluorescence \u00b7 tissue preparation \u00b7 staining \u00b7 image interpretation',
-      output: '[placeholder \u2014 add microscopy images, staining examples, or protocol documentation]',
-      figLabel: '[Add microscopy image or imaging workflow]'
+      context: 'Work spanning two research labs and the Weizmann Institute Core Facility, involving confocal, two-photon, and immunofluorescence imaging across multiple tissue types and disease models.',
+      did: 'Prepared tissue samples for imaging \u00b7 Applied immunofluorescence staining protocols \u00b7 Operated confocal and two-photon microscopy systems \u00b7 Interpreted and processed imaging results \u00b7 Supported researchers with imaging workflows.',
+      methods: 'Confocal microscopy \u00b7 two-photon microscopy \u00b7 fluorescence imaging \u00b7 immunofluorescence \u00b7 tissue preparation \u00b7 staining \u00b7 image interpretation',
+      output: 'Three outputs \u2014 see projects below.',
+      subprojects: [
+        {
+          title: 'Fear Conditioning — IFC Imaging',
+          badge: 'Experimental Work · Placeholder',
+          figures: {
+            featured: { src: 'life%20science/histology/ifc_butterfly.jpg', caption: 'Immunofluorescence image from the immediate fear conditioning (IFC) paradigm \u2014 placeholder for additional context.' },
+            gallery: []
+          },
+          citation: '[Placeholder \u2014 add citation, publication, or experimental context for the IFC immunofluorescence work.]'
+        },
+        {
+          title: 'Two-Photon Microscopy System',
+          badge: 'Technical Imaging · Core Facility',
+          figures: {
+            featured: { src: 'life%20science/histology/2psystem.jpg', caption: 'Two-photon microscopy system \u2014 used for deep-tissue in vivo optical imaging.' },
+            gallery: []
+          },
+          citation: '[Placeholder \u2014 add context for two-photon system use: facility, research application, or imaging protocol.]'
+        },
+        {
+          title: 'Innate Immunity in Neuronopathic Gaucher Disease',
+          badge: 'Published \u00b7 Acta Neuropathologica Communications 2020',
+          figures: {
+            featured: { src: 'life%20science/histology/ifc_article.webp', caption: 'Histological imaging from Melamed et al. (2020) \u2014 innate immune response in neuronopathic Gaucher disease confers resistance against viral encephalitis.' },
+            gallery: []
+          },
+          citation: 'Melamed, S., Avraham, R., Rothbard, D. E., Erez, N., Israely, T., Klausner, Z., \u2026 & Vitner, E. B. (2020). Innate immune response in neuronopathic forms of Gaucher disease confers resistance against viral-induced encephalitis. Acta Neuropathologica Communications, 8(1), 144.'
+        }
+      ]
     },
 
     /* OPERATIONS ────────────────────────────────────────── */
