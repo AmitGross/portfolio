@@ -41,9 +41,20 @@
       desc: 'Statistical analysis of pre/post program data, integrating behavioral outcomes with geographic and environmental mapping using OpenStreetMap and Overpass Turbo. The project linked program-related behavioral measures with spatial context to support interpretation of intervention effects.',
       context: '[placeholder \u2014 add project topic, research question, and dataset type]',
       did: 'Analyzed project data \u00b7 Applied statistical reasoning and tests \u00b7 Created plots, summaries, or reports \u00b7 Communicated findings to collaborators or stakeholders.',
-      methods: 'Python \u00b7 R \u00b7 Pandas \u00b7 NumPy \u00b7 SciPy \u00b7 ANOVA \u00b7 t-tests \u00b7 regression \u00b7 statistical testing \u00b7 visualization',
-      output: '[placeholder \u2014 add plots, tables, report screenshots, or summary figures]',
-      figLabel: '[Add statistical figure or analysis summary]'
+      methods: 'Python \u00b7 Pandas \u00b7 NumPy \u00b7 SciPy \u00b7 Wilcoxon signed-rank test \u00b7 Mann-Whitney U \u00b7 OpenStreetMap \u00b7 Overpass Turbo \u00b7 data visualization',
+      output: 'Pre/post statistical plots \u00b7 spatial mapping of crossing features \u00b7 school-level environmental survey \u00b7 behavioral outcome summaries',
+      figures: {
+        featured: { src: 'data/tech/mapping_screenshot.jpg', caption: 'Pedestrian crossing features mapped per school area using OpenStreetMap and Overpass Turbo.' },
+        gallery: [
+          { src: 'data/tech/slides/slide_01.png', caption: 'Geo-orientation (spatial literacy) pre/post program. Wilcoxon signed-rank test, W=2775, p<0.001, N=170. Before: mean 63.6 \u2192 After: 72.9.' },
+          { src: 'data/tech/slides/slide_02.png', caption: 'Skill (66.6\u219270.1, p<0.005) and Knowledge (61.6\u219277.6, p<0.001) scores pre/post program, N=170.' },
+          { src: 'data/tech/slides/slide_03.png', caption: 'Content knowledge (63.0\u219281.4, p<0.001) and declarative knowledge (59.9\u219274.2, p<0.001) pre/post program, N=170.' },
+          { src: 'data/tech/slides/slide_04.png', caption: 'Spatial thinking and declarative knowledge by gender (Mann-Whitney U). Pre-program gender gap in spatial thinking (p=0.033) closed post-program.' },
+          { src: 'data/tech/slides/slide_05.png', caption: 'Participant satisfaction, perceived program contribution, and willingness to recommend \u2014 response distributions (1\u20135 scale).' },
+          { src: 'data/tech/slides/slide_06.png', caption: 'Scientific/geographic thinking in the context of accessible urban planning: pre/post distribution of correct responses.' },
+          { src: 'data/tech/table_behavior.png', caption: 'Environmental features mapped per school area (OpenStreetMap \u00b7 Overpass Turbo) \u2014 raw counts and normalized scores.' }
+        ]
+      }
     },
     'ds-03': {
       num: '03', category: 'Data Science & Computing',
