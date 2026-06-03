@@ -195,20 +195,27 @@
       });
     }
 
-    // Render subsections immediately on load (no animation)
-    updateSubs(0, false);
-    activate('0');
+    // No default selection — wait for user to pick a section
+    const wheelHint = document.getElementById('map-wheel-hint');
+    const mapSubsEl = document.getElementById('map-subs');
+
+    function revealSelection() {
+      if (wheelHint) wheelHint.classList.add('hidden');
+      if (mapSubsEl) mapSubsEl.classList.remove('is-hidden');
+    }
 
     labels.forEach(label => {
       label.addEventListener('click', () => {
         activate(label.dataset.card);
         updateSubs(parseInt(label.dataset.card, 10), true);
+        revealSelection();
       });
       label.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           activate(label.dataset.card);
           updateSubs(parseInt(label.dataset.card, 10), true);
+          revealSelection();
         }
       });
       // Hover: no card switch, CSS handles subtle visual hint

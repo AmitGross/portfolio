@@ -93,6 +93,25 @@
       z-index: 1;
       pointer-events: none;
     }
+    .map-wheel__hint {
+      position: absolute;
+      inset: 31%;
+      border-radius: 50%;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #e05555;
+      line-height: 1.5;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .map-wheel__hint.hidden { opacity: 0; }
 
     /* Interactive label buttons positioned around the wheel */
     .map-label {
@@ -223,6 +242,7 @@
       padding-top: var(--sp-24);
       border-top: 1px solid var(--border-light);
     }
+    .map-subs.is-hidden { display: none; }
     .map-subs__header {
       display: flex; justify-content: space-between; align-items: baseline;
       margin-bottom: var(--sp-16);
@@ -457,8 +477,8 @@
         <div class="map-wheel">
 
           <!-- Interactive labels clockwise from 12 -->
-          <button class="map-label map-label--data active" data-card="0"
-                  aria-pressed="true" aria-label="Data Science and Computing">
+          <button class="map-label map-label--data" data-card="0"
+                  aria-pressed="false" aria-label="Data Science and Computing">
             <span class="map-label__name">Data</span>
           </button>
           <button class="map-label map-label--life" data-card="1"
@@ -482,10 +502,13 @@
             <span class="map-label__name">Bio</span>
           </button>
 
+          <!-- Centre hint (hidden once a section is picked) -->
+          <div class="map-wheel__hint" id="map-wheel-hint" aria-hidden="true">Click<br>a subject</div>
+
         </div>
 
         <div class="map-card-panel" aria-live="polite" aria-atomic="true">
-          <div class="map-card active" data-card="0" style="--card-accent:var(--sage);">
+          <div class="map-card" data-card="0" style="--card-accent:var(--sage);">
             <span class="map-card__index">Data Science &amp; Computing</span>
             <h2 class="map-card__title">Analytical Systems &amp; Computation</h2>
             <p class="map-card__desc">Work involving data analysis, statistical modeling, machine learning, graph-based analysis, scientific computing, and large-scale research workflows. This area includes computational neuroscience, predictive modeling, statistical analysis projects, and tools built to process and interpret complex datasets.</p>
@@ -531,10 +554,10 @@
       </div>
 
       <!-- Subsection strip � updates when a wheel topic is clicked -->
-      <div class="map-subs" id="map-subs">
+      <div class="map-subs is-hidden" id="map-subs">
         <div class="map-subs__header">
-          <span class="map-subs__label" id="map-subs-label">Data Science &amp; Computing</span>
-          <a class="map-subs__link" href="data-science.html" id="map-subs-viewall">&#x2192; View full section</a>
+          <span class="map-subs__label" id="map-subs-label"></span>
+          <a class="map-subs__link" href="#" id="map-subs-viewall">&#x2192; View full section</a>
         </div>
         <div class="map-subs__row" id="map-subs-row" aria-live="polite"></div>
       </div>
