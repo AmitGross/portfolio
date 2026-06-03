@@ -231,7 +231,10 @@
       did: 'Led KPI reporting and data-workflow improvements across a large EMEA operational team · Standardized reporting logic, calculations, and performance-tracking procedures · Coordinated reporting between senior stakeholders, operational managers, and frontline teams · Improved data consistency, issue resolution, training alignment, and operational visibility · Translated recurring reporting and data-quality issues into clearer procedures, documentation, and escalation workflows · Operated within a GxP-adjacent, compliance-sensitive healthcare program environment.',
       methods: 'KPI reporting · data workflow design · Excel · Power BI · DAX · stakeholder communication · process documentation · escalation workflow design · cross-functional coordination',
       output: 'Standardized KPI reporting framework · improved data consistency across teams · documented escalation and issue-resolution procedures · operational visibility improvements',
-      figLabel: '[Add anonymized KPI dashboard mockup or reporting workflow diagram]'
+      figures: {
+        featured: { src: 'ops/iqvia.png', caption: 'IQVIA — Data & Information Systems Lead, EMEA Operations, 2021.' },
+        gallery: []
+      }
     },
     'ops-03': {
       num: '03', category: 'Operations',
