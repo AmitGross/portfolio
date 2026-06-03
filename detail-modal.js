@@ -60,12 +60,16 @@
       num: '03', category: 'Data Science & Computing',
       title: 'AI Geopositioning System',
       tags: ['Scikit-learn', 'ML', 'Python', 'Deep Learning'],
-      desc: 'Deep learning project using WiFi signal fingerprinting and GPS-labeled data to predict outdoor geographic location from wireless signal patterns. The project involved model development, evaluation, and optimization of predictive performance.',
+      github: 'https://github.com/AmitGross/DNN-geopositioning-with-hyperspace-optimization',
+      desc: 'Deep learning project using WiFi signal fingerprinting and GPS-labeled data to predict outdoor geographic location from wireless signal patterns. Hyperparameter search was applied across multiple frameworks (Optuna, Hyperopt, skopt, TPE), achieving a best result of 11 m error at the 80th percentile.',
       context: 'Signal data from WiFi routers was paired with GPS-supervised location labels, aiming to estimate geographic position from signal patterns using neural networks.',
-      did: 'Worked with tabular WiFi/GPS data \u00b7 Built or supported deep neural network modeling \u00b7 Used cross-validation and model evaluation \u00b7 Applied hyperparameter optimization methods.',
-      methods: 'TensorFlow \u00b7 Keras \u00b7 Scikit-learn \u00b7 Pandas \u00b7 NumPy \u00b7 cross-validation \u00b7 Optuna \u00b7 Hyperopt \u00b7 GPS-labeled data',
-      output: 'Training curves \u00b7 error distributions \u00b7 predicted vs. actual plots \u00b7 model evaluation summaries',
-      figLabel: '[Add model architecture, error plot, training curve, or predicted vs. actual plot]'
+      did: 'Worked with tabular WiFi/GPS data \u00b7 Built and tuned deep neural network models \u00b7 Applied systematic hyperparameter optimization using Optuna, Hyperopt, skopt, and TPE \u00b7 Evaluated model accuracy with percentile-based distance error metrics.',
+      methods: 'Python \u00b7 TensorFlow \u00b7 Keras \u00b7 Scikit-learn \u00b7 Optuna \u00b7 Hyperopt \u00b7 scikit-optimize (skopt) \u00b7 TPE \u00b7 cross-validation \u00b7 GPS-labeled WiFi fingerprinting',
+      output: 'Best model: 11 m error at 80th percentile \u00b7 predicted vs. actual location plots \u00b7 hyperparameter search convergence results \u00b7 error distribution summaries',
+      figures: {
+        featured: { src: 'data/geopos/both.png', caption: 'Actual GPS locations (blue) vs. DNN-predicted positions (red) overlaid \u2014 combined view of model accuracy across the test area.' },
+        gallery: []
+      }
     },
     'ds-04': {
       num: '04', category: 'Data Science & Computing',
@@ -305,6 +309,7 @@
       '</div>' +
       '<div class="di-body">' +
         '<h2 class="di-title" id="di-title" tabindex="-1"></h2>' +
+        '<div class="di-github" id="di-github"></div>' +
         '<div class="di-tags" id="di-tags"></div>' +
         '<div class="di-content">' +
           '<div class="di-main">' +
@@ -355,6 +360,14 @@
     document.getElementById('di-category').textContent  = data.category || '';
     document.getElementById('di-title').textContent     = data.title    || '';
     document.getElementById('di-desc').textContent      = data.desc     || '';
+
+    /* GitHub link */
+    var ghEl = document.getElementById('di-github');
+    if (data.github) {
+      ghEl.innerHTML = '<a class="di-github__link" href="' + esc(data.github) + '" target="_blank" rel="noopener noreferrer">&#xe000; View on GitHub</a>';
+    } else {
+      ghEl.innerHTML = '';
+    }
 
     /* Render figure area: real gallery if data.figures exists, else placeholder text */
     var figureEl = panel.querySelector('.di-figure');
