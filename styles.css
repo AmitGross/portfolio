@@ -1926,7 +1926,21 @@ ul, ol { list-style: none; }
   border-color: var(--text-muted);
 }
 
+.di-pdf-link {
+  display: inline-block;
+  margin-left: 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s, border-color 0.15s;
+}
 
+.di-pdf-link:hover {
+  color: var(--text-secondary);
+  border-color: var(--text-muted);
+}
 
 .di-tag {
   font-family: var(--font-mono);

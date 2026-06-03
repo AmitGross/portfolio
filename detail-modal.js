@@ -73,14 +73,21 @@
     },
     'ds-04': {
       num: '04', category: 'Data Science & Computing',
-      title: 'Network & Graph Analysis',
-      tags: ['Python', 'NetworkX', 'Networks', 'Graphs'],
-      desc: 'Graph-based analysis of biological structures and networks using Python tools. This includes tree representations of neuron skeletons, graph-derived features, adjacency matrices, clustering, and connectivity analysis.',
-      context: 'Neuron skeletons and synaptic connectivity data were analyzed using graph-theoretic methods to extract structural and functional features from biological networks.',
-      did: 'Represented neuron skeletons as graph/tree objects \u00b7 Computed graph-derived features \u00b7 Built adjacency matrices and connectivity summaries \u00b7 Applied clustering and dendrogram methods.',
-      methods: 'NetworkX \u00b7 graph theory \u00b7 tree structures \u00b7 adjacency matrices \u00b7 hierarchical clustering \u00b7 dendrograms \u00b7 Python',
-      output: 'Network diagrams \u00b7 dendrograms \u00b7 heatmaps \u00b7 graph feature plots',
-      figLabel: '[Add graph diagram, heatmap, or dendrogram]'
+      title: 'Simplifying Neuron Morphology into an Analytical Tree',
+      tags: ['SWC', 'NetworkX', 'Synapses', 'Tree Graph', 'SFC', 'SI'],
+      desc: 'This pipeline transforms a raw neuron morphology file into a simplified NetworkX tree that supports synapse-based analysis, axon/dendrite splitting, graph compression, node filtering, and Segregation Index calculation.',
+      context: 'The starting point is an SWC morphology file \u2014 a directed tree where each node has an ID, parent ID, XYZ coordinates, and radius. Synaptic sites are attached using a synapse table of pre- and post-synaptic sites. Synapse Flow Centrality then splits the neuron into axonal and dendritic compartments, from which separate NetworkX graph objects are generated preserving parent-child relationships, node coordinates, and synaptic information.',
+      did: 'Parsed SWC morphology files into directed tree structures \u00b7 Attached pre/post-synaptic site tables to graph nodes \u00b7 Applied Synapse Flow Centrality to split axon and dendrite compartments \u00b7 Compressed graphs by pruning leaves and collapsing linear chains \u00b7 Filtered problematic nodes and ambiguous synaptic configurations \u00b7 Aggregated synaptic information backwards through the tree \u00b7 Calculated Segregation Index values based on entropy of synapse distributions across child branches.',
+      methods: 'Python \u00b7 NetworkX \u00b7 SWC morphology \u00b7 Synapse Flow Centrality \u00b7 Segregation Index \u00b7 graph compression \u00b7 entropy-based analysis \u00b7 tree traversal',
+      output: 'Simplified analytical trees preserving branching and synaptic organization \u00b7 per-node Segregation Index values \u00b7 compressed graph representations \u00b7 axon/dendrite compartment objects',
+      figures: {
+        featured: {
+          src: 'data/connectome/pipeline_docv.png',
+          caption: 'Pipeline diagram: from SWC morphology and synapse attachment \u2192 axon/dendrite split \u2192 NetworkX tree generation \u2192 graph compression \u2192 node filtration \u2192 Segregation Index calculation \u2192 final remodeled analytical tree.',
+          pdf: 'data/connectome/pipeline_docv.pdf'
+        },
+        gallery: []
+      }
     },
 
     /* LIFE SCIENCES ─────────────────────────────────────── */
@@ -379,7 +386,11 @@
             '<div class="figure-frame">' +
               '<img src="' + esc(f.featured.src) + '" alt="' + esc(f.featured.caption) + '" loading="lazy">' +
             '</div>' +
-            '<figcaption>' + esc(f.featured.caption) + '</figcaption>' +
+            '<figcaption>' + esc(f.featured.caption) +
+              (f.featured.pdf
+                ? ' <a class="di-pdf-link" href="' + esc(f.featured.pdf) + '" target="_blank" rel="noopener noreferrer">View full PDF \u2197</a>'
+                : '') +
+            '</figcaption>' +
           '</figure>' +
           '<div class="connectome-gallery">' +
             f.gallery.map(function (img) {
