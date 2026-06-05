@@ -46,7 +46,7 @@
       { title: 'AI Geopositioning System',           id: 'ds-03',
         desc: 'Deep learning project predicting outdoor geographic position from WiFi signal fingerprints supervised by GPS data. The project involved model development, evaluation, and optimization of predictive performance.',
         tags: ['Scikit-learn','ML','Python'], href: 'data-science.html',
-        thumb: 'data/geopos/both.png', thumbStyle: 'object-fit:contain;' },
+        thumb: 'data/geopos/both.png', thumbStyle: 'object-fit:cover;object-position:center 95%;transform:scale(2.5);transform-origin:center 90%;' },
       { title: 'Network & Graph Analysis',           id: 'ds-04',
         desc: 'Graph-based analysis of biological structures using NetworkX: tree representations, adjacency matrices, graph features, clustering, and neuron skeleton analysis for connectome research.',
         tags: ['Python','NetworkX','Networks'], href: 'data-science.html',
