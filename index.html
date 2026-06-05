@@ -301,6 +301,12 @@
       gap: var(--sp-12);
       transition: opacity 0.18s ease;
     }
+    @media (max-width: 600px) {
+      .map-subs__row {
+        grid-template-columns: 1fr;
+        gap: var(--sp-20);
+      }
+    }
     .map-subs__row.is-updating { opacity: 0; }
     .map-sub {
       display: flex; flex-direction: column; gap: var(--sp-8);
