@@ -42,7 +42,7 @@
       { title: 'Pre/Post Program Statistical Analysis & Behavioral Mapping', id: 'ds-02',
         desc: 'Statistical analysis of pre/post program data, integrating behavioral outcomes with geographic and environmental mapping using OpenStreetMap and Overpass Turbo. The project linked program-related behavioral measures with spatial context to support interpretation of intervention effects.',
         tags: ['R','Simulation','Statistics'], href: 'data-science.html',
-        thumb: 'data/tech/slides/slide_01.png' },
+        thumb: 'data/tech/mapping_screenshot.jpg' },
       { title: 'AI Geopositioning System',           id: 'ds-03',
         desc: 'Deep learning project predicting outdoor geographic position from WiFi signal fingerprints supervised by GPS data. The project involved model development, evaluation, and optimization of predictive performance.',
         tags: ['Scikit-learn','ML','Python'], href: 'data-science.html',
