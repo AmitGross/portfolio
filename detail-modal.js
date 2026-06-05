@@ -147,6 +147,10 @@
         {
           title: 'GDH Deficiency & Recognition Memory',
           badge: 'Published \u00b7 Genes, Brain and Behavior 2020',
+          context: 'University of Haifa, Gaisler-Salomon Lab (2017\u20132018). Research focused on how disruptions in glutamate metabolism affect cognitive and behavioral outcomes in rodents.',
+          did: 'Performed behavioral experiments including novel object recognition and fear conditioning \u00b7 Assisted with pharmacological intervention protocols \u00b7 Contributed to data collection, analysis, and figure preparation \u00b7 Co-authored two peer-reviewed outputs.',
+          methods: 'Conditional knockout mouse model \u00b7 novel object recognition \u00b7 fear conditioning \u00b7 locomotor activity \u00b7 immunofluorescence \u00b7 Western blot \u00b7 behavioral scoring',
+          output: 'Glutamate dehydrogenase deficiency disrupts glutamate homeostasis in hippocampus and prefrontal cortex and impairs recognition memory. Genes, Brain and Behavior, 2020.',
           figures: {
             featured: { src: 'life%20science/neuroscience/GDH%20map.jpg', caption: 'GDH pathway map \u2014 glutamate dehydrogenase role in glutamate\u2013glutamine cycling between neurons and astrocytes.' },
             gallery: [
@@ -158,6 +162,10 @@
         {
           title: 'Ebselen & Amphetamine Sensitization',
           badge: 'Conference Poster \u00b7 SIRS 2018',
+          context: 'University of Haifa, Gaisler-Salomon Lab (2017\u20132018). Research focused on pharmacological modulation of glutamate signaling and its effects on dopamine-related behavior. ...',
+          did: 'Contributed to behavioral experiments on amphetamine sensitization \u00b7 Assisted with pharmacological intervention protocols \u00b7 Contributed to data collection, analysis, and poster preparation.',
+          methods: 'Amphetamine sensitization \u00b7 locomotor activity \u00b7 ebselen (glutaminase inhibitor) \u00b7 dopamine receptor analysis \u00b7 behavioral scoring',
+          output: 'Conference poster \u2014 SIRS 2018. Ebselen prevents amphetamine sensitization via glutaminase inhibition.',
           figures: {
             featured: { src: 'data/lifesci/ebselen_poster.png', caption: 'Conference poster \u2014 effects of the glutaminase inhibitor ebselen on dopamine receptors and locomotion in amphetamine-sensitized mice.' },
             gallery: []
@@ -178,8 +186,12 @@
       output: 'Three outputs \u2014 see projects below.',
       subprojects: [
         {
-          title: 'Fear Conditioning — IFC Imaging',
-          badge: 'Experimental Work · Placeholder',
+          title: 'Fear Conditioning \u2014 IFC Imaging',
+          badge: 'Experimental Work \u00b7 Immunofluorescence',
+          context: '[placeholder \u2014 add context for fear conditioning / IFC imaging project]',
+          did: '[placeholder \u2014 add what I did for this image/project]',
+          methods: 'Confocal microscopy \u00b7 fluorescence imaging \u00b7 immunofluorescence \u00b7 tissue preparation \u00b7 image interpretation',
+          output: '[placeholder \u2014 add output/evidence for this image/project]',
           figures: {
             featured: { src: 'life%20science/histology/ifc_butterfly.jpg', caption: 'Immunofluorescence image from the immediate fear conditioning (IFC) paradigm \u2014 placeholder for additional context.' },
             gallery: []
@@ -187,8 +199,12 @@
           citation: '[Placeholder \u2014 add citation, publication, or experimental context for the IFC immunofluorescence work.]'
         },
         {
-          title: 'Two-Photon Microscopy System',
-          badge: 'Technical Imaging · Core Facility',
+          title: '[placeholder \u2014 add second imaging project title]',
+          badge: 'Technical Imaging \u00b7 Core Facility',
+          context: '[placeholder \u2014 add context for second imaging project]',
+          did: '[placeholder \u2014 add what I did for second image/project]',
+          methods: '[placeholder \u2014 add methods/tools for second image/project]',
+          output: '[placeholder \u2014 add output/evidence for second image/project]',
           figures: {
             featured: { src: 'life%20science/histology/2psystem.jpg', caption: 'Two-photon microscopy system \u2014 used for deep-tissue in vivo optical imaging.' },
             gallery: []
@@ -196,8 +212,12 @@
           citation: '[Placeholder \u2014 add context for two-photon system use: facility, research application, or imaging protocol.]'
         },
         {
-          title: 'Innate Immunity in Neuronopathic Gaucher Disease',
+          title: '[placeholder \u2014 add third imaging project title]',
           badge: 'Published \u00b7 Acta Neuropathologica Communications 2020',
+          context: '[placeholder \u2014 add context for third imaging project]',
+          did: '[placeholder \u2014 add what I did for third image/project]',
+          methods: '[placeholder \u2014 add methods/tools for third image/project]',
+          output: '[placeholder \u2014 add output/evidence for third image/project]',
           figures: {
             featured: { src: 'life%20science/histology/ifc_article.webp', caption: 'Histological imaging from Melamed et al. (2020) \u2014 innate immune response in neuronopathic Gaucher disease confers resistance against viral encephalitis.' },
             gallery: []
@@ -528,7 +548,7 @@
   });
 
   /* ── Subproject carousel ───────────────────────────────── */
-  function initSubprojectCarousel(container, total) {
+  function initSubprojectCarousel(container, total, onSlide) {
     var track   = container.querySelector('.di-carousel__track');
     var dots    = container.querySelectorAll('.di-carousel__dot');
     var btnPrev = container.querySelector('.di-carousel__btn--prev');
@@ -541,6 +561,7 @@
       track.style.transform = 'translateX(-' + (current * 100) + '%)';
       dots.forEach(function (d, i) { d.classList.toggle('is-active', i === current); });
       if (counter) counter.textContent = (current + 1) + ' / ' + total;
+      if (onSlide) onSlide(current);
     }
 
     btnPrev.addEventListener('click', function () { go(current - 1); });
@@ -565,6 +586,7 @@
   ];
 
   function populate(data) {
+    var slideSectionsFn = null;  /* set below if subprojects carry per-slide section text */
 
     document.getElementById('di-category').textContent  = data.category || '';
     document.getElementById('di-title').textContent     = data.title    || '';
@@ -635,7 +657,26 @@
           '</div>' +
           '<div class="di-carousel__dots">' + dotsHTML + '</div>' +
         '</div>';
-      initSubprojectCarousel(figureEl, data.subprojects.length);
+
+      var hasSlideSections = data.subprojects.some(function (sp) {
+        return sp.context || sp.did || sp.methods || sp.output;
+      });
+      if (hasSlideSections) {
+        slideSectionsFn = function (idx) {
+          var sp = data.subprojects[idx];
+          document.getElementById('di-sections').innerHTML = SECTIONS.map(function (s) {
+            var val = sp[s.key] || '[placeholder]';
+            var cls = isPlaceholder(val) ? ' is-placeholder' : '';
+            return (
+              '<div class="di-section">' +
+                '<span class="di-section__label">' + esc(s.label) + '</span>' +
+                '<p class="di-section__text' + cls + '">' + esc(val) + '</p>' +
+              '</div>'
+            );
+          }).join('');
+        };
+      }
+      initSubprojectCarousel(figureEl, data.subprojects.length, slideSectionsFn);
     } else if (data.figures) {
       var f = data.figures;
       var galleryHTML =
@@ -694,6 +735,8 @@
         '</div>'
       );
     }).join('');
+
+    if (slideSectionsFn) { slideSectionsFn(0); }
 
     /* Optional roadmap section — image + download link */
     if (data.roadmap) {
