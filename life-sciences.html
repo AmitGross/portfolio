@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     :root { --accent: var(--sky); }
+    .hero-link { color: var(--sky); text-decoration: underline; text-underline-offset: 2px; }
+    .hero-link:hover { opacity: 0.75; }
   </style>
 </head>
 <body>
@@ -89,8 +91,8 @@
       <h1 class="section-hero__title">Research &amp; Neurobiology</h1>
       <p class="section-hero__lead">
         This section focuses on my biological and experimental background.<br>
-        <em style="color:var(--text-muted);">My life sciences experience includes neurobiology research using behavioral experiments, rodent models, DNA-related methods, and molecular work. At the Weizmann Institute, I developed strong expertise in optical imaging and immunostaining while consulting, supporting, and training students and scientists across many biological labs and broader STEM projects.</em><br>
-        <em style="color:var(--text-muted);">Connectome research in this section emphasizes the biological perspective; for more details on the computational aspect of this project, refer to the Data section.</em>
+        <em style="color:var(--text-muted);">My life sciences experience includes <a href="#ls-03" class="hero-link">neurobiology</a> research using behavioral experiments, rodent models, DNA-related methods, and molecular work. At the <a href="#ls-04" class="hero-link">Weizmann Institute</a>, I developed strong expertise in optical imaging and immunostaining while consulting, supporting, and training students and scientists across many biological labs and broader STEM projects.</em><br>
+        <em style="color:var(--text-muted);"><a href="#ls-01" class="hero-link">Connectome research</a> in this section emphasizes the biological perspective; for more details on the computational aspect of this project, refer to the Data section.</em>
       </p>
     </div>
   </header>
@@ -102,7 +104,7 @@
         <span class="t-label">Selected Research</span>
       </div>
       <div class="course-grid reveal">
-        <article class="course-card" data-detail data-detail-id="ls-03" data-detail-category="Life Sciences">
+        <article class="course-card" data-detail data-detail-id="ls-03" data-detail-category="Life Sciences" id="ls-03">
           <div class="course-card__inner">
             <h3 class="course-card__title">Animal Models &amp; Behaviour</h3>
             <p class="course-card__info">Neurobiology Research &middot; Behavioural Methods</p>
@@ -111,7 +113,7 @@
           </div>
           <div class="course-card__thumb"><img src="life%20science/neuroscience/GDH%20map.jpg" alt="GDH pathway map"></div>
         </article>
-        <article class="course-card" data-detail data-detail-id="ls-04" data-detail-category="Life Sciences">
+        <article class="course-card" data-detail data-detail-id="ls-04" data-detail-category="Life Sciences" id="ls-04">
           <div class="course-card__inner">
             <h3 class="course-card__title">Histology &amp; Optical Imaging</h3>
             <p class="course-card__info">Weizmann Institute of Science &middot; Lab Methods</p>
@@ -120,7 +122,7 @@
           </div>
           <div class="course-card__thumb"><img src="life%20science/histology/ifc_butterfly.jpg" alt="IFC immunofluorescence image"></div>
         </article>
-        <article class="course-card" data-detail data-detail-id="ls-01" data-detail-category="Life Sciences">
+        <article class="course-card" data-detail data-detail-id="ls-01" data-detail-category="Life Sciences" id="ls-01">
           <div class="course-card__inner">
             <h3 class="course-card__title">Connectome Research</h3>
             <p class="course-card__info">Weizmann Institute of Science &middot; PhD Research</p>
@@ -160,5 +162,15 @@
 
   <script src="main.js"></script>
   <script src="detail-modal.js"></script>
+  <script>
+    document.querySelectorAll('.hero-link').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var id = link.getAttribute('href').slice(1);
+        var card = document.querySelector('[data-detail-id="' + id + '"]');
+        if (card) { card.click(); card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      });
+    });
+  </script>
 </body>
 </html>
