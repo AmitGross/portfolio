@@ -1087,7 +1087,7 @@ ul, ol { list-style: none; }
   border: 1px solid var(--border);
   padding: 0;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(160px, 34%);
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 45%);
   align-items: stretch;
   transition: background var(--t-fast);
   position: relative;
