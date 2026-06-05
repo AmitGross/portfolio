@@ -2436,6 +2436,33 @@ ul, ol { list-style: none; }
   }
 }
 
+@media (max-width: 760px) {
+  .di-inner {
+    overflow-x: hidden;
+  }
+  .di-content {
+    grid-template-columns: 1fr;
+    gap: var(--sp-24);
+  }
+  .di-figure,
+  .figure-frame,
+  .connectome-feature .figure-frame,
+  .di-roadmap__img {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .figure-frame img,
+  .di-roadmap__img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .connectome-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 /* â”€â”€ Sections column â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .di-sections {
   display: flex;

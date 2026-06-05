@@ -20,7 +20,7 @@
         text: 'End-to-end map of the connectome analysis workflow. The pipeline begins with raw morphology and synapse data, moves through graph construction and compartmentalization (SFC-based axon/dendrite split), and proceeds to feature extraction, statistical analysis, and figure generation. Each stage is modular and reusable across different neuron datasets.'
       },
       figures: {
-        featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 — Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 117,570 intrinsic neurons.' },
+        featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 — Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 140K neurons.' },
         gallery: [
           { src: 'data/connectome/article_fig2.png',       caption: 'Figure 2 — Mixed polarity across the fly brain. SI distributions by superclass, neurotransmitter type, and predictive modelling of SI from neuronal features.' },
           { src: 'data/connectome/article_fig3.png',       caption: 'Figure 3 — Connection types across FlyWire. Synaptic type distributions (AD, AA, DD, DA) by neuropil, cell type, and neurotransmitter.' },
@@ -99,13 +99,13 @@
       num: '01', category: 'Life Sciences',
       title: 'Connectome Research',
       tags: ['Connectomics', 'EM', 'Neuroscience', 'Synapses'],
-      desc: 'Research on synaptic organization and neuronal polarity in the Drosophila connectome, investigating how axons and dendrites are structurally and functionally distinguished across the fly brain. The work combined large-scale EM-derived connectivity data with biological interpretation of mixed-polarity neurons and synaptic type distributions.',
+      desc: 'Research on synaptic organization and neuronal polarity in the Drosophila connectome, investigating how axons and dendrites are structurally and functionally distinguished across the fly brain. The work combined large-scale EM-derived connectivity data with biological interpretation of mixed-polarity neurons and synaptic type distributions. · Publication in progress.',
       context: 'The FlyWire connectome provides electron-microscopy reconstructions of the entire adult Drosophila brain. This project examined the structural basis of synaptic polarity — asking how neurons distribute their input and output synapses, and what this reveals about circuit organization, neurotransmitter identity, and reciprocal connectivity.',
-      did: 'Analyzed synaptic organization across 117,570 intrinsic neurons \u00b7 Investigated axon/dendrite compartmentalization using Synapse Flow Centrality \u00b7 Quantified Segregation Index (SI) values across superclasses, neurotransmitter types, and neuropils \u00b7 Studied reciprocal connectivity patterns and their synaptic-type compositions \u00b7 Produced figures for publication supporting biological interpretation.',
+      did: 'Analyzed synaptic organization across 140K neurons \u00b7 Investigated axon/dendrite compartmentalization using Synapse Flow Centrality \u00b7 Quantified Segregation Index (SI) values across superclasses, neurotransmitter types, and neuropils \u00b7 Studied reciprocal connectivity patterns and their synaptic-type compositions \u00b7 Produced figures for publication supporting biological interpretation.',
       methods: 'Connectomics \u00b7 FlyWire EM data \u00b7 synapse analysis \u00b7 axon/dendrite compartmentalization \u00b7 Segregation Index \u00b7 Neuroglancer / NGLUI \u00b7 Navis \u00b7 neurotransmitter mapping \u00b7 statistical analysis',
       output: 'Publication figures \u00b7 neuron/synapse visualizations \u00b7 SI distributions by cell type \u00b7 synaptic-type composition analyses \u00b7 reciprocal connectivity summaries',
       figures: {
-        featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 \u2014 Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 117,570 intrinsic neurons.' },
+        featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 \u2014 Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 140K neurons.' },
         gallery: [
           { src: 'data/connectome/article_fig2.png',       caption: 'Figure 2 \u2014 Mixed polarity across the fly brain. SI distributions by superclass, neurotransmitter type, and predictive modelling of SI from neuronal features.' },
           { src: 'data/connectome/article_fig3.png',       caption: 'Figure 3 \u2014 Connection types across FlyWire. Synaptic type distributions (AD, AA, DD, DA) by neuropil, cell type, and neurotransmitter.' },
