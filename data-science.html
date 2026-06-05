@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="styles.css">
   <style>
     :root { --accent: var(--sage); }
+    .hero-link { color: var(--sage); text-decoration: underline; text-underline-offset: 2px; }
+    .hero-link:hover { opacity: 0.75; }
   </style>
 </head>
 <body>
@@ -88,7 +90,8 @@
       </div>
       <h1 class="section-hero__title">Analysis &amp; Machine Learning</h1>
       <p class="section-hero__lead">
-        This section presents my computational and analytical work across scientific research, data science, statistical analysis, machine learning, graph analysis, and pipeline development. Much of my work has involved transforming complex data into interpretable structures, building workflows for repeated analysis, and producing visual or statistical outputs that support interpretation and decision making.
+        This section presents my computational and analytical work across scientific research, data science, statistical analysis, machine learning, graph analysis, and pipeline development.<br>
+        <em style="color:var(--text-muted);">My data work focuses on defining and characterizing <a href="#ds-01" class="hero-link">systems</a> as a basis for analysis, modeling, and interpretation. Rather than only analyzing existing datasets, I work on identifying the relevant population, components, attributes, relationships, and interactions, then translating them into structured data representations. I have applied this approach across several projects using Python, statistical analysis, machine learning, <a href="#ds-03" class="hero-link">deep neural networks</a>, <a href="#ds-04" class="hero-link">graph-based methods</a>, and visualization.</em>
       </p>
     </div>
   </header>
@@ -100,7 +103,7 @@
         <span class="t-label">Selected Work</span>
       </div>
       <div class="course-grid reveal">
-        <article class="course-card" data-detail data-detail-id="ds-01" data-detail-category="Data Science &amp; Computing">
+        <article class="course-card" data-detail data-detail-id="ds-01" data-detail-category="Data Science &amp; Computing" id="ds-01">
           <div class="course-card__inner">
             <h3 class="course-card__title">Connectome Analysis Pipeline</h3>
             <p class="course-card__info">Weizmann Institute of Science &middot; PhD Research</p>
@@ -118,7 +121,7 @@
           </div>
           <div class="course-card__thumb"><img src="data/tech/slides/slide_01.png" alt="" loading="lazy"></div>
         </article>
-        <article class="course-card" data-detail data-detail-id="ds-03" data-detail-category="Data Science &amp; Computing">
+        <article class="course-card" data-detail data-detail-id="ds-03" data-detail-category="Data Science &amp; Computing" id="ds-03">
           <div class="course-card__inner">
             <h3 class="course-card__title">AI Geopositioning System</h3>
             <p class="course-card__info">Technion &middot; Deep Learning Project</p>
@@ -127,7 +130,7 @@
           </div>
           <div class="course-card__thumb"><img src="data/geopos/both.png" alt="" loading="lazy"></div>
         </article>
-        <article class="course-card" data-detail data-detail-id="ds-04" data-detail-category="Data Science &amp; Computing">
+        <article class="course-card" data-detail data-detail-id="ds-04" data-detail-category="Data Science &amp; Computing" id="ds-04">
           <div class="course-card__inner">
             <h3 class="course-card__title">Network &amp; Graph Analysis</h3>
             <p class="course-card__info">Weizmann Institute of Science &middot; Research Tool</p>
@@ -167,5 +170,15 @@
 
   <script src="main.js"></script>
   <script src="detail-modal.js"></script>
+  <script>
+    document.querySelectorAll('.hero-link').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var id = link.getAttribute('href').slice(1);
+        var card = document.querySelector('[data-detail-id="' + id + '"]');
+        if (card) { card.click(); card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+      });
+    });
+  </script>
 </body>
 </html>
