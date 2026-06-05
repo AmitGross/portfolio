@@ -38,15 +38,15 @@
       { title: 'Connectome Analysis Pipeline',      id: 'ds-01',
         desc: 'Computational work on Drosophila connectome data, including extraction, processing, graph-based representation, statistical analysis, feature generation, and visualization of neuronal and synaptic data.',
         tags: ['Python','NetworkX','Graphs'], href: 'data-science.html',
-        thumb: 'data/connectome/article_fig1.png' },
+        thumb: 'data/connectome/acticle_fig4.png', thumbStyle: 'object-fit:contain;' },
       { title: 'Pre/Post Program Statistical Analysis & Behavioral Mapping', id: 'ds-02',
         desc: 'Statistical analysis of pre/post program data, integrating behavioral outcomes with geographic and environmental mapping using OpenStreetMap and Overpass Turbo. The project linked program-related behavioral measures with spatial context to support interpretation of intervention effects.',
         tags: ['R','Simulation','Statistics'], href: 'data-science.html',
-        thumb: 'data/tech/mapping_screenshot.jpg' },
+        thumb: 'data/tech/mapping_screenshot.jpg', thumbStyle: 'object-position:80% 80%;' },
       { title: 'AI Geopositioning System',           id: 'ds-03',
         desc: 'Deep learning project predicting outdoor geographic position from WiFi signal fingerprints supervised by GPS data. The project involved model development, evaluation, and optimization of predictive performance.',
         tags: ['Scikit-learn','ML','Python'], href: 'data-science.html',
-        thumb: 'data/geopos/both.png' },
+        thumb: 'data/geopos/both.png', thumbStyle: 'object-fit:contain;' },
       { title: 'Network & Graph Analysis',           id: 'ds-04',
         desc: 'Graph-based analysis of biological structures using NetworkX: tree representations, adjacency matrices, graph features, clustering, and neuron skeleton analysis for connectome research.',
         tags: ['Python','NetworkX','Networks'], href: 'data-science.html',
@@ -56,12 +56,12 @@
     { label: 'Life Sciences', href: 'life-sciences.html', items: [
       { title: 'Animal Models & Behaviour',
         id: 'ls-03', href: 'life-sciences.html',
-        desc: 'Experience with behavioral research methods in neurobiology contexts, including experimental design and interpretation of behavioral outcomes.',
+        desc: 'Behavioral neuroscience research using transgenic and pharmacological mouse models to investigate glutamatergic signaling, memory, and dopamine-related pathology.',
         tags: ['Behaviour','Neurobiology'],
         thumb: 'life%20science/neuroscience/GDH%20map.jpg' },
       { title: 'Histology & Optical Imaging',
         id: 'ls-04', href: 'life-sciences.html',
-        desc: 'Tissue preparation, immunohistochemical staining, and optical imaging methods including confocal and fluorescence microscopy for anatomical and molecular characterization.',
+        desc: 'Specializing, providing training and consultation on, immunohistochemical staining, and optical imaging methods including 2p, confocal and fluorescence microscopy.',
         tags: ['Histology','Staining'],
         thumb: 'life%20science/histology/ifc_butterfly.jpg' },
       { title: 'Connectome Research',
@@ -162,7 +162,7 @@
       subsRow.innerHTML = d.items.map(item => {
         const url = item.id ? item.href + '#' + item.id : item.href;
         const thumbHTML = item.thumb
-          ? `<div class="map-sub__thumb"><img src="${item.thumb}" alt="" loading="lazy"></div>`
+          ? `<div class="map-sub__thumb"><img src="${item.thumb}" alt="" loading="lazy"${item.thumbStyle ? ` style="${item.thumbStyle}"` : ''}></div>`
           : '';
         return `<a class="map-sub" href="${url}">` +
           `<h3 class="map-sub__title">${item.title}</h3>` +

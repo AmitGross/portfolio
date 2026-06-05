@@ -138,7 +138,7 @@
       num: '03', category: 'Life Sciences',
       title: 'Animal Models & Behaviour',
       tags: ['Behaviour', 'Animal Models', 'Mouse', 'Neuroscience', 'Published'],
-      desc: 'Behavioral neuroscience research using transgenic and pharmacological mouse models to investigate glutamatergic signaling, memory, and dopamine-related pathology. Two studies completed at the Gaisler-Salomon lab, University of Haifa.',
+      desc: 'Experienced neurobiologist with published work involving behavioral research, animal models (rodents), DNA/RNA-based molecular methods, and genetic approaches. I have worked across experimental design, behavioral analysis, molecular workflows, and interpretation of neurobiological outcomes. Two studies completed at the Gaisler-Salomon lab, University of Haifa.',
       context: 'University of Haifa, Gaisler-Salomon Lab (2017\u20132018). Research focused on how disruptions in glutamate metabolism affect cognitive and behavioral outcomes in rodents.',
       did: 'Performed behavioral experiments including novel object recognition and fear conditioning \u00b7 Assisted with pharmacological intervention protocols \u00b7 Contributed to data collection, analysis, and figure preparation \u00b7 Co-authored two peer-reviewed outputs.',
       methods: 'Conditional knockout mouse model \u00b7 novel object recognition \u00b7 fear conditioning \u00b7 locomotor activity \u00b7 amphetamine sensitization \u00b7 immunofluorescence \u00b7 Western blot \u00b7 behavioral scoring',
