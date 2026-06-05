@@ -1098,6 +1098,11 @@ ul, ol { list-style: none; }
   background: var(--surface-raised);
 }
 
+.course-card.detail-active {
+  background: color-mix(in srgb, var(--accent, var(--amber)) 8%, var(--surface-raised));
+  border-color: color-mix(in srgb, var(--accent, var(--amber)) 40%, var(--border));
+}
+
 @media (max-width: 760px) {
   .course-card {
     grid-template-columns: 1fr;
