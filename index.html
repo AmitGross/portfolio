@@ -70,7 +70,7 @@
     .map-wheel-frame {
       flex: 0 0 auto;
       position: relative;
-      width: min(70vw, 520px);
+      width: min(70vw, 600px);
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: hidden;
@@ -151,6 +151,11 @@
       transition: color 0.18s ease;
       text-align: center;
       line-height: 1;
+    }
+    .map-label::after {
+      content: '';
+      position: absolute;
+      inset: -18px -22px;
     }
     .map-label:hover {
       outline: none;
@@ -312,6 +317,9 @@
       display: flex; flex-direction: column; gap: var(--sp-8);
       padding: var(--sp-16);
       border-top: 2px solid var(--subs-accent, var(--border));
+      border-left: 2px solid #3a3a3a;
+      border-right: 2px solid #3a3a3a;
+      border-bottom: 2px solid #3a3a3a;
       background: var(--surface);
       text-decoration: none;
       transition: background 0.15s;
@@ -563,7 +571,7 @@
           </div><!-- /.map-wheel-rotor -->
 
           <!-- Centre hint (outside rotor, stays fixed) -->
-          <div class="map-wheel__hint" id="map-wheel-hint" aria-hidden="true">Click<br>a subject</div>
+          <div class="map-wheel__hint" id="map-wheel-hint" aria-hidden="true">Select<br>a topic</div>
 
         </div><!-- /.map-wheel-frame -->
 
