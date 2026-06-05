@@ -148,9 +148,9 @@
           title: 'GDH Deficiency & Recognition Memory',
           badge: 'Published \u00b7 Genes, Brain and Behavior 2020',
           figures: {
-            featured: { src: 'data/lifesci/GDH map.jpg', caption: 'GDH pathway map \u2014 glutamate dehydrogenase role in glutamate\u2013glutamine cycling between neurons and astrocytes.' },
+            featured: { src: 'life%20science/neuroscience/GDH%20map.jpg', caption: 'GDH pathway map \u2014 glutamate dehydrogenase role in glutamate\u2013glutamine cycling between neurons and astrocytes.' },
             gallery: [
-              { src: 'data/lifesci/ifc_freezing_bar.jpg', caption: 'Freezing behavior (fear conditioning) \u2014 GDH-deficient vs. control mice across contextual and cued memory tests.' }
+              { src: 'life%20science/neuroscience/ifc_freezing_bar.jpg', caption: 'Freezing behavior (fear conditioning) \u2014 GDH-deficient vs. control mice across contextual and cued memory tests.' }
             ]
           },
           citation: 'Lander, S. S., Chornyy, S., Safory, H., Gross, A., Wolosker, H., & Gaisler\u2011Salomon, I. (2020). Glutamate dehydrogenase deficiency disrupts glutamate homeostasis in hippocampus and prefrontal cortex and impairs recognition memory. Genes, Brain and Behavior, 19(6), e12636.'
