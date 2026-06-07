@@ -69,6 +69,7 @@
       display: flex;
       flex-direction: column;
       gap: var(--sp-20);
+      position: relative;
     }
     .form-row {
       display: grid;
@@ -296,6 +297,12 @@
               </span>
             </div>
             <div class="contact-card">
+              <span class="contact-card__label">Phone</span>
+              <span class="contact-card__value">
+                <a href="tel:+972547751903">054-775-1903</a>
+              </span>
+            </div>
+            <div class="contact-card">
               <span class="contact-card__label">Location</span>
               <span class="contact-card__value">Israel</span>
             </div>
@@ -366,14 +373,23 @@
             </div>
 
             <div class="form-submit">
-              <button class="form-btn" type="submit">Send Message &#x2192;</button>
+              <button class="form-btn" type="submit" id="cf-submit">Send Message &#x2192;</button>
               <span class="form-notice">
                 Fields marked <span style="color:var(--amber);">*</span> are required.
               </span>
             </div>
 
+            <!-- Honeypot: hidden from real users, bots fill it -->
+            <div style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true">
+              <label for="cf-website">Website</label>
+              <input type="text" id="cf-website" name="honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
             <div class="form-submitted-msg" id="form-submitted-msg" role="status" aria-live="polite">
-              Thank you. The contact form is a placeholder for now and will be connected later.
+              Thank you — your message has been sent.
+            </div>
+            <div class="form-submitted-msg" id="form-error-msg" role="alert" aria-live="polite"
+              style="color:var(--amber);border-color:var(--amber);display:none;">
             </div>
           </form>
         </section>
@@ -395,17 +411,69 @@
 
   <script src="main.js"></script>
   <script>
-    // Contact form: prevent default, show placeholder message
-    const form = document.getElementById('contact-form');
-    const msg  = document.getElementById('form-submitted-msg');
-    if (form && msg) {
-      form.addEventListener('submit', (e) => {
+    (function () {
+      var EDGE_URL = 'https://zvltjtrxtqwbzrclpnpk.supabase.co/functions/v1/contact';
+
+      var form    = document.getElementById('contact-form');
+      var btn     = document.getElementById('cf-submit');
+      var success = document.getElementById('form-submitted-msg');
+      var errBox  = document.getElementById('form-error-msg');
+
+      if (!form) return;
+
+      form.addEventListener('submit', async function (e) {
         e.preventDefault();
-        msg.classList.add('visible');
-        // Scroll the message into view
-        msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        // Reset state
+        success.classList.remove('visible');
+        errBox.style.display = 'none';
+        errBox.textContent   = '';
+
+        var name     = document.getElementById('cf-name').value.trim();
+        var email    = document.getElementById('cf-email').value.trim();
+        var phone    = document.getElementById('cf-phone').value.trim();
+        var message  = document.getElementById('cf-message').value.trim();
+        var honeypot = document.getElementById('cf-website').value;
+
+        // Client-side quick check
+        if (!name || !email || !message) {
+          showError('Please fill in all required fields.');
+          return;
+        }
+
+        // Sending state
+        btn.disabled       = true;
+        btn.textContent    = 'Sending…';
+
+        try {
+          var res  = await fetch(EDGE_URL, {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify({ name, email, phone, message, honeypot }),
+          });
+          var data = await res.json();
+
+          if (res.ok && data.ok) {
+            success.classList.add('visible');
+            form.reset();
+            success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          } else {
+            showError(data.error || 'Something went wrong. Please try again.');
+          }
+        } catch (err) {
+          showError('Network error. Please check your connection and try again.');
+        } finally {
+          btn.disabled    = false;
+          btn.textContent = 'Send Message →';
+        }
       });
-    }
+
+      function showError(msg) {
+        errBox.textContent   = msg;
+        errBox.style.display = 'block';
+        errBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    })();
   </script>
 </body>
 </html>
