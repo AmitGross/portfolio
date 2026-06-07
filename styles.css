@@ -622,7 +622,7 @@ ul, ol { list-style: none; }
   font-family: var(--font-body);
   font-weight: 300;
   color: var(--text-secondary);
-  max-width: 800px;
+  max-width: none;
   line-height: 1.7;
 }
 
@@ -1422,7 +1422,7 @@ ul, ol { list-style: none; }
   font-family: var(--font-body);
   font-weight: 300;
   color: var(--text-secondary);
-  max-width: min(100%, 1100px);
+  max-width: none;
   line-height: 1.7;
 }
 
