@@ -104,6 +104,7 @@
       did: 'Analyzed synaptic organization across 140K neurons \u00b7 Investigated axon/dendrite compartmentalization using Synapse Flow Centrality \u00b7 Quantified Segregation Index (SI) values across superclasses, neurotransmitter types, and neuropils \u00b7 Studied reciprocal connectivity patterns and their synaptic-type compositions \u00b7 Produced figures for publication supporting biological interpretation.',
       methods: 'Connectomics \u00b7 FlyWire EM data \u00b7 synapse analysis \u00b7 axon/dendrite compartmentalization \u00b7 Segregation Index \u00b7 Neuroglancer / NGLUI \u00b7 Navis \u00b7 neurotransmitter mapping \u00b7 statistical analysis',
       output: 'Publication figures \u00b7 neuron/synapse visualizations \u00b7 SI distributions by cell type \u00b7 synaptic-type composition analyses \u00b7 reciprocal connectivity summaries',
+      featuredVideo: { src: 'life%20science/2025-04-07%2000-51-43_3.mp4', caption: '3D neuron reconstruction \u2014 Drosophila connectome visualisation.' },
       figures: {
         featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 \u2014 Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 140K neurons.' },
         gallery: [
@@ -697,7 +698,9 @@
               return (
                 '<figure>' +
                   '<div class="figure-frame">' +
-                    '<img src="' + esc(img.src) + '" alt="' + esc(img.caption) + '" loading="lazy">' +
+                    (img.type === 'video'
+                      ? '<video src="' + esc(img.src) + '" controls playsinline style="width:100%;display:block;"></video>'
+                      : '<img src="' + esc(img.src) + '" alt="' + esc(img.caption) + '" loading="lazy">') +
                   '</div>' +
                   '<figcaption>' + esc(img.caption) + '</figcaption>' +
                 '</figure>'
@@ -726,7 +729,14 @@
     }).join('');
 
     var sectionsEl = document.getElementById('di-sections');
-    sectionsEl.innerHTML = SECTIONS.map(function (s) {
+    var sectionsHTML = '';
+    if (data.featuredVideo) {
+      sectionsHTML += '<div class="di-section di-section--video">'
+        + '<video src="' + esc(data.featuredVideo.src) + '" controls playsinline style="width:100%;display:block;margin-bottom:var(--sp-8);"></video>'
+        + '<p class="di-section__text" style="font-size:0.78rem;color:var(--text-muted);">' + esc(data.featuredVideo.caption) + '</p>'
+        + '</div>';
+    }
+    sectionsEl.innerHTML = sectionsHTML + SECTIONS.map(function (s) {
       var val = data[s.key] || '[placeholder]';
       var cls = isPlaceholder(val) ? ' is-placeholder' : '';
       return (
