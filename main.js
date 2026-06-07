@@ -172,6 +172,24 @@
           thumbHTML +
           `</a>`;
       }).join('');
+      // Update mobile card navigator
+      const mapCardNav = document.getElementById('map-card-nav');
+      if (mapCardNav) {
+        const shortTitles = {
+          'ds-01': 'Connectome', 'ds-02': 'Pre/Post', 'ds-03': 'AI Geo', 'ds-04': 'Graphs',
+          'ls-03': 'Animal Models', 'ls-04': 'Histology', 'ls-01': 'Connectome',
+          'ops-01': 'Core Facility', 'ops-02': 'Data Systems',
+          'teach-01': 'Neuroanatomy', 'teach-02': 'Haifa TA', 'teach-03': 'Tech & Mapping', 'teach-04': 'Brain Mapping',
+          'proj-01': 'WC 2026', 'proj-04': 'Genetic Algo', 'proj-05': 'AltPiano', 'proj-06': 'Lab Protocol',
+          'bio-01': 'Overview', 'bio-02': 'Weizmann', 'bio-03': 'IQVIA', 'bio-04': 'Haifa'
+        };
+        mapCardNav.innerHTML = d.items.map(item => {
+          const url = item.id ? item.href + '#' + item.id : item.href;
+          const label = shortTitles[item.id] || item.title;
+          return `<a class="card-nav__item" href="${url}">${label}</a>`;
+        }).join('');
+        mapCardNav.hidden = false;
+      }
       subsRow.classList.remove('is-updating');
     }
     if (animate) {

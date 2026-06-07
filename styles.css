@@ -2145,6 +2145,13 @@ ul, ol { list-style: none; }
     color: var(--text-primary);
     border-bottom-color: var(--accent, var(--amber));
   }
+  /* Homepage variant: not sticky, just inline above subs row */
+  .map-card-nav {
+    position: static;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin-bottom: var(--sp-8);
+  }
 }
 
 /* Sub-project carousel */
