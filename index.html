@@ -263,22 +263,26 @@
 
     /* Responsive */
     @media (max-width: 900px) {
-      .map-layout { flex-direction: column; align-items: center; }
-      .map-wheel-frame { width: clamp(260px, 72vw, 380px); }
-      .map-card-panel { width: 100%; padding-left: 0; padding-top: 20px; }
+      .map-layout { flex-direction: column; align-items: center; gap: var(--sp-32); }
+      .map-wheel-frame { width: clamp(260px, 80vw, 420px); overflow: visible; }
+      .map-card-panel { width: 100%; padding-left: 0; padding-top: 0; min-height: auto; }
+      .map-card { position: relative; top: auto; left: auto; right: auto; }
+      .map-card { display: none; }
+      .map-card.active { display: flex; opacity: 1; transform: none; pointer-events: auto; }
       .map-card__desc { max-width: 100%; }
+      .map-card__tags { margin-bottom: var(--sp-8); }
+      .map-card__link { margin-top: var(--sp-8); }
+      .map-subs { margin-top: var(--sp-48); }
     }
     @media (max-width: 768px) {
       .intro__grid { grid-template-columns: 1fr; gap: var(--sp-16); }
-      /* wheel stays visible � mobile list stays hidden */
     }
     /* -- Compact wheel on phones -- */
     @media (max-width: 540px) {
       .map-wheel-frame {
-        width: min(90vw, 360px);
+        width: min(88vw, 340px);
       }
-      .map-label { font-size: 0.75rem; padding: 4px 6px; }
-      .map-card-panel { min-height: 240px; }
+      .map-label__text { font-size: 1.15rem; }
       .map-card__title { font-size: clamp(1.15rem, 5vw, 1.6rem); }
     }
     @media (prefers-reduced-motion: reduce) {
@@ -310,9 +314,6 @@
       .map-subs__row {
         grid-template-columns: 1fr;
         gap: var(--sp-24);
-      }
-      .map-subs {
-        margin-top: var(--sp-48);
       }
     }
     .map-subs__row.is-updating { opacity: 0; }
