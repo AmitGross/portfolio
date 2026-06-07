@@ -342,7 +342,6 @@
                   name="email"
                   placeholder="your@email.com"
                   autocomplete="email"
-                  required
                 >
               </div>
             </div>
@@ -375,7 +374,7 @@
             <div class="form-submit">
               <button class="form-btn" type="submit" id="cf-submit">Send Message &#x2192;</button>
               <span class="form-notice">
-                Fields marked <span style="color:var(--amber);">*</span> are required.
+                Fields marked <span style="color:var(--amber);">*</span> are required. Email or phone — at least one.
               </span>
             </div>
 
@@ -436,8 +435,14 @@
         var honeypot = document.getElementById('cf-website').value;
 
         // Client-side quick check
-        if (!name || !email || !message) {
-          showError('Please fill in all required fields.');
+        var hasEmail = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        var hasPhone = phone && phone.length > 0;
+        if (!name || !message) {
+          showError('Please fill in your name and message.');
+          return;
+        }
+        if (!hasEmail && !hasPhone) {
+          showError('Please provide at least an email address or phone number.');
           return;
         }
 

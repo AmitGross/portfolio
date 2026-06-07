@@ -60,8 +60,11 @@ Deno.serve(async (req) => {
   // Validate required fields
   const errors: string[] = [];
   if (!name || name.trim().length < 1) errors.push('Name is required.');
-  if (!email || !isValidEmail(email.trim())) errors.push('A valid email address is required.');
   if (!message || message.trim().length < 5) errors.push('Message must be at least 5 characters.');
+  const hasEmail = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+  const hasPhone = phone && phone.trim().length > 0;
+  if (!hasEmail && !hasPhone) errors.push('Please provide at least an email address or phone number.');
+  if (email && !hasEmail) errors.push('Email address format is invalid.');
 
   if (errors.length > 0) {
     return new Response(JSON.stringify({ error: errors.join(' ') }), {
