@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   // ── Nav scroll border ─────────────────────────────────────
@@ -127,24 +127,8 @@
         desc: 'Desktop app for documenting, calculating, and managing immunohistochemistry lab protocols. Includes protocol search by shared components, concentration calculators, and an auto-dated virtual lab notebook.',
         tags: ['Python','Lab Tools'] }
     ]},
-    // bio.html has no card grid — items below are timeline entries used as preview only
-    { label: 'Bio', href: 'bio.html', items: [
-      { title: 'M.Sc. \u2014 Computational Neuroscience',
-        id: null, href: 'bio.html',
-        desc: 'Computational and graph-based analysis of Drosophila full-brain (connectome) data, neuron skeleton processing, synaptic analysis, and large-scale data pipelines. University of Haifa, 2024\u2013.',
-        tags: ['University of Haifa','2024\u2013'],
-        thumb: 'data/connectome/article_fig1.png' },
-      { title: 'Scientific Operations',
-        id: null, href: 'bio.html',
-        desc: 'Research and imaging support at Weizmann Institute of Science, including core facility management, microscopy, researcher training, and cross-team project coordination. 2020\u20132024.',
-        tags: ['Weizmann Institute','2018–2020'],
-        thumb: 'ops/2psystem.jpg' },
-      { title: 'Data & Information Systems',
-        id: null, href: 'bio.html',
-        desc: 'Data operations and information systems support for Moderna’s EMEA call center through IQVIA, including KPI monitoring, reporting, and process documentation. 2017–2020.',
-        tags: ['IQVIA / Moderna','2021'],
-        thumb: 'ops/iqvia.png' }
-    ]}
+    // bio.html has no subcards
+    { label: 'Bio', href: 'bio.html', items: [] }
   ];
 
   const subsRow     = document.getElementById('map-subs-row');
