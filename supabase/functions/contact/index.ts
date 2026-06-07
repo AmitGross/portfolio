@@ -1,17 +1,8 @@
 // Supabase Edge Function: contact form handler
 
-const ALLOWED_ORIGINS = [
-  'https://amitgross.github.io',
-  'http://127.0.0.1:5500',
-  'http://localhost:5500',
-  'http://localhost:3000',
-  'null', // file:// local dev
-];
-
-function corsHeaders(origin: string | null) {
-  const allowed = origin && ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+function corsHeaders() {
   return {
-    'Access-Control-Allow-Origin': allowed,
+    'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
   };
@@ -22,8 +13,7 @@ function isValidEmail(email: string): boolean {
 }
 
 Deno.serve(async (req) => {
-  const origin = req.headers.get('origin');
-  const headers = corsHeaders(origin);
+  const headers = corsHeaders();
 
   // Handle CORS preflight
   if (req.method === 'OPTIONS') {
