@@ -2110,6 +2110,43 @@ ul, ol { list-style: none; }
   cursor: zoom-in;
 }
 
+/* ── Mobile card navigator ──────────────────────────────── */
+.card-nav { display: none; }
+
+@media (max-width: 760px) {
+  .card-nav {
+    display: flex;
+    position: sticky;
+    top: var(--nav-h);
+    z-index: 90;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 var(--sp-16);
+  }
+  .card-nav::-webkit-scrollbar { display: none; }
+  .card-nav__item {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    padding: var(--sp-12) var(--sp-12);
+    white-space: nowrap;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color var(--t-fast), border-color var(--t-fast);
+  }
+  .card-nav__item:hover,
+  .card-nav__item.is-active {
+    color: var(--text-primary);
+    border-bottom-color: var(--accent, var(--amber));
+  }
+}
+
 /* Sub-project carousel */
 .di-subproject-carousel {
   display: flex;
