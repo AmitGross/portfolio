@@ -178,46 +178,47 @@
     'ls-04': {
       num: '04', category: 'Life Sciences',
       title: 'Histology & Optical Imaging',
-      tags: ['Histology', 'Staining', 'Confocal', 'Fluorescence'],
-      desc: 'Tissue preparation, immunohistochemical staining, and optical imaging methods including confocal and fluorescence microscopy for anatomical and molecular characterization.',
+      tags: ['Histology', 'Staining', 'Optical Imaging'],
+      desc: 'At the Weizmann Institute, I provided scientific and technical support for microscopy-based research across multiple biological labs and broader STEM projects. This included consultation, user training, experimental planning, sample preparation guidance, immunostaining and immunofluorescence workflows, imaging setup, troubleshooting, and data-quality considerations for confocal and two-photon microscopy users.',
       context: 'Work spanning two research labs and the Weizmann Institute Core Facility, involving confocal, two-photon, and immunofluorescence imaging across multiple tissue types and disease models.',
       did: 'Prepared tissue samples for imaging \u00b7 Applied immunofluorescence staining protocols \u00b7 Operated confocal and two-photon microscopy systems \u00b7 Interpreted and processed imaging results \u00b7 Supported researchers with imaging workflows.',
       methods: 'Confocal microscopy \u00b7 two-photon microscopy \u00b7 fluorescence imaging \u00b7 immunofluorescence \u00b7 tissue preparation \u00b7 staining \u00b7 image interpretation',
       output: 'Three outputs \u2014 see projects below.',
       subprojects: [
         {
-          title: 'Fear Conditioning \u2014 IFC Imaging',
-          badge: 'Experimental Work \u00b7 Immunofluorescence',
-          context: '[placeholder \u2014 add context for fear conditioning / IFC imaging project]',
-          did: '[placeholder \u2014 add what I did for this image/project]',
-          methods: 'Confocal microscopy \u00b7 fluorescence imaging \u00b7 immunofluorescence \u00b7 tissue preparation \u00b7 image interpretation',
-          output: '[placeholder \u2014 add output/evidence for this image/project]',
+          title: 'Histology & Immunostaining Support',
+          badge: 'Histology · Immunostaining · Research Support',
+          context: 'Support for research users working with tissue preparation, immunostaining, immunofluorescence, and microscopy-based biological characterization.',
+          did: 'Advised students and scientists on sample preparation, staining workflows, imaging planning, troubleshooting, and data-quality considerations. Helped researchers adapt practical histology and immunostaining workflows to their experimental needs.',
+          methods: 'Histology \u00b7 Immunostaining \u00b7 Immunofluorescence \u00b7 Tissue preparation \u00b7 Fluorescence microscopy \u00b7 Confocal microscopy \u00b7 Troubleshooting',
+          output: 'Research-user consultation \u00b7 Staining workflow support \u00b7 Tissue preparation guidance \u00b7 Microscopy-based project support',
+          tags: ['Histology', 'Immunostaining', 'Research Support'],
           figures: {
-            featured: { src: 'life%20science/histology/ifc_butterfly.jpg', caption: 'Immunofluorescence image from the immediate fear conditioning (IFC) paradigm \u2014 placeholder for additional context.' },
+            featured: { src: 'life%20science/histology/ifc_butterfly.jpg', caption: 'Immunofluorescence image from the immediate fear conditioning (IFC) paradigm.' },
             gallery: []
-          },
-          citation: '[Placeholder \u2014 add citation, publication, or experimental context for the IFC immunofluorescence work.]'
+          }
         },
         {
-          title: '[placeholder \u2014 add second imaging project title]',
-          badge: 'Technical Imaging \u00b7 Core Facility',
-          context: '[placeholder \u2014 add context for second imaging project]',
-          did: '[placeholder \u2014 add what I did for second image/project]',
-          methods: '[placeholder \u2014 add methods/tools for second image/project]',
-          output: '[placeholder \u2014 add output/evidence for second image/project]',
+          title: 'Advanced Optical Imaging Support',
+          badge: 'Confocal · Two-Photon · Core Facility',
+          context: 'Support for advanced optical imaging projects in a core-facility environment, including confocal and two-photon microscopy work across multiple research groups.',
+          did: 'Provided training and consultation on imaging setup, microscope operation, protocol optimization, troubleshooting, and practical imaging workflows. Supported users working with advanced optical devices and helped researchers improve imaging quality and workflow reliability.',
+          methods: 'Confocal microscopy \u00b7 Two-photon microscopy \u00b7 Fluorescence imaging \u00b7 Imaging setup \u00b7 User training \u00b7 Protocol optimization \u00b7 Technical troubleshooting',
+          output: 'Microscope-user training \u00b7 Imaging workflow support \u00b7 Technical troubleshooting \u00b7 Core-facility imaging support',
+          tags: ['Confocal', 'Two-Photon', 'Core Facility'],
           figures: {
             featured: { src: 'life%20science/histology/2psystem.jpg', caption: 'Two-photon microscopy system \u2014 used for deep-tissue in vivo optical imaging.' },
             gallery: []
-          },
-          citation: '[Placeholder \u2014 add context for two-photon system use: facility, research application, or imaging protocol.]'
+          }
         },
         {
-          title: '[placeholder \u2014 add third imaging project title]',
-          badge: 'Published \u00b7 Acta Neuropathologica Communications 2020',
-          context: '[placeholder \u2014 add context for third imaging project]',
-          did: '[placeholder \u2014 add what I did for third image/project]',
-          methods: '[placeholder \u2014 add methods/tools for third image/project]',
-          output: '[placeholder \u2014 add output/evidence for third image/project]',
+          title: 'Cross-Lab Scientific Support',
+          badge: 'Scientific Support · Core Facility · STEM Projects',
+          context: 'Contributed scientific and technical support to multiple published and publication-oriented research projects, supporting researchers in producing reliable imaging-based evidence and advancing scientific work across biology and broader STEM fields.',
+          did: 'Supported scientists and students through consultation, training, workflow planning, equipment coordination, vendor communication, purchasing processes, and budget-related administrative support connected to core-facility operations.',
+          methods: 'Core-facility operations \u00b7 Research consultation \u00b7 User training \u00b7 Equipment coordination \u00b7 Vendor communication \u00b7 Microscopy workflows \u00b7 Lab support',
+          output: 'Cross-lab research support \u00b7 Core-facility operational support \u00b7 Research-user training \u00b7 Support for multidisciplinary STEM projects',
+          tags: ['Scientific Support', 'Core Facility', 'STEM Projects'],
           figures: {
             featured: { src: 'life%20science/histology/ifc_article.webp', caption: 'Histological imaging from Melamed et al. (2020) \u2014 innate immune response in neuronopathic Gaucher disease confers resistance against viral encephalitis.' },
             gallery: []
