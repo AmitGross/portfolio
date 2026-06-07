@@ -110,7 +110,7 @@
     { label: 'Selected Projects', href: 'projects.html', items: [
       { title: 'Against All Odds',
         id: 'proj-01', href: 'projects.html',
-        desc: 'Full-stack WC 2026 prediction game built with Next.js 15 and Supabase, backed by a custom ML model (Random Forest + XGBoost ensemble, 68 features) that predicts match scores and simulates the full tournament bracket. Evaluated on WC 2022: 54.7% accuracy (walk-forward).',
+        desc: 'Full-stack WC 2026 prediction game built with Next.js 15 and Supabase. Users can predict match scores, group winners, and the full knockout bracket, compete on leaderboards, and create private rooms. The app is supported by a custom Python ML engine using RF + XGBoost, 68 features, Poisson score prediction, and full tournament simulation. Retrospective WC 2022 evaluation reached 54.7% outcome accuracy.',
         tags: ['Featured','Next.js','Python ML','Supabase'],
         thumb: 'projects/wc-homepage.png' },
       { title: 'Genetic Algorithm Simulation',
