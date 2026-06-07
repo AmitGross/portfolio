@@ -40,7 +40,7 @@
         tags: ['Python','NetworkX','Graphs'], href: 'data-science.html',
         thumb: 'data/connectome/acticle_fig4.png', thumbStyle: 'object-fit:contain;' },
       { title: 'Pre/Post Program Statistical Analysis & Behavioral Mapping', id: 'ds-02',
-        desc: 'Statistical analysis of pre/post program data, integrating behavioral outcomes with geographic and environmental mapping using OpenStreetMap and Overpass Turbo. The project linked program-related behavioral measures with spatial context to support interpretation of intervention effects.',
+        desc: 'Pre/post program statistical analysis integrating behavioral outcomes with geographic and environmental mapping.',
         tags: ['SQL','Statistics','GIS Mappings'], href: 'data-science.html',
         thumb: 'data/tech/mapping_screenshot.jpg', thumbStyle: 'object-position:80% 80%;' },
       { title: 'AI Geopositioning System',           id: 'ds-03',
@@ -48,7 +48,7 @@
         tags: ['Scikit-learn','ML','Python'], href: 'data-science.html',
         thumb: 'data/geopos/both.png', thumbStyle: 'object-fit:cover;object-position:center 95%;transform:scale(2.5);transform-origin:center 90%;' },
       { title: 'Network & Graph Analysis',           id: 'ds-04',
-        desc: 'Graph-based analysis of graph-based tree structures using NetworkX: Simplification of neuronal structures by >factor X10, based on biological and morphological properties, leveraging graph features, clustering, and custom-made recursive-based algorithmics.',
+        desc: 'Graph-based analysis of neuronal structures, using NetworkX tree representations, adjacency matrices, graph features, clustering, and skeleton-based connectome analysis.',
         tags: ['Python','NetworkX','Networks'], href: 'data-science.html',
         thumb: 'data/connectome/pipeline_docv.png' }
     ]},
