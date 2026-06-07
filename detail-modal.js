@@ -233,11 +233,11 @@
       num: '01', category: 'Operations',
       title: 'Weizmann Institute Core Facility',
       tags: ['Core Facility', 'Microscopy', 'Research Support', 'Training'],
-      desc: 'Supported optical imaging projects at the Weizmann Institute Core Facility, including imaging setup, protocol optimization, consultation, logistics, regulations, vendor and stakeholder communication, and budgets.',
-      context: 'Weizmann Institute of Science — biological sciences core facility supporting multiple research laboratories. Work spanned both direct researcher support and operational management of shared infrastructure.',
-      did: 'Supported confocal and two-photon microscopy projects · Assisted with imaging setup and protocol optimization · Guided sample preparation and immunofluorescence/staining workflows · Provided hands-on troubleshooting for research users · Coordinated facility operations across laboratories · Handled equipment coordination, user training, and vendor communication · Supported purchasing processes and budget-related administrative tasks.',
-      methods: 'Confocal microscopy · two-photon microscopy · immunofluorescence · tissue staining · protocol optimization · researcher training · vendor coordination · equipment management · facility administration',
-      output: 'Optimized imaging protocols · trained research users · coordinated multi-lab equipment access · streamlined purchasing and vendor workflows',
+      desc: 'Supported operational activity at the Weizmann Institute biological sciences core facility, coordinating shared research infrastructure across laboratories. The work included stakeholder communication, vendor coordination, purchasing processes, budget-related administration, equipment logistics, user coordination, and support for facility regulations and day-to-day operational workflows.',
+      context: 'Operational support in a shared biological sciences core facility serving multiple research laboratories. The role required coordination between researchers, users, vendors, equipment systems, administrative processes, and facility requirements.',
+      did: 'Coordinated facility operations across laboratories \u00b7 Supported communication with researchers, users, vendors, and internal stakeholders \u00b7 Helped with purchasing processes, budget-related administration, and equipment logistics \u00b7 Supported user coordination, facility regulations, and operational troubleshooting \u00b7 Helped maintain continuity of shared research infrastructure.',
+      methods: 'Facility operations \u00b7 Stakeholder communication \u00b7 Vendor coordination \u00b7 Equipment logistics \u00b7 Purchasing processes \u00b7 Budget administration \u00b7 User coordination \u00b7 Shared research infrastructure',
+      output: 'Operational support across laboratories \u00b7 Coordinated vendor and stakeholder communication \u00b7 Supported purchasing and budget workflows \u00b7 Helped maintain shared equipment and facility processes \u00b7 Improved continuity of research-user support',
       figures: {
         featured: { src: 'ops/2psystem.jpg', caption: 'Two-photon microscopy system at the Weizmann Institute Core Facility.' },
         gallery: []

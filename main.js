@@ -70,18 +70,18 @@
         tags: ['Connectomics','EM'],
         thumb: 'data/connectome/article_fig1.png' }
     ]},
-    // operations.html cards — exact match (ops-01, ops-02 only; no ops-03 on that page)
+    // operations.html cards — exact match (ops-02 first, ops-01 second)
     { label: 'Operations', href: 'operations.html', items: [
-      { title: 'Weizmann Institute Core Facility',
-        id: 'ops-01', href: 'operations.html',
-        desc: 'Fluorescent, confocal and two-photon microscopy support, protocol optimization, immunofluorescence workflows, researcher training, and facility operations across multiple laboratories.',
-        tags: ['Microscopy','Research Support'],
-        thumb: 'ops/2psystem.jpg' },
       { title: 'Data & Information Systems Lead',
         id: 'ops-02', href: 'operations.html',
         desc: 'Led KPI reporting and data-workflow improvements for a regional healthcare operations program, standardizing reporting logic and performance tracking across a large operational team.',
         tags: ['KPI','Power BI','Healthcare Ops'],
-        thumb: 'ops/iqvia.png' }
+        thumb: 'ops/iqvia.png' },
+      { title: 'Weizmann Institute Core Facility',
+        id: 'ops-01', href: 'operations.html',
+        desc: 'Fluorescent, confocal and two-photon microscopy support, protocol optimization, immunofluorescence workflows, researcher training, and facility operations across multiple laboratories.',
+        tags: ['Microscopy','Research Support'],
+        thumb: 'ops/2psystem.jpg' }
     ]},
     // teaching.html cards — exact match (teach-01 through teach-04)
     { label: 'Teaching & Communication', href: 'teaching.html', items: [
