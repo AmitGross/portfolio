@@ -35,8 +35,8 @@
   const SUBS_ACCENTS = ['sage','sky','gold','amber','warm','teal'];
   const SUBS_DATA = [
     { label: 'Data Science & Computing', href: 'data-science.html', items: [
-      { title: 'Connectome Analysis Pipeline',      id: 'ds-01',
-        desc: 'Computational work on Drosophila connectome data, including extraction, processing, graph-based representation, statistical analysis, feature generation, and visualization of neuronal and synaptic data.',
+      { title: 'Full-Brain (Connectome) Analysis Pipeline',      id: 'ds-01',
+        desc: 'Computational work on Drosophila full-brain (connectome) data, including extraction, processing, graph-based representation, statistical analysis, feature generation, and visualization of neuronal and synaptic data.',
         tags: ['Python','NetworkX','Graphs'], href: 'data-science.html',
         thumb: 'data/connectome/acticle_fig4.png', thumbStyle: 'object-fit:contain;' },
       { title: 'Pre/Post Program Statistical Analysis & Behavioral Mapping', id: 'ds-02',
@@ -48,7 +48,7 @@
         tags: ['Scikit-learn','ML','Python'], href: 'data-science.html',
         thumb: 'data/geopos/both.png', thumbStyle: 'object-fit:cover;object-position:center 95%;transform:scale(2.5);transform-origin:center 90%;' },
       { title: 'Network & Graph Analysis',           id: 'ds-04',
-        desc: 'Graph-based analysis of neuronal structures, using NetworkX tree representations, adjacency matrices, graph features, clustering, and skeleton-based connectome analysis.',
+        desc: 'Graph-based analysis of neuronal structures, using NetworkX tree representations, adjacency matrices, graph features, clustering, and skeleton-based full-brain (connectome) analysis.',
         tags: ['Python','NetworkX','Networks'], href: 'data-science.html',
         thumb: 'data/connectome/pipeline_docv.png' }
     ]},
@@ -64,9 +64,9 @@
         desc: 'Specializing, providing training and consultation on, immunohistochemical staining, and optical imaging methods including 2p, confocal and fluorescence microscopy.',
         tags: ['Histology','Staining','Optical Imaging'],
         thumb: 'life%20science/histology/ifc_butterfly.jpg' },
-      { title: 'Connectome Research',
+      { title: 'Full-Brain (Connectome) Research',
         id: 'ls-01', href: 'life-sciences.html',
-        desc: 'Research focused on synaptic organization and neuronal structure in the Drosophila connectome, combining biological questions with computational analysis of neuron morphology, synapses, and connectivity.',
+        desc: 'Research focused on synaptic organization and neuronal structure in the Drosophila full-brain (connectome), combining biological questions with computational analysis of neuron morphology, synapses, and connectivity.',
         tags: ['Connectomics','EM'],
         thumb: 'data/connectome/article_fig1.png' }
     ]},
@@ -102,8 +102,8 @@
         thumb: 'teaching/technion.png' },
       { title: 'Computational Brain Mapping Workshop',
         id: 'teach-04', href: 'teaching.html',
-        desc: 'Invited instructor for a 2-day hands-on workshop in computational brain mapping at TUM, covering connectome data analysis and visualization.',
-        tags: ['Invited','Workshop','Connectome'],
+        desc: 'Invited instructor for a 2-day hands-on workshop in computational brain mapping at TUM, covering full-brain (connectome) data analysis and visualization.',
+        tags: ['Invited','Workshop','Full-Brain (Connectome)'],
         thumb: 'teaching/TUM.png' }
     ]},
     // projects.html cards — exact match (proj-01, proj-04, proj-05, proj-06)
@@ -131,7 +131,7 @@
     { label: 'Bio', href: 'bio.html', items: [
       { title: 'M.Sc. \u2014 Computational Neuroscience',
         id: null, href: 'bio.html',
-        desc: 'Computational and graph-based analysis of Drosophila connectome data, neuron skeleton processing, synaptic analysis, and large-scale data pipelines. University of Haifa, 2024\u2013.',
+        desc: 'Computational and graph-based analysis of Drosophila full-brain (connectome) data, neuron skeleton processing, synaptic analysis, and large-scale data pipelines. University of Haifa, 2024\u2013.',
         tags: ['University of Haifa','2024\u2013'],
         thumb: 'data/connectome/article_fig1.png' },
       { title: 'Scientific Operations',
@@ -176,8 +176,8 @@
       const mapCardNav = document.getElementById('map-card-nav');
       if (mapCardNav) {
         const shortTitles = {
-          'ds-01': 'Connectome', 'ds-02': 'Pre/Post', 'ds-03': 'AI Geo', 'ds-04': 'Graphs',
-          'ls-03': 'Animal Models', 'ls-04': 'Histology', 'ls-01': 'Connectome',
+          'ds-01': 'Full-Brain', 'ds-02': 'Pre/Post', 'ds-03': 'AI Geo', 'ds-04': 'Graphs',
+          'ls-03': 'Animal Models', 'ls-04': 'Histology', 'ls-01': 'Full-Brain',
           'ops-01': 'Core Facility', 'ops-02': 'Data Systems',
           'teach-01': 'Neuroanatomy', 'teach-02': 'Haifa TA', 'teach-03': 'Tech & Mapping', 'teach-04': 'Brain Mapping',
           'proj-01': 'WC 2026', 'proj-04': 'Genetic Algo', 'proj-05': 'AltPiano', 'proj-06': 'Lab Protocol',

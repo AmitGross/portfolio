@@ -8,16 +8,16 @@
     /* DATA SCIENCE ──────────────────────────────────────── */
     'ds-01': {
       num: '01', category: 'Data Science & Computing',
-      title: 'Connectome Analysis Pipeline',
+      title: 'Full-Brain (Connectome) Analysis Pipeline',
       tags: ['Python', 'NetworkX', 'Graphs', 'Connectomics'],
-      desc: 'Deep computational investigation within the rapidly advancing field of EM-based connectomics, selected by Nature Methods as Method of the Year 2025. The project analyzed full-brain Drosophila connectome data, including 130K neuronal morphologies, 130 million synapses, and high-dimensional graph-based features. The work involved processing 40GB+ datasets, building neuronal and synaptic graph representations, characterizing population-level interaction patterns, and generating statistical and visual outputs from complex connectome data. The project was presented nationally and internationally, including at a workshop abroad at TUM. · Manuscript in preparation.',
-      context: 'The connectome project required working with complex neuronal structures, synaptic information, and large tabular datasets. The goal was to transform raw or semi-structured neural data into organized analytical outputs.',
-      did: 'Built and modified Python workflows for connectome analysis \u00b7 Represented neuron structures as graph/tree objects \u00b7 Processed synapse and neuron data into tables and features \u00b7 Created visualizations and statistical summaries \u00b7 Organized the workflow into a reusable analysis pipeline.',
+      desc: 'Deep computational investigation within the rapidly advancing field of EM-based connectomics, selected by Nature Methods as Method of the Year 2025. The project analyzed full-brain (connectome) Drosophila data, including 130K neuronal morphologies, 130 million synapses, and high-dimensional graph-based features. The work involved processing 40GB+ datasets, building neuronal and synaptic graph representations, characterizing population-level interaction patterns, and generating statistical and visual outputs from complex full-brain (connectome) data. The project was presented nationally and internationally, including at a workshop abroad at TUM. · Manuscript in preparation.',
+      context: 'The full-brain (connectome) project required working with complex neuronal structures, synaptic information, and large tabular datasets. The goal was to transform raw or semi-structured neural data into organized analytical outputs.',
+      did: 'Built and modified Python workflows for full-brain (connectome) analysis \u00b7 Represented neuron structures as graph/tree objects \u00b7 Processed synapse and neuron data into tables and features \u00b7 Created visualizations and statistical summaries \u00b7 Organized the workflow into a reusable analysis pipeline.',
       methods: 'Python \u00b7 Pandas \u00b7 NumPy \u00b7 NetworkX \u00b7 Navis \u00b7 NGLUI \u00b7 statistical analysis \u00b7 data visualization \u00b7 graph analysis',
       output: 'Pipeline diagrams \u00b7 neuron/synapse visualizations \u00b7 connectivity matrices \u00b7 graph-based summaries \u00b7 statistical plots \u00b7 thesis/project figures',
       roadmap: {
         img: 'data/connectome/core_pipeline_map.svg',
-        text: 'End-to-end map of the connectome analysis workflow. The pipeline begins with raw morphology and synapse data, moves through graph construction and compartmentalization (SFC-based axon/dendrite split), and proceeds to feature extraction, statistical analysis, and figure generation. Each stage is modular and reusable across different neuron datasets.'
+        text: 'End-to-end map of the full-brain (connectome) analysis workflow. The pipeline begins with raw morphology and synapse data, moves through graph construction and compartmentalization (SFC-based axon/dendrite split), and proceeds to feature extraction, statistical analysis, and figure generation. Each stage is modular and reusable across different neuron datasets.'
       },
       figures: {
         featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 — Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 140K neurons.' },
@@ -97,14 +97,14 @@
     /* LIFE SCIENCES ─────────────────────────────────────── */
     'ls-01': {
       num: '01', category: 'Life Sciences',
-      title: 'Connectome Research',
+      title: 'Full-Brain (Connectome) Research',
       tags: ['Connectomics', 'EM', 'Neuroscience', 'Synapses'],
-      desc: 'Research on synaptic organization and neuronal polarity in the Drosophila connectome, investigating how axons and dendrites are structurally and functionally distinguished across the fly brain. The work combined large-scale EM-derived connectivity data with biological interpretation of mixed-polarity neurons and synaptic type distributions. · Publication in progress.',
-      context: 'The FlyWire connectome provides electron-microscopy reconstructions of the entire adult Drosophila brain. This project examined the structural basis of synaptic polarity — asking how neurons distribute their input and output synapses, and what this reveals about circuit organization, neurotransmitter identity, and reciprocal connectivity.',
+      desc: 'Research on synaptic organization and neuronal polarity in the Drosophila full-brain (connectome), investigating how axons and dendrites are structurally and functionally distinguished across the fly brain. The work combined large-scale EM-derived connectivity data with biological interpretation of mixed-polarity neurons and synaptic type distributions. · Publication in progress.',
+      context: 'The FlyWire full-brain (connectome) provides electron-microscopy reconstructions of the entire adult Drosophila brain. This project examined the structural basis of synaptic polarity — asking how neurons distribute their input and output synapses, and what this reveals about circuit organization, neurotransmitter identity, and reciprocal connectivity.',
       did: 'Analyzed synaptic organization across 140K neurons \u00b7 Investigated axon/dendrite compartmentalization using Synapse Flow Centrality \u00b7 Quantified Segregation Index (SI) values across superclasses, neurotransmitter types, and neuropils \u00b7 Studied reciprocal connectivity patterns and their synaptic-type compositions \u00b7 Produced figures for publication supporting biological interpretation.',
       methods: 'Connectomics \u00b7 FlyWire EM data \u00b7 synapse analysis \u00b7 axon/dendrite compartmentalization \u00b7 Segregation Index \u00b7 Neuroglancer / NGLUI \u00b7 Navis \u00b7 neurotransmitter mapping \u00b7 statistical analysis',
       output: 'Publication figures \u00b7 neuron/synapse visualizations \u00b7 SI distributions by cell type \u00b7 synaptic-type composition analyses \u00b7 reciprocal connectivity summaries',
-      featuredVideo: { src: 'life%20science/2025-04-07%2000-51-43_3.mp4', caption: '3D neuron reconstruction \u2014 Drosophila connectome visualisation.' },
+      featuredVideo: { src: 'life%20science/2025-04-07%2000-51-43_3.mp4', caption: '3D neuron reconstruction \u2014 Drosophila full-brain (connectome) visualisation.' },
       figures: {
         featured: { src: 'data/connectome/article_fig1.png', caption: 'Figure 1 \u2014 Mixed polarity in dendrites and axons. 2D neuron views, SFC-based axon/dendrite compartmentalization, and SI distribution across 140K neurons.' },
         gallery: [
