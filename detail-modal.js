@@ -15,6 +15,7 @@
       did: 'Built and modified Python workflows for full-brain (connectome) analysis \u00b7 Represented neuron structures as graph/tree objects \u00b7 Processed synapse and neuron data into tables and features \u00b7 Created visualizations and statistical summaries \u00b7 Organized the workflow into a reusable analysis pipeline.',
       methods: 'Python \u00b7 Pandas \u00b7 NumPy \u00b7 NetworkX \u00b7 Navis \u00b7 NGLUI \u00b7 statistical analysis \u00b7 data visualization \u00b7 graph analysis',
       output: 'Pipeline diagrams \u00b7 neuron/synapse visualizations \u00b7 connectivity matrices \u00b7 graph-based summaries \u00b7 statistical plots \u00b7 thesis/project figures',
+      github: 'https://github.com/deutschlab/mixed-polarity-paper',
       roadmap: {
         img: 'data/connectome/core_pipeline_map.svg',
         text: 'End-to-end map of the full-brain (connectome) analysis workflow. The pipeline begins with raw morphology and synapse data, moves through graph construction and compartmentalization (SFC-based axon/dendrite split), and proceeds to feature extraction, statistical analysis, and figure generation. Each stage is modular and reusable across different neuron datasets.'
