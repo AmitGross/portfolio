@@ -42,11 +42,11 @@
     'ds-02': {
       num: '02', category: 'Data Science & Computing',
       title: 'Pre/Post Program Statistical Analysis & Behavioral Mapping',
-      tags: ['Python', 'Statistics', 'OpenStreetMap', 'Overpass Turbo', 'GIS'],
+      tags: ['Python', 'SQL', 'Statistics', 'Overpass Turbo', 'GIS'],
       desc: 'Pre/post program statistical analysis integrating behavioral outcomes with geographic and environmental mapping.',
       context: 'Teachers\u2019 diverse integration patterns of the same citizen science project reflect their different emphases on values, knowledge, and skills \u2014 submitted to Instructional Science (manuscript number TRUC-D-25-00520R1). \u00b7 Conducted at the Technion Civil Engineering ECSL Lab, connected to spatio-temporal data, mapping, and geolocation analysis.',
       did: 'Analyzed project data \u00b7 Applied statistical reasoning and tests \u00b7 Created plots, summaries, or reports \u00b7 Communicated findings to collaborators or stakeholders.',
-      methods: 'Python \u00b7 Pandas \u00b7 NumPy \u00b7 SciPy \u00b7 Wilcoxon signed-rank test \u00b7 Mann-Whitney U \u00b7 OpenStreetMap \u00b7 Overpass Turbo \u00b7 data visualization',
+      methods: 'Python \u00b7 SQL \u00b7 Pandas \u00b7 NumPy \u00b7 SciPy \u00b7 Wilcoxon signed-rank test \u00b7 Mann-Whitney U \u00b7 OpenStreetMap \u00b7 Overpass Turbo \u00b7 data visualization',
       output: 'Pre/post statistical plots \u00b7 spatial mapping of crossing features \u00b7 school-level environmental survey \u00b7 behavioral outcome summaries',
       figures: {
         featured: { src: 'data/tech/mapping_screenshot.jpg', caption: 'Pedestrian crossing features mapped per school area using OpenStreetMap and Overpass Turbo.' },

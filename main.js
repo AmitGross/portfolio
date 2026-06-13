@@ -41,7 +41,7 @@
         thumb: 'data/connectome/acticle_fig4.png', thumbStyle: 'object-fit:contain;' },
       { title: 'Pre/Post Program Statistical Analysis & Behavioral Mapping', id: 'ds-02',
         desc: 'Pre/post program statistical analysis integrating behavioral outcomes with geographic and environmental mapping.',
-        tags: ['SQL','Statistics','GIS Mappings'], href: 'data-science.html',
+        tags: ['Python','SQL','Statistics','GIS'], href: 'data-science.html',
         thumb: 'data/tech/mapping_screenshot.jpg', thumbStyle: 'object-position:80% 80%;' },
       { title: 'AI Geopositioning System',           id: 'ds-03',
         desc: 'Deep learning project predicting outdoor geographic position from WiFi signal fingerprints supervised by GPS data. The project involved model development, evaluation, and optimization of predictive performance.',
